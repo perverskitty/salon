@@ -24,7 +24,7 @@
           <a class="nav-link" href="#">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Admin Portal</a>
+          <a class="nav-link" href="admin/index.php">Admin Portal</a>
         </li>
       </ul>
 
