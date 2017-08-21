@@ -8,7 +8,7 @@
     <div class="carousel-inner" role="listbox">
      
       <div class="carousel-item active">
-        <img class="first-slide" src="" alt="First slide">
+        <img class="first-slide" src="assets/img/carousel1.jpg" alt="First slide">
         <div class="container">
           <div class="carousel-caption d-none d-md-block text-left">
             <h1>Book an appointment online</h1>
@@ -19,7 +19,7 @@
       </div>
       
       <div class="carousel-item">
-        <img class="second-slide" src="" alt="Second slide">
+        <img class="second-slide" src="assets/img/carousel2.jpg" alt="Second slide">
         <div class="container">
           <div class="carousel-caption d-none d-md-block">
             <h1>Learn about our services</h1>
@@ -30,7 +30,7 @@
       </div>
         
       <div class="carousel-item">
-        <img class="third-slide" src="" alt="Third slide">
+        <img class="third-slide" src="assets/img/carousel3.jpg" alt="Third slide">
         <div class="container">
           <div class="carousel-caption d-none d-md-block text-right">
             <h1>Find information about us</h1>

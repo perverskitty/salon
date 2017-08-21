@@ -35,6 +35,21 @@ body {
   height: 32rem;
 }
 
+.first-slide {
+  background-image: url("http://localhost/MAMP/htdocs/assets/img/carousel1.jpg");
+  background-size: cover;
+}
+
+.second-slide {
+  background-image: url("http://localhost/MAMP/htdocs/assets/img/carousel2.jpg");
+  background-size: cover;
+}
+
+.third-slide {
+  background-image: url("http://localhost/MAMP/htdocs/assets/img/carousel3.jpg");
+  background-size: cover;
+}
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
