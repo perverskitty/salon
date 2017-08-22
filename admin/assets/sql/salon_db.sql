@@ -16,3 +16,5 @@ CREATE TABLE `salon_db`.`users` (
   `changed_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+
