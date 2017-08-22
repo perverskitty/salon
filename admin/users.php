@@ -12,9 +12,8 @@
         echo $user->first_name . "<br>";
       }
       
-//      $found_user = User::find_by_id(2);
-//      $user = User::instantiate($found_user);
-//      echo $user->first_name;
+      $user = User::find_by_id(2);
+      echo $user->first_name. " !!!";
       
       ?>
       

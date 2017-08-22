@@ -15,7 +15,7 @@ class User {
   public $changed_at;
   
   
-  // Use a query to return an array of User object(s)
+  // Returns an array of User object(s) given by a query
   public static function find_by_query($sql) {
     global $database;
     $result_set = $database->query($sql);
@@ -30,17 +30,16 @@ class User {
   }
   
   
-  // find all users
+  // Returns all User objects in an array
   public static function find_all() {
     return self::find_by_query("SELECT * FROM users");
   }
   
   
-  // find user by id
+  // Returns a User object by id
   public static function find_by_id($id) {
-    $result_set = self::find_by_query("SELECT * FROM users WHERE id = $id LIMIT 1");
-    $found_user = mysqli_fetch_array($result_set);
-    return $found_user;
+    $the_result_array = self::find_by_query("SELECT * FROM users WHERE id = $id LIMIT 1");
+    return !empty($the_result_array) ? array_shift($the_result_array) : false;
   }
   
   
