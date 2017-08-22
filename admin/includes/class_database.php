@@ -45,7 +45,7 @@ class Database {
   }
   
   
-  // returns insert id
+  // returns last inserted id
   public function the_insert_id() {
     return $this->connection->insert_id;
   }

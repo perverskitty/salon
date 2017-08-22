@@ -7,13 +7,18 @@
       <!-- test connection with query -->
       <?php
       
-      $users = User::find_all();
-      foreach ($users as $user) {
-        echo $user->first_name . "<br>";
-      }
-      
-      $user = User::find_by_id(2);
-      echo $user->first_name. " !!!";
+//      $user = new User();
+//      $user->first_name = "Nikki";
+//      $user->last_name = "Cheung";
+//      $user->email = "nikki@test.com";
+//      $user->password = "nikki";
+//      $user->tel = "07540 000 999";
+//      $user->gender = "2";
+//      $user->role = "2";
+//      $user->create();
+//      echo $user->id;
+//      echo $user->created_at;
+//      echo $user->changed_at;
       
       ?>
       

@@ -8,6 +8,7 @@ class User {
   public $first_name;
   public $last_name;
   public $email;
+  public $password;
   public $tel;
   public $gender;
   public $role;
@@ -75,6 +76,28 @@ class User {
       }
     }
     return $the_object;
+  }
+  
+  
+  // create user into database
+  public function create() {
+    global $database;
+    $sql = "INSERT INTO users (first_name, last_name, email, password, tel, gender, role_id) ";
+    $sql .= "VALUES ('";
+    $sql .= $database->escape_string($this->first_name) . "', '";
+    $sql .= $database->escape_string($this->last_name) . "', '";
+    $sql .= $database->escape_string($this->email) . "', '";
+    $sql .= $database->escape_string($this->password) . "', '";
+    $sql .= $database->escape_string($this->tel) . "', '";
+    $sql .= $database->escape_string($this->gender) . "', '";
+    $sql .= $database->escape_string($this->role) . "')";
+    if ($database->query($sql)) {
+      $this->id = $database->the_insert_id();
+      $created_user = User::find_by_id($this->id);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   
