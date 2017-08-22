@@ -6,12 +6,14 @@ class Session {
   // properties
   private $signed_in = false;
   public $user_id;
+  public $message;
   
   
   // constructor starts a session
   function __construct() {
     session_start();
     $this->check_the_signin();
+    $this->check_message();
   }
   
   
@@ -46,6 +48,25 @@ class Session {
     } else {
       unset($this->user_id);
       $this->signed_in = false;
+    }
+  }
+  
+  
+  public function message($msg="") {
+    if (!empty($msg)) {
+      $_SESSION['message'] = $msg;
+    } else {
+      return $ $this->message;
+    }
+  }
+  
+  
+  private function check_message() {
+    if (isset($_SESSION['message'])) {
+      $this->message = $_SESSION['message'];
+      unset($_SESSION['message']);
+    } else {
+      $this->message = "";
     }
   }
   
