@@ -15,11 +15,18 @@ class User {
   public $changed_at;
   
   
-  // find user(s) by query
+  // Use a query to return an array of User object(s)
   public static function find_by_query($sql) {
     global $database;
     $result_set = $database->query($sql);
-    return $result_set;
+    
+    $the_object_array = array();
+    
+    while ($row = mysqli_fetch_array($result_set)) {
+      $the_object_array[] = self::instantiate($row);
+    }
+    
+    return $the_object_array;
   }
   
   

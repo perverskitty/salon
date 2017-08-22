@@ -7,14 +7,14 @@
       <!-- test connection with query -->
       <?php
       
-      $result_set = User::find_all();
-      while ($row = mysqli_fetch_array($result_set)) {
-        echo $row['first_name']." ".$row['last_name']."<br>";
+      $users = User::find_all();
+      foreach ($users as $user) {
+        echo $user->first_name . "<br>";
       }
       
-      $found_user = User::find_by_id(2);
-      $user = User::instantiate($found_user);
-      echo $user->first_name;
+//      $found_user = User::find_by_id(2);
+//      $user = User::instantiate($found_user);
+//      echo $user->first_name;
       
       ?>
       
