@@ -1,3 +1,6 @@
+<!-- start output buffering to support redirection of pages -->
+<?php ob_start(); ?>  
+<!-- initialise --!>
 <?php include("init.php"); ?>
 
 <!DOCTYPE html>
