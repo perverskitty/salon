@@ -1,7 +1,7 @@
 <!-- start output buffering to support redirection of pages -->
 <?php ob_start(); ?>  
 <!-- initialise --!>
-<?php include("init.php"); ?>
+<?php require_once("init.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
