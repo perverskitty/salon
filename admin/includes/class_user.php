@@ -37,18 +37,21 @@ class User {
   }
   
   
-  // instantiate a user object
-  public static function instantiate($found_user) {
+  // checks whether an attribute is a class property
+  private function has_attribute($the_attribute) {
+    $object_properties = get_object_vars($this);
+    return array_key_exists($the_attribute, $object_properties);
+  }
+  
+  
+  // instantiate a user object from a record
+  public static function instantiate($the_record) {
     $the_object = new self;
-    $the_object->id           = $found_user['id'];
-    $the_object->first_name   = $found_user['first_name'];
-    $the_object->last_name    = $found_user['last_name'];
-    $the_object->email        = $found_user['email'];
-    $the_object->tel          = $found_user['tel'];
-    $the_object->gender       = $found_user['gender'];
-    $the_object->role         = $found_user['role_id'];
-    $the_object->created_at   = $found_user['created_at'];
-    $the_object->changed_at   = $found_user['changed_at'];
+    foreach ($the_record as $the_attribute => $value) {
+      if ($the_object->has_attribute($the_attribute)) {
+        $the_object->$the_attribute = $value;
+      }
+    }
     return $the_object;
   }
 
