@@ -2,8 +2,8 @@
 <?php ob_start(); ?>  
 <?php require_once("init.php"); ?>
 
-<!-- redirect user to signin page if they are not signed in -->
-<?php if (!$session->is_signed_in()) { redirect("signin.php"); } ?>
+<!-- redirect unauthorised users to the sign-in page if they are not signed in -->
+<?php //if (!$session->is_signed_in()) { redirect("signin.php"); } ?>
 
 <!DOCTYPE html>
 <html lang="en">

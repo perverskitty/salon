@@ -17,7 +17,7 @@ class Session {
   
   // getter method for $signed_in property
   public function is_signed_in() {
-    return $this->$signed_in;
+    return $this->signed_in;
   }
   
   
