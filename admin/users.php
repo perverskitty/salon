@@ -6,10 +6,16 @@
       
       <!-- test connection with query -->
       <?php
-      $sql = "SELECT * FROM users WHERE id = 1";
-      $result = $database->query($sql);
-      $user_found = mysqli_fetch_array($result);
-      echo $user_found['first_name'];
+      
+      $result_set = User::find_all();
+      while ($row = mysqli_fetch_array($result_set)) {
+        echo $row['first_name']." ".$row['last_name']."<br>";
+      }
+      
+      $found_user = User::find_by_id(2);
+      $user = User::instantiate($found_user);
+      echo $user->first_name;
+      
       ?>
       
       

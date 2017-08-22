@@ -23,5 +23,10 @@ INSERT INTO `users`
   (`id`, `first_name`, `last_name`, `email`, `password`, `tel`, `gender`, `role_id`, `hairdresser_id`, `created_at`, `changed_at`) 
   VALUES 
   (NULL, 'Peter', 'Cheung', 'peter@test.com', 'peter', '07540 346 882', '1', '1', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+  
+INSERT INTO `users` 
+  (`id`, `first_name`, `last_name`, `email`, `password`, `tel`, `gender`, `role_id`, `hairdresser_id`, `created_at`, `changed_at`)
+  VALUES 
+  (NULL, 'David', 'Cheung', 'david@test.com', 'david', '07540 333 444', '1', '2', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 
