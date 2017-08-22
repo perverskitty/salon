@@ -79,7 +79,7 @@ class User {
   }
   
   
-  // create user into database
+  // create user record
   public function create() {
     global $database;
     $sql = "INSERT INTO users (first_name, last_name, email, password, tel, gender, role_id) ";
@@ -91,13 +91,34 @@ class User {
     $sql .= $database->escape_string($this->tel) . "', '";
     $sql .= $database->escape_string($this->gender) . "', '";
     $sql .= $database->escape_string($this->role) . "')";
+    
     if ($database->query($sql)) {
       $this->id = $database->the_insert_id();
       $created_user = User::find_by_id($this->id);
+      // need to record created at and changed at details
       return true;
     } else {
       return false;
     }
+  }
+  
+  
+  // update user record
+  public function update() {
+    global $database;
+    $sql = "UPDATE users SET ";
+    $sql .= "first_name = '" . $database->escape_string($this->first_name) . "', ";
+    $sql .= "last_name = '" . $database->escape_string($this->last_name) . "', ";
+    $sql .= "email = '" . $database->escape_string($this->email) . "', ";
+    $sql .= "password = '" . $database->escape_string($this->password) . "', ";
+    $sql .= "tel = '" . $database->escape_string($this->tel) . "', ";
+    $sql .= "gender = '" . $database->escape_string($this->gender) . "', ";
+    $sql .= "role_id = '" . $database->escape_string($this->role) . "' ";
+    $sql .= "WHERE id = " . $database->escape_string($this->id);
+    
+    $database->query($sql);
+     
+    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
   }
 
   

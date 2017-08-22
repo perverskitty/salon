@@ -7,18 +7,10 @@
       <!-- test connection with query -->
       <?php
       
-//      $user = new User();
-//      $user->first_name = "Nikki";
-//      $user->last_name = "Cheung";
-//      $user->email = "nikki@test.com";
-//      $user->password = "nikki";
-//      $user->tel = "07540 000 999";
-//      $user->gender = "2";
-//      $user->role = "2";
-//      $user->create();
-//      echo $user->id;
-//      echo $user->created_at;
-//      echo $user->changed_at;
+//      $user = User::find_by_id(6);
+//      $user->first_name = "Jasper";
+//      $user->password = "jasper";
+//      $user->update();
       
       ?>
       
