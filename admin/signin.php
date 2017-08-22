@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
   $password = trim($_POST['password']);
   
   // method to check the database for user
+  $user_found = User::verify_user($email, $password);
   
   if ($user_found) {
     $session->login($user_found);

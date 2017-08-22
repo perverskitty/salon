@@ -53,7 +53,7 @@ class Session {
 } // end of class
 
 
-// instantiate
+// instantiate a session
 $session = new Session();
 
 
