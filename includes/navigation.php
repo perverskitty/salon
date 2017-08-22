@@ -27,10 +27,12 @@
           <a class="nav-link" href="admin/index.php">Admin Portal</a>
         </li>
       </ul>
-
-      <form class="form-inline hidden-sm-down ml-auto">
-        <input class="form-control" type="text" data-action="grow" placeholder="Search">
-      </form>
-      
     </div>
+    
+    <ul class="navbar-nav mr-right">
+      <li class="nav-item">
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="admin/signin.php">Sign in</a>
+      </li>
+    </ul>
+    
   </nav> <!-- end of fixed navbar with collapsing menu --> 

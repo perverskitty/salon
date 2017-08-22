@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
   $user_found = User::verify_user($email, $password);
   
   if ($user_found) {
-    $session->login($user_found);
+    $session->signin($user_found);
     redirect("index.php");
   } else {
     $the_message = "Your username/password combination is incorrect";
