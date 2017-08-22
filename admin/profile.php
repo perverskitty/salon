@@ -7,8 +7,8 @@
       <!-- Dash title and datepicker --> 
       <div class="dashhead">
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Dashboards</h6>
-          <h2 class="dashhead-title">My Dashboard</h2>
+          <h6 class="dashhead-subtitle">My Account</h6>
+          <h2 class="dashhead-title">My profile</h2>
         </div>
         <div class="btn-toolbar dashhead-toolbar">
           <div class="btn-toolbar-item input-with-icon">

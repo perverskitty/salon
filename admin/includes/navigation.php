@@ -26,14 +26,20 @@
           <ul class="nav nav-pills nav-stacked flex-column">
             <li class="nav-header">Dashboards</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php">User Overview</a>
+              <a class="nav-link" href="index.php">My Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="overview.php">Salon Overview</a>
+              <a class="nav-link" href="overview.php">Salon Dashboard</a>
             </li>
             <li class="nav-header">Administration</li>
             <li class="nav-item">
-              <a class="nav-link"href="hairdressers.php">Salon Staff</a>
+              <a class="nav-link"href="users.php">All users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"href="hairdressers.php">Staff users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clients.php">Client users</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="schedules.php">Work Schedules</a>
@@ -42,23 +48,20 @@
                 <a class="nav-link"href="services.php">Hair Services</a>
               </li>
             <li class="nav-item">
-              <a class="nav-link" href="clients.php">Salon Clients</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="bookings.php">All Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Client Bookings</a>
+              <a class="nav-link" href="bookings_clients.php">Client Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Guest Bookings</a>
+              <a class="nav-link" href="bookings_guests.php">Guest Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Other Bookings</a>
+              <a class="nav-link" href="bookings_other.php">Other Bookings</a>
             </li>
-            <li class="nav-header">User Account</li>
+            <li class="nav-header">My Account</li>
             <li class="nav-item">
-              <a class="nav-link" href="accounts.php">User Profile</a>
+              <a class="nav-link" href="profile.php">My Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="signout.php">Sign Out</a>

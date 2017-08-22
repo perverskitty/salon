@@ -8,7 +8,7 @@
       <div class="dashhead">
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Dashboards</h6>
-          <h2 class="dashhead-title">My Dashboard</h2>
+          <h2 class="dashhead-title">Salon Dashboard</h2>
         </div>
         <div class="btn-toolbar dashhead-toolbar">
           <div class="btn-toolbar-item input-with-icon">
