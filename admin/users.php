@@ -4,6 +4,15 @@
     <div class="col-md-9 content">
       
       
+      <!-- test connection with query -->
+      <?php
+      $sql = "SELECT * FROM users WHERE id = 1";
+      $result = $database->query($sql);
+      $user_found = mysqli_fetch_array($result);
+      echo $user_found['first_name'];
+      ?>
+      
+      
       <!-- Dash title and datepicker -->  
       <div class="dashhead">  
         <div class="dashhead-titles">

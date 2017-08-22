@@ -18,3 +18,10 @@ CREATE TABLE `salon_db`.`users` (
 ) ENGINE = InnoDB;
 
 
+-- example insert users data
+INSERT INTO `users` 
+  (`id`, `first_name`, `last_name`, `email`, `password`, `tel`, `gender`, `role_id`, `hairdresser_id`, `created_at`, `changed_at`) 
+  VALUES 
+  (NULL, 'Peter', 'Cheung', 'peter@test.com', 'peter', '07540 346 882', '1', '1', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
