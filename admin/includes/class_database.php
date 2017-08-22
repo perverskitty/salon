@@ -54,7 +54,7 @@ class Database {
 } // end of class
 
 
-// instantiate
+// instantiate database
 $database = new Database();
 
 

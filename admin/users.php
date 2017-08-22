@@ -56,7 +56,7 @@
           <thead>
             <tr>
               <th><input type="checkbox" class="select-all" id="selectAll"></th>
-              <th>Order</th>
+              <th>Id</th>
               <th>Customer name</th>
               <th>Description</th>
               <th>Date</th>
