@@ -18,7 +18,10 @@
 //        $user->create();
       
 //          $user = User::find_by_id(8);
-//          $user->email = "bilbo@test.com";
+//            $user->first_name = "Gandalf";
+//            $user->last_name = "Grey";
+//            $user->password = "gandalf";
+//          $user->email = "gandalf@test.com";
 //          $user->update();
       
       ?>

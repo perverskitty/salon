@@ -81,6 +81,18 @@ class User {
   }
   
   
+  // returns a clean version of the assoc. array from the properties() method
+  protected function clean_properties() {
+    global $database;
+    $clean_properties = array();
+    foreach ($this->properties() as $key => $value) {
+      $clean_properties[$key] = $database->escape_string($value); 
+    }
+    return $clean_properties;
+  }
+  
+  
+  
   // instantiate a user object from a record
   public static function instantiate($the_record) {
     $the_object = new self;
@@ -102,7 +114,7 @@ class User {
   // create user record
   public function create() {
     global $database; 
-    $properties = $this->properties();
+    $properties = $this->clean_properties();
     $sql = "INSERT INTO " . self::$db_table . " (" . implode(",", array_keys($properties))  . ") ";
     $sql .= "VALUES ('" . implode("', '" , array_values($properties)) . "')";
     if ($database->query($sql)) {
@@ -118,7 +130,7 @@ class User {
   // update user record
   public function update() {
     global $database;
-    $properties = $this->properties();
+    $properties = $this->clean_properties();
     $properties_pairs = array();
     
     foreach ($properties as $key => $value) {
