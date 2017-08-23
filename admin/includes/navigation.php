@@ -33,7 +33,7 @@
             <li class="nav-item">
               <a class="nav-link" href="overview.php">Salon Dashboard</a>
             </li>
-            <li class="nav-header">Administration</li>
+            <li class="nav-header">Admin</li>
             <li class="nav-item">
               <a class="nav-link"href="users.php">All users</a>
             </li>

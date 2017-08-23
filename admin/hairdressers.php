@@ -23,19 +23,13 @@ $users = User::find_by_query($sql);
     <div class="col-md-9 content">
       
       
-      <!-- Dash title and datepicker -->  
+      <!-- Dash title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Administration</h6>
+          <h6 class="dashhead-subtitle">Admin</h6>
           <h2 class="dashhead-title">Staff users</h2>
         </div>
-        <div class="btn-toolbar dashhead-toolbar">
-          <div class="btn-toolbar-item input-with-icon">
-            <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
-            <span class="icon icon-calendar"></span>
-          </div>
-        </div>
-      </div> <!-- end of dash title and datepicker -->  
+      </div> <!-- end of dash title -->  
       
       
       <!-- Dash table search and action buttons -->
@@ -50,10 +44,7 @@ $users = User::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <button type="button" class="btn btn-outline-primary">
-              <span class="icon icon-pencil"></span>
-            </button>
-            <button type="button" class="btn btn-outline-primary">
-              <span class="icon icon-erase"></span>
+              <span class="icon icon-pencil"></span> Add staff
             </button>
           </div>
         </div>

@@ -9,7 +9,7 @@
       <!-- Dash title and datepicker -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Administration</h6>
+          <h6 class="dashhead-subtitle">Admin</h6>
           <h2 class="dashhead-title">Hair services</h2>
         </div>
         <div class="btn-toolbar dashhead-toolbar">
