@@ -122,6 +122,16 @@ class Db_object {
   }
   
   
+  // returns count of records in a db table
+  public static function count_all() {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM " . static::$db_table;
+    $result_set = $database->query($sql);
+    $row = mysqli_fetch_array($result_set);
+    return array_shift($row);
+  }
+  
+  
 } // end of class
 
 ?>
