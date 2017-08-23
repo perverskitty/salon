@@ -29,14 +29,14 @@ class Paginate {
   
   
   // total number of pages
-  public total_pages() {
+  public function total_pages() {
     return ceil($this->items_total_count / $this->items_per_page);
   }
   
   
   // is there a next page?
   public function has_next() {
-    return $this->next() <= $this->page_total() ? true : false;
+    return $this->next() <= $this->total_pages() ? true : false;
   }
   
   
