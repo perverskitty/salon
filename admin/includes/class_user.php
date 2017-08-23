@@ -79,6 +79,12 @@ class User {
   }
   
   
+  // update user if id exists, else insert new user
+  public function save() {
+    return isset($this->id) ? $this->update() : $this->create();
+  }
+  
+  
   // create user record
   public function create() {
     global $database;
