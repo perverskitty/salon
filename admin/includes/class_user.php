@@ -24,7 +24,7 @@ class User {
     $email = $database->escape_string($email);
     $password = $database->escape_string($password);
     
-    $sql = "SELECT * FROM users WHERE ";
+    $sql = "SELECT * FROM " . self::$db_table . " WHERE ";
     $sql .= "email = '{$email}' ";
     $sql .= "AND password = '{$password}' ";
     $sql .= "LIMIT 1";
@@ -51,13 +51,13 @@ class User {
   
   // returns all User objects in an array
   public static function find_all() {
-    return self::find_by_query("SELECT * FROM " .self::$db_table);
+    return self::find_by_query("SELECT * FROM " . self::$db_table . " ");
   }
   
   
   // returns a User object by id
   public static function find_by_id($id) {
-    $the_result_array = self::find_by_query("SELECT * FROM " .self::$db_table. " WHERE id = $id LIMIT 1");
+    $the_result_array = self::find_by_query("SELECT * FROM " . self::$db_table . " WHERE id = $id LIMIT 1");
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
   }
   
@@ -90,7 +90,6 @@ class User {
     }
     return $clean_properties;
   }
-  
   
   
   // instantiate a user object from a record
