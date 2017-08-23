@@ -68,6 +68,12 @@ class User {
   }
   
   
+  // returns non-static object properties in an assoc. array
+  protected function properties() {
+      return get_object_vars($this);
+  }
+  
+  
   // instantiate a user object from a record
   public static function instantiate($the_record) {
     $the_object = new self;
