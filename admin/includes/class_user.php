@@ -115,12 +115,23 @@ class User {
     $sql .= "gender = '" . $database->escape_string($this->gender) . "', ";
     $sql .= "role_id = '" . $database->escape_string($this->role) . "' ";
     $sql .= "WHERE id = " . $database->escape_string($this->id);
-    
     $database->query($sql);
      
     return (mysqli_affected_rows($database->connection) == 1) ? true : false;
   }
-
+  
+  
+  // delete user record
+  public function delete() {
+    global $database;
+    $sql = "DELETE FROM users ";
+    $sql .= "WHERE id = " . $database->escape_string($this->id);
+    $sql .= " LIMIT 1";
+    $database->query($sql);
+    
+    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+  }
+  
   
 } // end of class
 

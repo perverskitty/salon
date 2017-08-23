@@ -7,10 +7,8 @@
       <!-- test connection with query -->
       <?php
       
-//      $user = User::find_by_id(6);
-//      $user->first_name = "Jasper";
-//      $user->password = "jasper";
-//      $user->update();
+//      $user = User::find_by_id(3);
+//      $user->delete();
       
       ?>
       
