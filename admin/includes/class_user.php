@@ -5,6 +5,7 @@ class User {
   
   // properties
   protected static $db_table = "users";
+  protected static $db_table_fields = array('first_name', 'last_name', 'email', 'password', 'tel', 'gender', 'role');
   public $id;
   public $first_name;
   public $last_name;
@@ -68,9 +69,15 @@ class User {
   }
   
   
-  // returns non-static object properties in an assoc. array
+  // returns the object properties specified in $db_table_fields as an assoc. array
   protected function properties() {
-      return get_object_vars($this);
+    $properties = array();
+    foreach(self::$db_table_fields as $db_field) {
+      if(property_exists($this, $db_field)) {
+        $properties[$db_field] = $this->$db_field;
+      }
+    }
+    return properties;
   }
   
   
@@ -95,15 +102,14 @@ class User {
   // create user record
   public function create() {
     global $database;
-    $sql = "INSERT INTO" .self::$db_table. "(first_name, last_name, email, password, tel, gender, role_id) ";
-    $sql .= "VALUES ('";
-    $sql .= $database->escape_string($this->first_name) . "', '";
-    $sql .= $database->escape_string($this->last_name) . "', '";
-    $sql .= $database->escape_string($this->email) . "', '";
-    $sql .= $database->escape_string($this->password) . "', '";
-    $sql .= $database->escape_string($this->tel) . "', '";
-    $sql .= $database->escape_string($this->gender) . "', '";
-    $sql .= $database->escape_string($this->role) . "')";
+    
+    $properties = $this->properties();
+    
+    $sql = "INSERT INTO" .self::$db_table . " (" . implode(",", array_keys($properties))  . ") ";
+    $sql .= "VALUES ('" . implode("', '" , array_values($properties)) . "')";
+   
+    
+    
     
     if ($database->query($sql)) {
       $this->id = $database->the_insert_id();
