@@ -18,5 +18,4 @@ require_once(INCLUDES_PATH.DS."class_db_object.php");
 require_once(INCLUDES_PATH.DS."class_user.php");
 require_once(INCLUDES_PATH.DS."class_session.php");
 
-
 ?>

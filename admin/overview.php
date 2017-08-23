@@ -1,4 +1,6 @@
 <?php include("includes/header.php"); ?>
+     
+<?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
       
       <!-- main content -->
       <div class="col-md-9 content">

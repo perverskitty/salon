@@ -23,16 +23,30 @@
         <li class="nav-item">
           <a class="nav-link" href="#">About Us</a>
         </li>
+        <?php if($session->is_signed_in()) : ?>
         <li class="nav-item">
           <a class="nav-link" href="admin/index.php">Admin Portal</a>
         </li>
+        <?php endif; ?>
       </ul>
     </div>
     
+    <?php if($session->is_signed_in()) : ?>
+                   
+    <ul class="navbar-nav mr-right">
+      <li class="nav-item">
+        <a class="btn btn-outline-danger my-2 my-sm-0" href="admin/signout.php">Sign out</a>
+      </li>
+    </ul>       
+                
+    <?php else : ?>
+                    
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
         <a class="btn btn-outline-primary my-2 my-sm-0" href="admin/signin.php">Sign in</a>
       </li>
-    </ul>
+    </ul>            
+                
+    <?php endif; ?>
     
   </nav> <!-- end of fixed navbar with collapsing menu --> 
