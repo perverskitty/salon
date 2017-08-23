@@ -26,7 +26,7 @@
         <!-- Search orders input -->
         <div class="flextable-item flextable-primary">
           <div class="btn-toolbar-item input-with-icon">
-            <input type="text" class="form-control input-block" placeholder="Search orders">
+            <input type="text" class="form-control input-block" placeholder="Search schedules">
             <span class="icon icon-magnifying-glass"></span>
           </div>
         </div> <!-- end of search orders input -->
