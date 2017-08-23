@@ -17,6 +17,10 @@
 //        $user->role_id = "1";
 //        $user->create();
       
+//          $user = User::find_by_id(8);
+//          $user->email = "bilbo@test.com";
+//          $user->update();
+      
       ?>
       
       

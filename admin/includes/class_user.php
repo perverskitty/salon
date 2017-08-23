@@ -108,7 +108,6 @@ class User {
     if ($database->query($sql)) {
       $this->id = $database->the_insert_id();
       $created_user = User::find_by_id($this->id);
-      // need to record created at and changed at details
       return true;
     } else {
       return false;
@@ -119,15 +118,16 @@ class User {
   // update user record
   public function update() {
     global $database;
+    $properties = $this->properties();
+    $properties_pairs = array();
+    
+    foreach ($properties as $key => $value) {
+      $properties_pairs[] = "{$key} = '$value'";
+    }
+    
     $sql = "UPDATE " .self::$db_table. " SET ";
-    $sql .= "first_name = '" . $database->escape_string($this->first_name) . "', ";
-    $sql .= "last_name = '" . $database->escape_string($this->last_name) . "', ";
-    $sql .= "email = '" . $database->escape_string($this->email) . "', ";
-    $sql .= "password = '" . $database->escape_string($this->password) . "', ";
-    $sql .= "tel = '" . $database->escape_string($this->tel) . "', ";
-    $sql .= "gender = '" . $database->escape_string($this->gender) . "', ";
-    $sql .= "role_id = '" . $database->escape_string($this->role_id) . "' ";
-    $sql .= "WHERE id = " . $database->escape_string($this->id);
+    $sql .= implode(", ", $properties_pairs);
+    $sql .= " WHERE id = " . $database->escape_string($this->id);
     $database->query($sql);
      
     return (mysqli_affected_rows($database->connection) == 1) ? true : false;
