@@ -4,6 +4,7 @@ class User {
   
   
   // properties
+  protected static $db_table = "users";
   public $id;
   public $first_name;
   public $last_name;
@@ -49,13 +50,13 @@ class User {
   
   // returns all User objects in an array
   public static function find_all() {
-    return self::find_by_query("SELECT * FROM users");
+    return self::find_by_query("SELECT * FROM " .self::$db_table);
   }
   
   
   // returns a User object by id
   public static function find_by_id($id) {
-    $the_result_array = self::find_by_query("SELECT * FROM users WHERE id = $id LIMIT 1");
+    $the_result_array = self::find_by_query("SELECT * FROM " .self::$db_table. " WHERE id = $id LIMIT 1");
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
   }
   
@@ -88,7 +89,7 @@ class User {
   // create user record
   public function create() {
     global $database;
-    $sql = "INSERT INTO users (first_name, last_name, email, password, tel, gender, role_id) ";
+    $sql = "INSERT INTO" .self::$db_table. "(first_name, last_name, email, password, tel, gender, role_id) ";
     $sql .= "VALUES ('";
     $sql .= $database->escape_string($this->first_name) . "', '";
     $sql .= $database->escape_string($this->last_name) . "', '";
@@ -112,7 +113,7 @@ class User {
   // update user record
   public function update() {
     global $database;
-    $sql = "UPDATE users SET ";
+    $sql = "UPDATE " .self::$db_table. " SET ";
     $sql .= "first_name = '" . $database->escape_string($this->first_name) . "', ";
     $sql .= "last_name = '" . $database->escape_string($this->last_name) . "', ";
     $sql .= "email = '" . $database->escape_string($this->email) . "', ";
@@ -130,7 +131,7 @@ class User {
   // delete user record
   public function delete() {
     global $database;
-    $sql = "DELETE FROM users ";
+    $sql = "DELETE FROM " .self::$db_table. " ";
     $sql .= "WHERE id = " . $database->escape_string($this->id);
     $sql .= " LIMIT 1";
     $database->query($sql);
