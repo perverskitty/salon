@@ -1,6 +1,6 @@
 <?php
 
-class Db_object {
+abstract class Db_object {
   
   
   // returns all objects in an array
