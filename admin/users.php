@@ -1,6 +1,14 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+    
+<?php
+
+$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+$items_per_page = 20;
+$items_total_count = User::count_all();
+
+?>
      
 <?php $users = User::find_all(); ?>
       
