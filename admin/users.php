@@ -5,7 +5,7 @@
 <?php
 
 $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-$items_per_page = 2;
+$items_per_page = 10;
 $items_total_count = User::count_all();
 
 $paginate = new Paginate($page, $items_per_page, $items_total_count);
@@ -41,7 +41,7 @@ $users = User::find_by_query($sql);
         <!-- Search orders input -->
         <div class="flextable-item flextable-primary">
           <div class="btn-toolbar-item input-with-icon">
-            <input type="text" class="form-control input-block" placeholder="Search orders">
+            <input type="text" class="form-control input-block" placeholder="Search users">
             <span class="icon icon-magnifying-glass"></span>
           </div>
         </div> <!-- end of search orders input -->
@@ -93,23 +93,29 @@ $users = User::find_by_query($sql);
       <div class="text-center">
         <nav>
           <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
+          
+          <?php
+            
+          if ($paginate->has_previous()) {
+            echo "<li class='page-item'><a class='page-link' href='users.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
+          }
+           
+          for ($i=1; $i <= $paginate->total_pages(); $i++) {
+            if($i == $paginate->current_page) {
+              echo "<li class='page-item active'><a class='page-link' href='users.php?page={$i}'>{$i}</a></li>";
+            } else {
+              echo "<li class='page-item'><a class='page-link' href='users.php?page={$i}'>{$i}</a></li>";
+            }
+          } 
+            
+          if ($paginate->total_pages() > 1) {
+            if ($paginate->has_next()) {
+              echo "<li class='page-item'><a class='page-link' href='users.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+            }
+          }
+          
+          ?>  
+            
           </ul>
         </nav>
       </div> <!-- end of pagination -->
