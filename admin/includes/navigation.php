@@ -13,6 +13,8 @@
           </a>
         </div>
        
+       
+        <?php if($session->is_signed_in()) : ?>
          
         <!-- sidebar search and list of links collapsable -->
         <div class="collapse nav-toggleable-md" id="nav-toggleable-md">
@@ -70,6 +72,7 @@
           <hr class="visible-xs mt-3">
         </div> <!-- end of sidebar search and list of links collapsable -->
         
+        <?php endif; ?>
         
       </nav>
     </div> <!-- end of sidebar navigation --> 

@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 	    <input type="password" class="form-control" name="password" value="<?php echo htmlentities($password); ?>">
     </div>
     <div class="form-group">
-      <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+      <input type="submit" name="submit" value="Sign in" class="btn btn-primary">
     </div>
   </form> <!-- end of form -->
 
