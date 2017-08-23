@@ -14,6 +14,7 @@ require_once(INCLUDES_PATH.DS."config.php");
 
 // include classes
 require_once(INCLUDES_PATH.DS."class_database.php");
+require_once(INCLUDES_PATH.DS."class_db_object.php");
 require_once(INCLUDES_PATH.DS."class_user.php");
 require_once(INCLUDES_PATH.DS."class_session.php");
 
