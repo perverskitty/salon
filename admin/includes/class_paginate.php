@@ -34,6 +34,25 @@ class Paginate {
   }
   
   
+  // is there a next page?
+  public function has_next() {
+    return $this->next() <= $this->page_total() ? true : false;
+  }
+  
+  
+  // is there a previous page?
+  public function has_previous() {
+    return $this->previous() >= 1 ? true : false;
+  }
+  
+  
+  // skips items based on number of pages less one page 
+  // multiplied by number of items per page
+  public function offset() {
+    return ($this->current_page - 1) * $this->items_per_page;
+  }
+  
+  
 } // end of class
 
 ?>
