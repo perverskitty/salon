@@ -73,10 +73,11 @@
             <tr>
               <th><input type="checkbox" class="select-all" id="selectAll"></th>
               <th>Id</th>
-              <th>Customer name</th>
-              <th>Description</th>
-              <th>Date</th>
-              <th>Total</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Tel</th>
             </tr>
           </thead>
           <tbody>
@@ -87,6 +88,7 @@
               <td>Admin theme, marketing theme</td>
               <td>01/01/2015</td>
               <td>$200.00</td>
+              <td>$200.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -94,6 +96,7 @@
               <td>Firstname Last</td>
               <td>Admin theme</td>
               <td>01/01/2015</td>
+              <td>$100.00</td>
               <td>$100.00</td>
             </tr>
             <tr>
@@ -103,6 +106,7 @@
               <td>Personal blog theme</td>
               <td>01/01/2015</td>
               <td>$100.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -111,6 +115,7 @@
               <td>Marketing theme, personal blog theme, admin theme</td>
               <td>01/01/2015</td>
               <td>$300.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -119,6 +124,7 @@
               <td>Personal blog theme, admin theme</td>
               <td>01/02/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -127,6 +133,7 @@
               <td>Admin theme, marketing theme</td>
               <td>01/01/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -134,6 +141,7 @@
               <td>Firstname Last</td>
               <td>Admin theme</td>
               <td>01/01/2015</td>
+              <td>$100.00</td>
               <td>$100.00</td>
             </tr>
             <tr>
@@ -143,6 +151,7 @@
               <td>Personal blog theme</td>
               <td>01/01/2015</td>
               <td>$100.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -151,6 +160,7 @@
               <td>Marketing theme, personal blog theme, admin theme</td>
               <td>01/01/2015</td>
               <td>$300.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -159,6 +169,7 @@
               <td>Personal blog theme, admin theme</td>
               <td>01/02/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -167,6 +178,7 @@
               <td>Admin theme, marketing theme</td>
               <td>01/01/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -174,6 +186,7 @@
               <td>Firstname Last</td>
               <td>Admin theme</td>
               <td>01/01/2015</td>
+              <td>$100.00</td>
               <td>$100.00</td>
             </tr>
             <tr>
@@ -183,6 +196,7 @@
               <td>Personal blog theme</td>
               <td>01/01/2015</td>
               <td>$100.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -191,6 +205,7 @@
               <td>Marketing theme, personal blog theme, admin theme</td>
               <td>01/01/2015</td>
               <td>$300.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -199,6 +214,7 @@
               <td>Personal blog theme, admin theme</td>
               <td>01/02/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -207,6 +223,7 @@
               <td>Admin theme, marketing theme</td>
               <td>01/01/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -214,6 +231,7 @@
               <td>Firstname Last</td>
               <td>Admin theme</td>
               <td>01/01/2015</td>
+              <td>$100.00</td>
               <td>$100.00</td>
             </tr>
             <tr>
@@ -223,6 +241,7 @@
               <td>Personal blog theme</td>
               <td>01/01/2015</td>
               <td>$100.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -231,6 +250,7 @@
               <td>Marketing theme, personal blog theme, admin theme</td>
               <td>01/01/2015</td>
               <td>$300.00</td>
+              <td>$100.00</td>
             </tr>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
@@ -239,6 +259,7 @@
               <td>Personal blog theme, admin theme</td>
               <td>01/02/2015</td>
               <td>$200.00</td>
+              <td>$100.00</td>
           </tbody>
         </table>
       </div> <!-- end of dash table header and data rows -->
