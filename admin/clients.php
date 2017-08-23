@@ -1,6 +1,23 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+     
+<?php
+
+$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+$items_per_page = 10;
+$items_total_count = User::count_by_role(3);
+
+$paginate = new Paginate($page, $items_per_page, $items_total_count);
+
+$sql = "SELECT * FROM users WHERE ";
+$sql .= "role_id = 3 ";
+$sql .= "LIMIT {$items_per_page} ";
+$sql .= "OFFSET {$paginate->offset()}";
+
+$users = User::find_by_query($sql);
+
+?>
       
     <!-- Main content --> 
     <div class="col-md-9 content">
@@ -49,173 +66,24 @@
           <thead>
             <tr>
               <th><input type="checkbox" class="select-all" id="selectAll"></th>
-              <th>Order</th>
-              <th>Customer name</th>
-              <th>Description</th>
-              <th>Date</th>
-              <th>Total</th>
+              <th>Id</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Tel</th>
             </tr>
           </thead>
           <tbody>
+          <?php foreach ($users as $user) : ?>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10001</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10002</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10003</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10004</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10005</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10006</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10007</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10008</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10009</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10010</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10011</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10012</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10013</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10014</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10015</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10016</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10017</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10018</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10019</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10020</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
+              <td><a href="#"><?php echo $user->id; ?></a></td>
+              <td><?php echo $user->first_name; ?></td>
+              <td><?php echo $user->last_name; ?></td>
+              <td><?php echo $user->email; ?></td>
+              <td><?php echo $user->tel; ?></td>
+            </tr>                
+          <?php endforeach; ?>
           </tbody>
         </table>
       </div> <!-- end of dash table header and data rows -->
@@ -225,23 +93,29 @@
       <div class="text-center">
         <nav>
           <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
+          
+          <?php
+            
+          if ($paginate->has_previous()) {
+            echo "<li class='page-item'><a class='page-link' href='clients.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
+          }
+           
+          for ($i=1; $i <= $paginate->total_pages(); $i++) {
+            if($i == $paginate->current_page) {
+              echo "<li class='page-item active'><a class='page-link' href='clients.php?page={$i}'>{$i}</a></li>";
+            } else {
+              echo "<li class='page-item'><a class='page-link' href='clients.php?page={$i}'>{$i}</a></li>";
+            }
+          } 
+            
+          if ($paginate->total_pages() > 1) {
+            if ($paginate->has_next()) {
+              echo "<li class='page-item'><a class='page-link' href='clients.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+            }
+          }
+          
+          ?>  
+            
           </ul>
         </nav>
       </div> <!-- end of pagination -->
