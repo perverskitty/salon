@@ -34,6 +34,19 @@ class User extends Db_object {
   }
   
   
+  // returns item count given by role_id
+  public static function count_by_role($role_id) {
+    global $database;
+    $role_id = $database->escape_string($role_id);
+    $sql = "SELECT COUNT(*) FROM " . self::$db_table . " WHERE ";
+    $sql .= "role_id = '{$role_id}'";
+    $result_set = $database->query($sql);
+    $row = mysqli_fetch_array($result_set);
+    return array_shift($row);
+  }
+  
+  
+  
 } // end of class
 
 ?>
