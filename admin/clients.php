@@ -44,7 +44,7 @@ $users = User::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <button type="button" class="btn btn-outline-primary">
-              <span class="icon icon-pencil"></span> Add client
+              <span class="icon icon-add-user"></span> Add client
             </button>
           </div>
         </div>
@@ -56,7 +56,7 @@ $users = User::find_by_query($sql);
         <table class="table" data-sort="table">
           <thead>
             <tr>
-              <th><input type="checkbox" class="select-all" id="selectAll"></th>
+              <th></th>
               <th>Id</th>
               <th>First name</th>
               <th>Last name</th>
@@ -67,8 +67,8 @@ $users = User::find_by_query($sql);
           <tbody>
           <?php foreach ($users as $user) : ?>
             <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#"><?php echo $user->id; ?></a></td>
+              <td><a href="edit_user.php?id=<?php echo $user->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><?php echo $user->id; ?></td>
               <td><?php echo $user->first_name; ?></td>
               <td><?php echo $user->last_name; ?></td>
               <td><?php echo $user->email; ?></td>
