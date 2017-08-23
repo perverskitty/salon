@@ -16,7 +16,22 @@ class Paginate {
   }
   
   
+  // next page number
+  public function next() {
+    return $this->current_page + 1;
+  }
   
+  
+  // previous page number
+  public function previous() {
+    return $this->current_page - 1;
+  }
+  
+  
+  // total number of pages
+  public total_pages() {
+    return ceil($this->items_total_count / $this->items_per_page);
+  }
   
   
 } // end of class
