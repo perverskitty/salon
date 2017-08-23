@@ -1,33 +1,11 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+     
+<?php $users = User::find_all(); ?>
       
     <!-- Main content --> 
     <div class="col-md-9 content">
-      
-      
-      <!-- test connection with query -->
-      <?php
-      
-//        $user = new User();
-//        $user->first_name = "Frodo";
-//        $user->last_name = "Baggins";
-//        $user->email = "frodo@test.com";
-//        $user->password = "frodo";
-//        $user->tel = "07540 222 333";
-//        $user->gender = "1";
-//        $user->role_id = "1";
-//        $user->create();
-      
-//          $user = User::find_by_id(8);
-//            $user->first_name = "Gandalf";
-//            $user->last_name = "Grey";
-//            $user->password = "gandalf";
-//          $user->email = "gandalf@test.com";
-//          $user->update();
-      
-      ?>
-      
       
       <!-- Dash title and datepicker -->  
       <div class="dashhead">  
@@ -81,15 +59,17 @@
             </tr>
           </thead>
           <tbody>
+          <?php foreach ($users as $user) : ?>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10001</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-              <td>$200.00</td>
-            </tr>
+              <td><a href="#"><?php echo $user->id; ?></a></td>
+              <td><?php echo $user->first_name; ?></td>
+              <td><?php echo $user->last_name; ?></td>
+              <td><?php echo $user->role_id; ?></td>
+              <td><?php echo $user->email; ?></td>
+              <td><?php echo $user->tel; ?></td>
+            </tr>                
+          <?php endforeach; ?>
             <tr>
               <td><input type="checkbox" class="select-row"></td>
               <td><a href="#">#10002</a></td>
