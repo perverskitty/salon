@@ -5,7 +5,7 @@ class User {
   
   // properties
   protected static $db_table = "users";
-  protected static $db_table_fields = array('first_name', 'last_name', 'email', 'password', 'tel', 'gender', 'role');
+  protected static $db_table_fields = array('first_name', 'last_name', 'email', 'password', 'tel', 'gender', 'role_id');
   public $id;
   public $first_name;
   public $last_name;
@@ -13,7 +13,7 @@ class User {
   public $password;
   public $tel;
   public $gender;
-  public $role;
+  public $role_id;
   public $created_at;
   public $changed_at;
   
@@ -77,7 +77,7 @@ class User {
         $properties[$db_field] = $this->$db_field;
       }
     }
-    return properties;
+    return $properties;
   }
   
   
@@ -101,16 +101,10 @@ class User {
   
   // create user record
   public function create() {
-    global $database;
-    
+    global $database; 
     $properties = $this->properties();
-    
-    $sql = "INSERT INTO" .self::$db_table . " (" . implode(",", array_keys($properties))  . ") ";
+    $sql = "INSERT INTO " . self::$db_table . " (" . implode(",", array_keys($properties))  . ") ";
     $sql .= "VALUES ('" . implode("', '" , array_values($properties)) . "')";
-   
-    
-    
-    
     if ($database->query($sql)) {
       $this->id = $database->the_insert_id();
       $created_user = User::find_by_id($this->id);
@@ -132,7 +126,7 @@ class User {
     $sql .= "password = '" . $database->escape_string($this->password) . "', ";
     $sql .= "tel = '" . $database->escape_string($this->tel) . "', ";
     $sql .= "gender = '" . $database->escape_string($this->gender) . "', ";
-    $sql .= "role_id = '" . $database->escape_string($this->role) . "' ";
+    $sql .= "role_id = '" . $database->escape_string($this->role_id) . "' ";
     $sql .= "WHERE id = " . $database->escape_string($this->id);
     $database->query($sql);
      

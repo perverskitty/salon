@@ -7,8 +7,15 @@
       <!-- test connection with query -->
       <?php
       
-//      $user = User::find_by_id(3);
-//      $user->delete();
+//        $user = new User();
+//        $user->first_name = "Frodo";
+//        $user->last_name = "Baggins";
+//        $user->email = "frodo@test.com";
+//        $user->password = "frodo";
+//        $user->tel = "07540 222 333";
+//        $user->gender = "1";
+//        $user->role_id = "1";
+//        $user->create();
       
       ?>
       
