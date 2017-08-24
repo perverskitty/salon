@@ -8,6 +8,11 @@ if(empty($_GET['id'])) {
   redirect("clients.php");
 } else {
   
+  $sql = "SELECT * FROM users WHERE ";
+  $sql .= "role_id = 1 OR role_id = 2";
+
+  $hairdressers = User::find_by_query($sql);
+  
   $client = User::find_by_id($_GET['id']);
   
   if (isset($_POST['update'])) {
@@ -19,7 +24,8 @@ if(empty($_GET['id'])) {
       $client->hairdresser_id = $_POST['hairdresser_id'];
       $client->email = $_POST['email'];
       $client->password = $_POST['password'];
-      $client->save();
+      
+      if ($client->save()) { redirect("clients.php"); }
     }
   }
 }
@@ -52,7 +58,6 @@ if(empty($_GET['id'])) {
             <label for="last_Name">Last name</label>
             <input type="text" class="form-control" name="last_name" value="<?php echo $client->last_name; ?>">
         </div>
-        
         <fieldset class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
@@ -75,19 +80,19 @@ if(empty($_GET['id'])) {
             </label>
           </div>
         </fieldset>
-        
         <div class="form-group">
           <label for="tel">Phone</label>
           <input type="text" class="form-control" name="tel" value="<?php echo $client->tel; ?>">
         </div>
-        
         <div class="form-group">
           <label for="hairdresser_id">Hairdresser</label>
           <select class="form-control" name="hairdresser_id">
-            <option value="">No preference</option>
+            <option value="0">No preference</option>
+            <?php foreach ($hairdressers as $hairdresser) : ?>
+            <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
-        
         <div class="form-group">
 	        <label for="email">Email</label>
 	        <input type="text" class="form-control" name="email" value="<?php echo $client->email; ?>">
@@ -98,7 +103,7 @@ if(empty($_GET['id'])) {
         </div>
         <div class="form-group">
           <a class="btn btn-danger" href="#">Delete</a>
-          <input class="btn btn-primary" type="submit" name="submit" value="Update">
+          <input class="btn btn-primary" type="submit" name="update" value="Update">
         </div>
       </form> <!-- end of update client form -->
      

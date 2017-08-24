@@ -1,11 +1,10 @@
 <?php
 
 class User extends Db_object {
-  
-  
+    
   // properties
   protected static $db_table = "users";
-  protected static $db_table_fields = array('first_name', 'last_name', 'email', 'password', 'tel', 'gender', 'role_id');
+  protected static $db_table_fields = array('first_name', 'last_name', 'email', 'password', 'tel', 'gender', 'role_id', 'hairdresser_id');
   public $id;
   public $first_name;
   public $last_name;
@@ -13,7 +12,8 @@ class User extends Db_object {
   public $password;
   public $tel;
   public $gender;
-  public $role_id;
+  public $role_id = 0;
+  public $hairdresser_id = 0;
   public $created_at;
   public $changed_at;
   
