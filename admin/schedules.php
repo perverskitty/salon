@@ -10,7 +10,7 @@
       <div class="dashhead">  
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Admin</h6>
-          <h2 class="dashhead-title">Work schedules</h2>
+          <h2 class="dashhead-title">Schedules</h2>
         </div>
         <div class="btn-toolbar dashhead-toolbar">
           <div class="btn-toolbar-item input-with-icon">
