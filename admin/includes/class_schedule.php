@@ -5,6 +5,7 @@ class Schedule extends Db_object {
   // properties
   protected static $db_table = "schedules";
   protected static $db_table_fields = array('hairdresser_id', 'day_id', 'start_time', 'end_time', 'first_date', 'last_date');
+  public $id;
   public $hairdresser_id;
   public $day_id;
   public $start_time;

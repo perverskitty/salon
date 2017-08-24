@@ -29,3 +29,18 @@ CREATE TABLE `salon_db`.`services` (
   `changed_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+
+-- Schedules table
+CREATE TABLE `salon_db`.`schedules` ( 
+  `id` INT(11) NOT NULL AUTO_INCREMENT , 
+  `hairdresser_id` INT(11) NOT NULL , 
+  `day_id` INT(3) NOT NULL , 
+  `start_time` TIME NOT NULL , 
+  `end_time` TIME NOT NULL , 
+  `first_date` DATE NOT NULL , 
+  `last_date` DATE NOT NULL , 
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+  `changed_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
