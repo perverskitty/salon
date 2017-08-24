@@ -11,9 +11,9 @@ if(empty($_GET['id'])) {
   $sql = "SELECT * FROM users WHERE ";
   $sql .= "role_id = 1 OR role_id = 2";
 
-  $hairdressers = User::find_by_query($sql);
+  $hairdressers = Hairdresser::find_by_query($sql);
   
-  $client = User::find_by_id($_GET['id']);
+  $client = Client::find_by_id($_GET['id']);
   
   if (isset($_POST['update'])) {
     if($client) {

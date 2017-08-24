@@ -38,10 +38,10 @@
               <a class="nav-link"href="users.php">All users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"href="hairdressers.php">Staff users</a>
+              <a class="nav-link"href="hairdressers.php">Hairdressers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="clients.php">Client users</a>
+              <a class="nav-link" href="clients.php">Clients</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="schedules.php">Work Schedules</a>

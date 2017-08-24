@@ -4,23 +4,18 @@
      
 <?php
 
-$sql = "SELECT * FROM users WHERE ";
-$sql .= "role_id = 1 OR role_id = 2";
-$hairdressers = Hairdresser::find_by_query($sql);
-
-$client = new Client();
+$hairdresser = new Hairdresser();
 if (isset($_POST['create'])) {  
-  if($client) {
-      $client->first_name = $_POST['first_name'];
-      $client->last_name = $_POST['last_name'];
-      $client->gender = $_POST['gender'];
-      $client->tel = $_POST['tel'];
-      $client->role_id = 3;
-      $client->hairdresser_id = $_POST['hairdresser_id'];
-      $client->email = $_POST['email'];
-      $client->password = $_POST['password'];
+  if($hairdresser) {
+      $hairdresser->first_name = $_POST['first_name'];
+      $hairdresser->last_name = $_POST['last_name'];
+      $hairdresser->gender = $_POST['gender'];
+      $hairdresser->tel = $_POST['tel'];
+      $hairdresser->role_id = $_POST['role_id'];
+      $hairdresser->email = $_POST['email'];
+      $hairdresser->password = $_POST['password'];
     
-      if ($client->save()) { redirect("clients.php"); }
+      if ($hairdresser->save()) { redirect("hairdressers.php"); }
   }
 }
 
@@ -34,7 +29,7 @@ if (isset($_POST['create'])) {
       <div class="dashhead">  
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Admin</h6>
-          <h2 class="dashhead-title">Create client</h2>
+          <h2 class="dashhead-title">Create hairdresser</h2>
         </div>
       </div> <!-- end of dash title -->  
      
@@ -55,13 +50,13 @@ if (isset($_POST['create'])) {
         <fieldset class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gender" id="clientGenderRadio1" value="1">
+            <input class="form-check-input" type="radio" name="gender" id="hairdresserGenderRadio1" value="1">
             Male
             </label>
             </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gender" id="clientGenderRadio2" value="2">
+            <input class="form-check-input" type="radio" name="gender" id="hairdresserGenderRadio2" value="2">
             Female
             </label>
           </div>
@@ -70,15 +65,20 @@ if (isset($_POST['create'])) {
           <label for="tel">Phone</label>
           <input type="text" class="form-control" name="tel" value="">
         </div>
-        <div class="form-group">
-            <label for="hairdresser_id">Hairdresser</label>
-            <select class="form-control" name="hairdresser_id">
-              <option value="0">No preference</option>
-              <?php foreach ($hairdressers as $hairdresser) : ?>
-              <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
-              <?php endforeach; ?>
-          </select>
-        </div>
+        <fieldset class="form-group">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="role_id" id="hairdresserRoleRadio1" value="2">
+            Hairdresser
+            </label>
+            </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="role_id" id="hairdresserRoleRadio2" value="1">
+            Manager
+            </label>
+          </div>
+        </fieldset>
         <div class="form-group">
 	        <label for="email">Email</label>
 	        <input type="text" class="form-control" name="email" value="">

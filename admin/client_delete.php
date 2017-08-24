@@ -9,7 +9,7 @@ if (empty($_GET['id'])) {
   
 }
 
-$client = User::find_by_id($_GET['id']);
+$client = Client::find_by_id($_GET['id']);
 
 if ($client) {
   $client->delete();

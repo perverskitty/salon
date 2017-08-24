@@ -27,7 +27,7 @@ $users = User::find_by_query($sql);
       <div class="dashhead">  
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Admin</h6>
-          <h2 class="dashhead-title">Client users</h2>
+          <h2 class="dashhead-title">Clients</h2>
         </div>
       </div> <!-- end of dash title -->  
       
