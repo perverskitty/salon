@@ -34,14 +34,11 @@
               <a class="nav-link" href="overview.php">Salon Dashboard</a>
             </li>
             <li class="nav-header">Admin</li>
-            <li class="nav-item">
-              <a class="nav-link"href="users.php">All users</a>
+                        <li class="nav-item">
+              <a class="nav-link" href="clients.php">Clients</a>
             </li>
             <li class="nav-item">
               <a class="nav-link"href="hairdressers.php">Hairdressers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="clients.php">Clients</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="schedules.php">Work Schedules</a>

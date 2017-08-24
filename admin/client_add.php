@@ -88,7 +88,7 @@ if (isset($_POST['create'])) {
 	        <input type="password" class="form-control" name="password" value="">
         </div>
         <div class="form-group">
-          <input class="btn btn-primary" type="submit" name="create" value="Create">
+          <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
         </div>
       </form> <!-- end of add client form -->
      
