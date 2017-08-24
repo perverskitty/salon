@@ -102,7 +102,7 @@ if(empty($_GET['id'])) {
 	        <input type="password" class="form-control" name="password" value="<?php echo $client->password; ?>">
         </div>
         <div class="form-group">
-          <a class="btn btn-danger" href="#">Delete</a>
+          <a class="btn btn-danger" href="client_delete.php?id=<?php echo $client->id; ?>">Delete</a>
           <input class="btn btn-primary" type="submit" name="update" value="Update">
         </div>
       </form> <!-- end of update client form -->

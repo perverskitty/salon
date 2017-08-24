@@ -34,7 +34,7 @@ class User extends Db_object {
   }
   
   
-  // returns item count given by role_id
+  // returns item count by role_id
   public static function count_by_role($role_id) {
     global $database;
     $role_id = $database->escape_string($role_id);
