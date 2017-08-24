@@ -43,7 +43,7 @@ $users = User::find_by_query($sql);
         </div> <!-- end of search orders input -->
         <div class="flextable-item">
           <div class="btn-group">
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='add_client.php'">
               <span class="icon icon-add-user"></span> Add client
             </button>
           </div>
@@ -67,7 +67,7 @@ $users = User::find_by_query($sql);
           <tbody>
           <?php foreach ($users as $user) : ?>
             <tr>
-              <td><a href="edit_user.php?id=<?php echo $user->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="edit_client.php?id=<?php echo $user->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $user->id; ?></td>
               <td><?php echo $user->first_name; ?></td>
               <td><?php echo $user->last_name; ?></td>
