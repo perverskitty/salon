@@ -52,7 +52,7 @@ $services = Service::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table" data-sort="table">
+        <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
               <th></th>
