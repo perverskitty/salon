@@ -14,6 +14,29 @@ class Service extends Db_object {
   public $changed_at;
   
   
+  // return category name
+  public function category_name() {
+    $category_name = "";
+    switch ($this->category_id) {
+      case "1":
+        $category_name = "Mens";
+        break;
+      case "2":
+        $category_name = "Ladies";
+        break;
+      case "3":
+        $category_name = "Childrens";
+        break;
+      case "4":
+        $category_name = "Unisex";
+        break;
+      default:
+        $category_name = "Undefined";  
+    }
+    return $category_name;
+  }
+  
+  
 } // end of class
 
 
