@@ -15,7 +15,7 @@ $sql .= "role_id=1 OR role_id=2 ";
 $sql .= "LIMIT {$items_per_page} ";
 $sql .= "OFFSET {$paginate->offset()}";
 
-$users = User::find_by_query($sql);
+$hairdressers = Hairdresser::find_by_query($sql);
 
 ?>
       
@@ -53,28 +53,28 @@ $users = User::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table" data-sort="table">
+        <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
               <th></th>
               <th>Id</th>
               <th>First name</th>
               <th>Last name</th>
-              <th>Role</th>
               <th>Email</th>
               <th>Tel</th>
+              <th>Role</th>
             </tr>
           </thead>
           <tbody>
-          <?php foreach ($users as $user) : ?>
+          <?php foreach ($hairdressers as $hairdresser) : ?>
             <tr>
-              <td><a href="hairdresser_edit.php?id=<?php echo $user->id; ?>"><span class="icon icon-edit"></span></a></td>
-              <td><?php echo $user->id; ?></td>
-              <td><?php echo $user->first_name; ?></td>
-              <td><?php echo $user->last_name; ?></td>
-              <td><?php echo $user->role_id; ?></td>
-              <td><?php echo $user->email; ?></td>
-              <td><?php echo $user->tel; ?></td>
+              <td><a href="hairdresser_edit.php?id=<?php echo $hairdresser->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><?php echo $hairdresser->id; ?></td>
+              <td><?php echo $hairdresser->first_name; ?></td>
+              <td><?php echo $hairdresser->last_name; ?></td>
+              <td><?php echo $hairdresser->email; ?></td>
+              <td><?php echo $hairdresser->tel; ?></td>
+              <td><?php echo $hairdresser->role_name() ?></td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

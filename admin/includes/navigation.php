@@ -41,10 +41,10 @@
               <a class="nav-link"href="hairdressers.php">Hairdressers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="schedules.php">Work Schedules</a>
+              <a class="nav-link" href="schedules.php">Schedules</a>
             </li>
               <li class="nav-item">
-                <a class="nav-link"href="services.php">Hair Services</a>
+                <a class="nav-link"href="services.php">Services</a>
               </li>
             <li class="nav-item">
               <a class="nav-link" href="bookings.php">All Bookings</a>

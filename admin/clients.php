@@ -15,7 +15,7 @@ $sql .= "role_id = 3 ";
 $sql .= "LIMIT {$items_per_page} ";
 $sql .= "OFFSET {$paginate->offset()}";
 
-$users = User::find_by_query($sql);
+$clients = Client::find_by_query($sql);
 
 ?>
       
@@ -53,7 +53,7 @@ $users = User::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table" data-sort="table">
+        <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
               <th></th>
@@ -62,17 +62,19 @@ $users = User::find_by_query($sql);
               <th>Last name</th>
               <th>Email</th>
               <th>Tel</th>
+              <th>Hairdresser</th>
             </tr>
           </thead>
           <tbody>
-          <?php foreach ($users as $user) : ?>
+          <?php foreach ($clients as $client) : ?>
             <tr>
-              <td><a href="client_edit.php?id=<?php echo $user->id; ?>"><span class="icon icon-edit"></span></a></td>
-              <td><?php echo $user->id; ?></td>
-              <td><?php echo $user->first_name; ?></td>
-              <td><?php echo $user->last_name; ?></td>
-              <td><?php echo $user->email; ?></td>
-              <td><?php echo $user->tel; ?></td>
+              <td><a href="client_edit.php?id=<?php echo $client->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><?php echo $client->id; ?></td>
+              <td><?php echo $client->first_name; ?></td>
+              <td><?php echo $client->last_name; ?></td>
+              <td><?php echo $client->email; ?></td>
+              <td><?php echo $client->tel; ?></td>
+              <td><?php echo $client->hairdresser_name(); ?></td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

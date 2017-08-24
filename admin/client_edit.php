@@ -87,10 +87,26 @@ if(empty($_GET['id'])) {
         <div class="form-group">
           <label for="hairdresser_id">Hairdresser</label>
           <select class="form-control" name="hairdresser_id">
-            <option value="0">No preference</option>
-            <?php foreach ($hairdressers as $hairdresser) : ?>
-            <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
-            <?php endforeach; ?>
+            <?php if ($client->hairdresser_id == 0) : ?>
+           
+                <option value="0">No preference</option>
+                <?php foreach ($hairdressers as $hairdresser) : ?>
+                <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
+                <?php endforeach; ?>
+            
+            <?php else : ?>
+            
+                <option value="<?php echo $client->hairdresser_id; ?>"><?php echo $client->hairdresser_name(); ?></option>
+                
+                <?php foreach ($hairdressers as $hairdresser) : ?>
+                    <?php if ($client->hairdresser_id != $hairdresser->id) : ?>
+                    <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                
+                <option value="0">No preference</option>
+            
+            <?php endif; ?>
           </select>
         </div>
         <div class="form-group">
