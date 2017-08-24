@@ -34,7 +34,7 @@
               <a class="nav-link" href="overview.php">Salon Dashboard</a>
             </li>
             <li class="nav-header">Admin</li>
-                        <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="clients.php">Clients</a>
             </li>
             <li class="nav-item">
@@ -44,7 +44,7 @@
               <a class="nav-link" href="schedules.php">Schedules</a>
             </li>
               <li class="nav-item">
-                <a class="nav-link"href="services.php">Services</a>
+                <a class="nav-link" href="services.php">Services</a>
               </li>
             <li class="nav-item">
               <a class="nav-link" href="bookings.php">All Bookings</a>
