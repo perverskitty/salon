@@ -45,7 +45,7 @@ if (isset($_POST['create'])) {
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
             <select class="form-control" name="hairdresser_id">
-              <option value=""></option>
+              <option selected>Open this select menu</option>
               <?php foreach ($hairdressers as $hairdresser) : ?>
               <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
               <?php endforeach; ?>
@@ -54,7 +54,7 @@ if (isset($_POST['create'])) {
         <div class="form-group">
             <label for="day_id">Day</label>
             <select class="form-control" name="day_id">
-              <option value=""></option>
+              <option selected>Open this select menu</option>
               <option value="2">Monday</option>
               <option value="3">Tuesday</option>
               <option value="4">Wednesday</option>
@@ -67,7 +67,7 @@ if (isset($_POST['create'])) {
         <div class="form-group">
             <label for="start_time">Start time</label>
             <select class="form-control" name="start_time">
-              <option value=""></option>
+              <option selected>Open this select menu</option>
               <option value="10:00:00">10:00</option>
               <option value="10:30:00">10:30</option>
               <option value="11:00:00">11:00</option>
@@ -90,7 +90,7 @@ if (isset($_POST['create'])) {
         <div class="form-group">
             <label for="end_time">End time</label>
             <select class="form-control" name="end_time">
-              <option value=""></option>
+              <option selected>Open this select menu</option>
               <option value="11:00:00">11:00</option>
               <option value="11:30:00">11:30</option>
               <option value="12:00:00">12:00</option>

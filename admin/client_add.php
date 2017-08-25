@@ -73,7 +73,7 @@ if (isset($_POST['create'])) {
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
             <select class="form-control" name="hairdresser_id">
-              <option value="0">No preference</option>
+              <option selected>No preference</option>
               <?php foreach ($hairdressers as $hairdresser) : ?>
               <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
               <?php endforeach; ?>
