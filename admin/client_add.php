@@ -5,7 +5,8 @@
 <?php
 
 $sql = "SELECT * FROM users WHERE ";
-$sql .= "role_id = 1 OR role_id = 2";
+$sql .= "role_id = 1 OR role_id = 2 ";
+$sql .= "ORDER BY first_name";
 $hairdressers = Hairdresser::find_by_query($sql);
 
 $client = new Client();

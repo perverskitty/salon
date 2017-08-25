@@ -5,7 +5,8 @@
 <?php
 
 $sql = "SELECT * FROM users WHERE ";
-$sql .= "role_id = 1 OR role_id = 2";
+$sql .= "role_id = 1 OR role_id = 2 ";
+$sql .= "ORDER BY first_name";
 $hairdressers = Hairdresser::find_by_query($sql);
 
 $other_booking = new Booking();
@@ -64,7 +65,7 @@ if (isset($_POST['create'])) {
         </div>
         <div class="form-group">
           <label for="booking_date">Date</label>
-          <input type="text" class="form-control" name="booking_date">
+          <input type="text" class="form-control" data-provide="datepicker" name="booking_date">
         </div>
         <div class="form-group">
             <label for="start_time">Start Time</label>

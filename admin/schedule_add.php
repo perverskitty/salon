@@ -112,11 +112,11 @@ if (isset($_POST['create'])) {
         </div>
         <div class="form-group">
           <label for="first_date">First date</label>
-          <input type="text" class="form-control" name="first_date">
+          <input type="text" class="form-control" data-provide="datepicker" name="first_date">
         </div>
         <div class="form-group">
           <label for="last_date">Last date</label>
-          <input type="text" class="form-control" name="last_date">
+          <input type="text" class="form-control" data-provide="datepicker" name="last_date">
         </div>
         <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" name="create" value="Create">

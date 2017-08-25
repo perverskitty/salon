@@ -42,7 +42,19 @@ if (isset($_POST['create'])) {
         </div>
         <div class="form-group">
             <label for="duration">Duration</label>
-            <input type="text" class="form-control" name="duration">
+            <select class="form-control" name="duration">
+              <option selected>Open this select menu</option>
+              <option value="00:30:00">00:30</option>
+              <option value="01:00:00">01:00</option>
+              <option value="01:30:00">01:30</option>
+              <option value="02:00:00">02:00</option>
+              <option value="02:30:00">02:30</option>
+              <option value="03:00:00">03:00</option>
+              <option value="03:30:00">03:30</option>
+              <option value="04:00:00">04:00</option>
+              <option value="04:30:00">04:30</option>
+              <option value="05:00:00">05:00</option>
+            </select>
         </div>
         <fieldset class="form-group">
           <div class="form-check form-check-inline">
