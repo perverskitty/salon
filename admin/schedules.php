@@ -65,10 +65,11 @@ $schedules = Schedule::find_by_query($sql);
           </thead>
           <tbody>
           <?php foreach ($schedules as $schedule) : ?>
+            <?php $hairdresser = Hairdresser::find_by_id($schedule->hairdresser_id); ?>
             <tr>
               <td><a href="schedule_edit.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $schedule->id; ?></td>
-              <td><?php echo $schedule->hairdresser_id; ?></td>
+              <td><?php echo $hairdresser->first_name." ".$hairdresser->last_name ?></td>
               <td><?php echo $schedule->day_name(); ?></td>
               <td><?php echo $schedule->start_time." to ".$schedule->end_time; ?></td>
               <td><?php echo $schedule->first_date." to ".$schedule->last_date; ?></td>

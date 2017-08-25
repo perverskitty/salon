@@ -4,6 +4,10 @@
      
 <?php
 
+$sql = "SELECT * FROM users WHERE ";
+$sql .= "role_id = 1 OR role_id = 2";
+$hairdressers = Hairdresser::find_by_query($sql);
+
 $schedule = new Schedule();
 if (isset($_POST['create'])) {  
   if($schedule) {
@@ -40,19 +44,71 @@ if (isset($_POST['create'])) {
       <form id="login-id" action="" method="post">
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
-            <input type="text" class="form-control" name="hairdresser_id">
+            <select class="form-control" name="hairdresser_id">
+              <option value=""></option>
+              <?php foreach ($hairdressers as $hairdresser) : ?>
+              <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
+              <?php endforeach; ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="day_id">Day</label>
-            <input type="text" class="form-control" name="day_id">
+            <select class="form-control" name="day_id">
+              <option value=""></option>
+              <option value="2">Monday</option>
+              <option value="3">Tuesday</option>
+              <option value="4">Wednesday</option>
+              <option value="5">Thursday</option>
+              <option value="6">Friday</option>
+              <option value="7">Saturday</option>
+              <option value="1">Sunday</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="start_time">Start time</label>
-            <input type="text" class="form-control" name="start_time">
+            <select class="form-control" name="start_time">
+              <option value=""></option>
+              <option value="10:00:00">10:00</option>
+              <option value="10:30:00">10:30</option>
+              <option value="11:00:00">11:00</option>
+              <option value="11:30:00">11:30</option>
+              <option value="12:00:00">12:00</option>
+              <option value="12:30:00">12:30</option>
+              <option value="13:00:00">13:00</option>
+              <option value="13:30:00">13:30</option>
+              <option value="14:00:00">14:00</option>
+              <option value="14:30:00">14:30</option>
+              <option value="15:00:00">15:00</option>
+              <option value="15:30:00">15:30</option>
+              <option value="16:00:00">16:00</option>
+              <option value="16:30:00">16:30</option>
+              <option value="17:00:00">17:00</option>
+              <option value="17:30:00">17:30</option>
+              <option value="18:00:00">18:00</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="end_time">End time</label>
-            <input type="text" class="form-control" name="end_time">
+            <select class="form-control" name="end_time">
+              <option value=""></option>
+              <option value="11:00:00">11:00</option>
+              <option value="11:30:00">11:30</option>
+              <option value="12:00:00">12:00</option>
+              <option value="12:30:00">12:30</option>
+              <option value="13:00:00">13:00</option>
+              <option value="13:30:00">13:30</option>
+              <option value="14:00:00">14:00</option>
+              <option value="14:30:00">14:30</option>
+              <option value="15:00:00">15:00</option>
+              <option value="15:30:00">15:30</option>
+              <option value="16:00:00">16:00</option>
+              <option value="16:30:00">16:30</option>
+              <option value="17:00:00">17:00</option>
+              <option value="17:30:00">17:30</option>
+              <option value="18:00:00">18:00</option>
+              <option value="18:30:00">18:30</option>
+              <option value="19:00:00">19:00</option>
+            </select>
         </div>
         <div class="form-group">
           <label for="first_date">First date</label>

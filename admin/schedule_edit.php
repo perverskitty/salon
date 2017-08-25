@@ -10,6 +10,8 @@ if(empty($_GET['id'])) {
   
   $schedule = Schedule::find_by_id($_GET['id']);
   
+  $hairdresser = Hairdresser::find_by_id($schedule->hairdresser_id);
+  
   if (isset($_POST['update'])) {
     if($schedule) {
       $schedule->hairdresser_id = $_POST['hairdresser_id'];
@@ -46,7 +48,7 @@ if(empty($_GET['id'])) {
       <form id="login-id" action="" method="post">
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
-            <input type="text" class="form-control" name="hairdresser_id" value="<?php echo $schedule->hairdresser_id; ?>">
+            <input type="text" class="form-control" name="hairdresser_id" value="<?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?>" readonly>
         </div>
         <div class="form-group">
             <label for="day_id">Day</label>
