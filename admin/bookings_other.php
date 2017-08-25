@@ -1,221 +1,86 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+     
+<?php
+
+$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+$items_per_page = 15;
+$items_total_count = Booking::count_all() - Client_booking::count_all() - Guest_booking::count_all();
+
+$paginate = new Paginate($page, $items_per_page, $items_total_count);
+
+$sql = "SELECT * FROM bookings WHERE ";
+$sql .= "activity_id = 3 OR ";
+$sql .= "activity_id = 4 OR ";
+$sql .= "activity_id = 5 OR ";
+$sql .= "activity_id = 6 OR ";
+$sql .= "activity_id = 7 ";
+$sql .= "LIMIT {$items_per_page} ";
+$sql .= "OFFSET {$paginate->offset()}";
+
+$other_bookings = Booking::find_by_query($sql);
+
+?>
       
     <!-- Main content --> 
     <div class="col-md-9 content">
       
       
-      <!-- Dash title and datepicker -->  
+      <!-- Dash title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Admin</h6>
           <h2 class="dashhead-title">Other bookings</h2>
         </div>
-        <div class="btn-toolbar dashhead-toolbar">
-          <div class="btn-toolbar-item input-with-icon">
-            <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
-            <span class="icon icon-calendar"></span>
-          </div>
-        </div>
-      </div> <!-- end of dash title and datepicker -->  
+      </div> <!-- end of dash title -->  
       
       
-      <!-- Dash table search and action buttons -->
+      <!-- Dash table search -->
       <div class="flextable table-actions">
-        <!-- Search orders input -->
+        <!-- Search bookings input -->
         <div class="flextable-item flextable-primary">
           <div class="btn-toolbar-item input-with-icon">
             <input type="text" class="form-control input-block" placeholder="Search bookings">
             <span class="icon icon-magnifying-glass"></span>
           </div>
-        </div> <!-- end of search orders input -->
+        </div> <!-- end of search bookings input -->
         <div class="flextable-item">
           <div class="btn-group">
-            <button type="button" class="btn btn-outline-primary">
-              <span class="icon icon-pencil"></span>
-            </button>
-            <button type="button" class="btn btn-outline-primary">
-              <span class="icon icon-erase"></span>
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='booking_other_add.php'">
+              <span class="icon icon-plus"></span> Add other booking
             </button>
           </div>
         </div>
-      </div> <!-- end of dash table search and action buttons -->
+      </div> <!-- end of dash table -->
 
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table" data-sort="table">
+        <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
-              <th><input type="checkbox" class="select-all" id="selectAll"></th>
-              <th>Order</th>
-              <th>Customer name</th>
-              <th>Description</th>
+              <th></th>
+              <th>Id</th>
               <th>Date</th>
-              <th>Total</th>
+              <th>Time</th>
+              <th>Hairdresser</th>
+              <th>Activity</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
+          <?php foreach ($other_bookings as $other_booking) : ?>
             <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10001</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10002</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10003</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10004</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10005</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10006</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10007</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10008</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10009</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10010</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10011</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10012</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10013</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10014</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10015</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10016</a></td>
-              <td>First Last</td>
-              <td>Admin theme, marketing theme</td>
-              <td>01/01/2015</td>
-              <td>$200.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10017</a></td>
-              <td>Firstname Last</td>
-              <td>Admin theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10018</a></td>
-              <td>Name Another</td>
-              <td>Personal blog theme</td>
-              <td>01/01/2015</td>
-              <td>$100.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10019</a></td>
-              <td>One More</td>
-              <td>Marketing theme, personal blog theme, admin theme</td>
-              <td>01/01/2015</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="select-row"></td>
-              <td><a href="#">#10020</a></td>
-              <td>Name Right Here</td>
-              <td>Personal blog theme, admin theme</td>
-              <td>01/02/2015</td>
-              <td>$200.00</td>
+              <td><a href="client_edit.php?id=<?php echo $other_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><?php echo $other_booking->id; ?></td>
+              <td><?php echo $other_booking->booking_date; ?></td>
+              <td><?php echo $other_booking->start_time; ?></td>
+              <td><?php echo $other_booking->hairdresser_id; ?></td>
+              <td><?php echo $other_booking->activity_id; ?></td>
+              <td><?php echo $other_booking->booking_text; ?></td>
+            </tr>                
+          <?php endforeach; ?>
           </tbody>
         </table>
       </div> <!-- end of dash table header and data rows -->
@@ -225,23 +90,29 @@
       <div class="text-center">
         <nav>
           <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
+          
+          <?php
+            
+          if ($paginate->has_previous()) {
+            echo "<li class='page-item'><a class='page-link' href='bookings_other.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
+          }
+           
+          for ($i=1; $i <= $paginate->total_pages(); $i++) {
+            if($i == $paginate->current_page) {
+              echo "<li class='page-item active'><a class='page-link' href='bookings_other.php?page={$i}'>{$i}</a></li>";
+            } else {
+              echo "<li class='page-item'><a class='page-link' href='bookings_other.php?page={$i}'>{$i}</a></li>";
+            }
+          } 
+            
+          if ($paginate->total_pages() > 1) {
+            if ($paginate->has_next()) {
+              echo "<li class='page-item'><a class='page-link' href='bookings_other.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+            }
+          }
+          
+          ?>  
+            
           </ul>
         </nav>
       </div> <!-- end of pagination -->

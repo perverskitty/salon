@@ -6,7 +6,7 @@
 
 $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 $items_per_page = 15;
-$items_total_count = Client_booking::count_all(3);
+$items_total_count = Client_booking::count_all();
 
 $paginate = new Paginate($page, $items_per_page, $items_total_count);
 
