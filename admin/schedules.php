@@ -69,7 +69,7 @@ $schedules = Schedule::find_by_query($sql);
               <td><a href="schedule_edit.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $schedule->id; ?></td>
               <td><?php echo $schedule->hairdresser_id; ?></td>
-              <td><?php echo $schedule->day_id; ?></td>
+              <td><?php echo $schedule->day_name(); ?></td>
               <td><?php echo $schedule->start_time." to ".$schedule->end_time; ?></td>
               <td><?php echo $schedule->first_date." to ".$schedule->last_date; ?></td>
             </tr>                

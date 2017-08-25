@@ -16,6 +16,37 @@ class Schedule extends Db_object {
   public $changed_at;
   
   
+  // return day name
+  public function day_name() {
+    $day_name = "";
+    switch ($this->day_id) {
+      case "1":
+        $category_name = "Sunday";
+        break;
+      case "2":
+        $category_name = "Monday";
+        break;
+      case "3":
+        $category_name = "Tuesday";
+        break;
+      case "4":
+        $category_name = "Wednesday";
+        break;
+      case "5":
+        $category_name = "Thursday";
+        break;
+      case "6":
+        $category_name = "Friday";
+        break;
+      case "7":
+        $category_name = "Saturday";
+        break;
+      default:
+        $category_name = "Undefined";  
+    }
+    return $category_name;
+  }
+  
   
 } // end of class
 
