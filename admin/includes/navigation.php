@@ -30,6 +30,7 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php">My Dashboard</a>
             </li>
+            <?php if($session->user_role == 1 || $session->user_role == 2) : ?>
             <li class="nav-item">
               <a class="nav-link" href="overview.php">Salon Dashboard</a>
             </li>
@@ -58,6 +59,7 @@
             <li class="nav-item">
               <a class="nav-link" href="bookings_other.php">Other Bookings</a>
             </li>
+            <?php endif; ?>
             <li class="nav-header">My Account</li>
             <li class="nav-item">
               <a class="nav-link" href="profile.php">My Profile</a>

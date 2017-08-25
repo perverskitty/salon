@@ -1,6 +1,7 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2) { redirect("index.php"); } ?>
      
 <?php
 
