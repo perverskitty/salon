@@ -13,7 +13,7 @@ if(empty($_GET['id'])) {
   if (isset($_POST['update'])) {
     if($schedule) {
       $schedule->hairdresser_id = $_POST['hairdresser_id'];
-      $schedule->day = $_POST['day_id'];
+      $schedule->day_id = $_POST['day_id'];
       $schedule->start_time = $_POST['start_time'];
       $schedule->end_time = $_POST['end_time'];
       $schedule->first_date = $_POST['first_date'];
@@ -49,8 +49,8 @@ if(empty($_GET['id'])) {
             <input type="text" class="form-control" name="hairdresser_id" value="<?php echo $schedule->hairdresser_id; ?>">
         </div>
         <div class="form-group">
-            <label for="day">Day</label>
-            <input type="text" class="form-control" name="day" value="<?php echo $schedule->day_id; ?>">
+            <label for="day_id">Day</label>
+            <input type="text" class="form-control" name="day_id" value="<?php echo $schedule->day_id; ?>">
         </div>
         <div class="form-group">
             <label for="start_time">Start time</label>

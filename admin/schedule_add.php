@@ -8,7 +8,7 @@ $schedule = new Schedule();
 if (isset($_POST['create'])) {  
   if($schedule) {
       $schedule->hairdresser_id = $_POST['hairdresser_id'];
-      $schedule->day = $_POST['day'];
+      $schedule->day_id = $_POST['day_id'];
       $schedule->start_time = $_POST['start_time'];
       $schedule->end_time = $_POST['end_time'];
       $schedule->first_date = $_POST['first_date'];
@@ -43,8 +43,8 @@ if (isset($_POST['create'])) {
             <input type="text" class="form-control" name="hairdresser_id">
         </div>
         <div class="form-group">
-            <label for="day">Day</label>
-            <input type="text" class="form-control" name="day">
+            <label for="day_id">Day</label>
+            <input type="text" class="form-control" name="day_id">
         </div>
         <div class="form-group">
             <label for="start_time">Start time</label>
