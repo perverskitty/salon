@@ -18,9 +18,16 @@ require_once(INCLUDES_PATH.DS."class_db_object.php");
 require_once(INCLUDES_PATH.DS."class_user.php");
 require_once(INCLUDES_PATH.DS."class_hairdresser.php");
 require_once(INCLUDES_PATH.DS."class_client.php");
-require_once(INCLUDES_PATH.DS."class_client.php");
 require_once(INCLUDES_PATH.DS."class_service.php");
 require_once(INCLUDES_PATH.DS."class_schedule.php");
+require_once(INCLUDES_PATH.DS."class_booking.php");
+require_once(INCLUDES_PATH.DS."class_client_booking.php");
+require_once(INCLUDES_PATH.DS."class_guest_booking.php");
+require_once(INCLUDES_PATH.DS."class_activity.php");
+require_once(INCLUDES_PATH.DS."class_category.php");
+require_once(INCLUDES_PATH.DS."class_day.php");
+require_once(INCLUDES_PATH.DS."class_role.php");
+require_once(INCLUDES_PATH.DS."class_open_time.php");
 require_once(INCLUDES_PATH.DS."class_session.php");
 require_once(INCLUDES_PATH.DS."class_paginate.php");
 
