@@ -116,7 +116,7 @@ if(empty($_GET['id'])) {
         </div>        
         <div class="form-group">
 	        <label for="password">Password</label>
-	        <input type="password" class="form-control" name="password" value="<?php echo $client->password; ?>">
+	        <input type="password" class="form-control" name="password">
         </div>
         <div class="form-group">
           <?php if($session->user_role == 1) : ?>

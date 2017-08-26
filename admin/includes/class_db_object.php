@@ -52,7 +52,11 @@ abstract class Db_object {
     global $database;
     $clean_properties = array();
     foreach ($this->properties() as $key => $value) {
-      $clean_properties[$key] = $database->escape_string($value); 
+      if ($key == 'password') {
+          $clean_properties[$key] = $database->encrypt_escape_string($value);
+      } else {
+        $clean_properties[$key] = $database->escape_string($value); 
+      }
     }
     return $clean_properties;
   }

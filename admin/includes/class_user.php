@@ -22,7 +22,7 @@ class User extends Db_object {
   public static function verify_user($email, $password) {
     global $database;
     $email = $database->escape_string($email);
-    $password = $database->escape_string($password);
+    $password = $database->encrypt_escape_string($password);
     
     $sql = "SELECT * FROM " . self::$db_table . " WHERE ";
     $sql .= "email = '{$email}' ";
@@ -44,7 +44,6 @@ class User extends Db_object {
     $row = mysqli_fetch_array($result_set);
     return array_shift($row);
   }
-  
   
   
 } // end of class

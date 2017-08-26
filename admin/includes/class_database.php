@@ -45,6 +45,24 @@ class Database {
   }
   
   
+  // returns an encrypted string
+  private function encrypt_string($string) {
+    $hashFormat = "$2y$10$"; // blowfish encryption with 10x generation
+    $salt = "xCyVL42QLX622jcZf8koen"; // 22 character salt
+    $hashF_and_salt = $hashFormat . $salt;
+    $encrypted_string = crypt($string, $hashF_and_salt);
+    return $encrypted_string;
+  }
+  
+  
+  // returns an escaped and encrypted string
+  public function encrypt_escape_string($string) {
+    $escaped_string = $this->escape_string($string);
+    $encrypted_escaped_string = $this->encrypt_string($escaped_string);
+    return $encrypted_escaped_string;
+  } 
+  
+  
   // returns last inserted id
   public function the_insert_id() {
     return $this->connection->insert_id;

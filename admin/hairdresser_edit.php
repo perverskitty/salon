@@ -108,7 +108,7 @@ if(empty($_GET['id'])) {
         </div>        
         <div class="form-group">
 	        <label for="password">Password</label>
-	        <input type="password" class="form-control" name="password" value="<?php echo $hairdresser->password; ?>">
+	        <input type="password" class="form-control" name="password" value="">
         </div>
         <div class="form-group">
           <a class="btn btn-outline-danger" href="hairdresser_delete.php?id=<?php echo $hairdresser->id; ?>">Delete</a>

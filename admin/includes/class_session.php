@@ -28,7 +28,7 @@ class Session {
   public function signin($user) {
     if ($user) {
       $this->user_id = $_SESSION['user_id'] = $user->id;
-      $this->user_name = $_SESSION['user_name'] = $user->first_name;
+      $this->user_name = $_SESSION['user_name'] = ($user->first_name." ".$user->last_name);
       $this->user_role = $_SESSION['user_role'] = $user->role_id;
       $this->signed_in = true;
     }
