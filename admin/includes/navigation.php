@@ -18,12 +18,14 @@
          
         <!-- sidebar search and list of links collapsable -->
         <div class="collapse nav-toggleable-md" id="nav-toggleable-md">
+<!--
           <form class="sidebar-form">
             <input class="form-control" type="text" placeholder="Search...">
             <button type="submit" class="btn-link">
               <span class="icon icon-magnifying-glass"></span>
             </button>
           </form>
+-->
             
           <ul class="nav nav-pills nav-stacked flex-column">
             <li class="nav-header">Dashboards</li>
