@@ -72,10 +72,10 @@ $client_bookings = Booking::find_by_query($sql);
               <td><a href="client_edit.php?id=<?php echo $client_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $client_booking->id; ?></td>
               <td><?php echo $client_booking->booking_date; ?></td>
-              <td><?php echo $client_booking->start_time; ?></td>
-              <td><?php echo $client_booking->hairdresser_id; ?></td>
-              <td><?php echo $client_booking->booking_text; ?></td>
-              <td><?php echo $client_booking->booking_text; ?></td>
+              <td><?php echo $client_booking->start_time.' '.$client_booking->end_time; ?></td>
+              <td><?php echo Hairdresser::name($client_booking->hairdresser_id); ?></td>
+              <td><?php echo Client::name($client_booking->client_id); ?></td>
+              <td><?php echo Activity::name($client_booking->activity_id); ?></td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

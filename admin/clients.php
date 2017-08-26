@@ -75,7 +75,13 @@ $clients = Client::find_by_query($sql);
               <td><?php echo $client->last_name; ?></td>
               <td><?php echo $client->email; ?></td>
               <td><?php echo $client->tel; ?></td>
-              <td><?php echo $client->hairdresser_name(); ?></td>
+              <td>
+              <?php if (!empty($client->hairdresser_id)) {
+                        echo Hairdresser::name($client->hairdresser_id);
+                    } else {
+                        echo 'No preference';
+                    } ?>
+              </td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

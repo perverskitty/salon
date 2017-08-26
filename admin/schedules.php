@@ -77,7 +77,7 @@ $schedules = Schedule::find_by_query($sql);
               <?php endif; ?>
               <td><?php echo $schedule->id; ?></td>
               <td><?php echo $hairdresser->first_name." ".$hairdresser->last_name ?></td>
-              <td><?php echo $schedule->day_name(); ?></td>
+              <td><?php echo Day::name($schedule->day_id); ?></td>
               <td><?php echo $schedule->start_time." to ".$schedule->end_time; ?></td>
               <td><?php echo $schedule->first_date." to ".$schedule->last_date; ?></td>
             </tr>                

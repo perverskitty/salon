@@ -81,7 +81,7 @@ $hairdressers = Hairdresser::find_by_query($sql);
               <td><?php echo $hairdresser->last_name; ?></td>
               <td><?php echo $hairdresser->email; ?></td>
               <td><?php echo $hairdresser->tel; ?></td>
-              <td><?php echo $hairdresser->role_name() ?></td>
+              <td><?php echo Role::name($hairdresser->role_id); ?></td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

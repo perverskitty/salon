@@ -3,17 +3,11 @@
 class Hairdresser extends User {
   
   
-  // returns role name
-  public function role_name() {
-    if ($this->role_id == 1) {
-      return "Manager";
-    } elseif ($this->role_id == 2) {
-      return "Hairdresser";
-    } else {
-      return "Not staff!";
-    }
-  } 
-
+  // return hairdresser's name
+  public static function name($id) {
+    $the_hairdresser = self::find_by_id($id);
+    return !empty($the_hairdresser) ? $the_hairdresser->first_name.' '.$the_hairdresser->last_name : false;
+  }
 
   
 } // end of class

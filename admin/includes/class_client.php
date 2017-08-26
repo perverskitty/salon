@@ -9,14 +9,10 @@ class Client extends User {
   public $hairdresser_id = 0;
   
   
-  // return hairdresser name 
-  public function hairdresser_name() {
-    $hairdresser = Hairdresser::find_by_id($this->hairdresser_id);
-    if ($hairdresser) {
-      return $hairdresser->first_name . " " . $hairdresser->last_name;
-    } else {
-      return "No preference";
-    }
+  // return client's name
+  public static function name($id) {
+    $the_client = self::find_by_id($id);
+    return !empty($the_client) ? $the_client->first_name.' '.$the_client->last_name : false;
   }
   
   

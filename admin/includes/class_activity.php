@@ -9,6 +9,13 @@ class Activity extends Db_object {
   public $activity_name;
   
   
+  // return activity name
+  public static function name($id) {
+    $the_activity = self::find_by_id($id);
+    return !empty($the_activity) ? $the_activity->activity_name : false;
+  }
+  
+  
 } // end of class
 
 

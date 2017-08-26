@@ -83,8 +83,8 @@ $other_bookings = Booking::find_by_query($sql);
               <td><?php echo $other_booking->id; ?></td>
               <td><?php echo $other_booking->booking_date; ?></td>
               <td><?php echo $other_booking->start_time; ?></td>
-              <td><?php echo $other_booking->hairdresser_id; ?></td>
-              <td><?php echo $other_booking->activity_id; ?></td>
+              <td><?php echo Hairdresser::name($other_booking->hairdresser_id); ?></td>
+              <td><?php echo Activity::name($other_booking->activity_id); ?></td>
               <td><?php echo $other_booking->booking_text; ?></td>
             </tr>                
           <?php endforeach; ?>

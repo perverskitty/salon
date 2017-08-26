@@ -9,6 +9,13 @@ class Day extends Db_object {
   public $day_name;
   
   
+  // return day name
+  public static function name($id) {
+    $the_day = self::find_by_id($id);
+    return !empty($the_day) ? $the_day->day_name : false;
+  }
+  
+  
 } // end of class
 
 

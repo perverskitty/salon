@@ -14,26 +14,10 @@ class Service extends Db_object {
   public $changed_at;
   
   
-  // return category name
-  public function category_name() {
-    $category_name = "";
-    switch ($this->category_id) {
-      case "1":
-        $category_name = "Mens";
-        break;
-      case "2":
-        $category_name = "Ladies";
-        break;
-      case "3":
-        $category_name = "Childrens";
-        break;
-      case "4":
-        $category_name = "Unisex";
-        break;
-      default:
-        $category_name = "Undefined";  
-    }
-    return $category_name;
+  // return service name
+  public static function name($id) {
+    $the_service = self::find_by_id($id);
+    return !empty($the_service) ? $the_service->name : false;
   }
   
   
