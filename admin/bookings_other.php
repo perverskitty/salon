@@ -48,9 +48,11 @@ $other_bookings = Booking::find_by_query($sql);
         </div> <!-- end of search bookings input -->
         <div class="flextable-item">
           <div class="btn-group">
+            <?php if($session->user_role == 1) : ?>
             <button type="button" class="btn btn-outline-primary" onclick="window.location='booking_other_add.php'">
               <span class="icon icon-plus"></span> Add other booking
             </button>
+            <?php endif; ?>
           </div>
         </div>
       </div> <!-- end of dash table -->
@@ -61,7 +63,9 @@ $other_bookings = Booking::find_by_query($sql);
         <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
+              <?php if($session->user_role == 1) : ?>
               <th></th>
+              <?php endif; ?>
               <th>Id</th>
               <th>Date</th>
               <th>Time</th>
@@ -73,7 +77,9 @@ $other_bookings = Booking::find_by_query($sql);
           <tbody>
           <?php foreach ($other_bookings as $other_booking) : ?>
             <tr>
+              <?php if($session->user_role == 1) : ?>
               <td><a href="client_edit.php?id=<?php echo $other_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <?php endif; ?>
               <td><?php echo $other_booking->id; ?></td>
               <td><?php echo $other_booking->booking_date; ?></td>
               <td><?php echo $other_booking->start_time; ?></td>

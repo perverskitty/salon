@@ -43,9 +43,11 @@ $services = Service::find_by_query($sql);
         </div> <!-- end of search orders input -->
         <div class="flextable-item">
           <div class="btn-group">
+            <?php if($session->user_role == 1) : ?>
             <button type="button" class="btn btn-outline-primary" onclick="window.location='service_add.php'">
               <span class="icon icon-plus"></span> Add service
             </button>
+            <?php endif; ?>
           </div>
         </div>
       </div> <!-- end of dash table search and action buttons -->
@@ -56,7 +58,9 @@ $services = Service::find_by_query($sql);
         <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
+              <?php if($session->user_role == 1) : ?>
               <th></th>
+              <?php endif; ?>
               <th>Id</th>
               <th>Service</th>
               <th>Duration</th>
@@ -67,7 +71,9 @@ $services = Service::find_by_query($sql);
           <tbody>
           <?php foreach ($services as $service) : ?>
             <tr>
+              <?php if($session->user_role == 1) : ?>
               <td><a href="service_edit.php?id=<?php echo $service->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <?php endif; ?>
               <td><?php echo $service->id; ?></td>
               <td><?php echo $service->name; ?></td>
               <td><?php echo $service->duration; ?></td>

@@ -43,9 +43,11 @@ $schedules = Schedule::find_by_query($sql);
         </div> <!-- end of search orders input -->
         <div class="flextable-item">
           <div class="btn-group">
+            <?php if($session->user_role == 1) : ?>
             <button type="button" class="btn btn-outline-primary" onclick="window.location='schedule_add.php'">
               <span class="icon icon-plus"></span> Add schedule
             </button>
+            <?php endif; ?>
           </div>
         </div>
       </div> <!-- end of dash table search and action buttons -->
@@ -56,7 +58,9 @@ $schedules = Schedule::find_by_query($sql);
         <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
+              <?php if($session->user_role == 1) : ?>
               <th></th>
+              <?php endif; ?>
               <th>Id</th>
               <th>Hairdresser</th>
               <th>Day</th>
@@ -68,7 +72,9 @@ $schedules = Schedule::find_by_query($sql);
           <?php foreach ($schedules as $schedule) : ?>
             <?php $hairdresser = Hairdresser::find_by_id($schedule->hairdresser_id); ?>
             <tr>
+              <?php if($session->user_role == 1) : ?>
               <td><a href="schedule_edit.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <?php endif; ?>
               <td><?php echo $schedule->id; ?></td>
               <td><?php echo $hairdresser->first_name." ".$hairdresser->last_name ?></td>
               <td><?php echo $schedule->day_name(); ?></td>
