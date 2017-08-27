@@ -16,6 +16,118 @@ class Booking extends Db_object {
   public $changed_at;
   
   
+  public function validate() {
+    date_default_timezone_set("Europe/London");
+    $date_today = date("Y-m-d");
+    $time_today = date("H:i:s");
+    
+    if ($this->hairdresser_id == 0) {
+      Message::setMsg("Please select a hairdresser", "error");
+      return false;
+    } 
+    if ($this->activity_id == 0) {
+      Message::setMsg("Please select an activity", "error");
+      return false;
+    } 
+    if ($this->booking_date == 0) {
+      Message::setMsg("Please select a date", "error");
+      return false;
+    } 
+    if ($this->booking_date < $date_today) {
+      Message::setMsg("Please select a valid date", "error");
+      return false;
+    }
+    if ($this->start_time == 0) {
+      Message::setMsg("Please select a start time", "error");
+      return false;
+    } 
+    if ($this->start_time <= $time_today && $this->booking_date <= $date_today) {
+      Message::setMsg("Please select a valid start time", "error");
+      return false;
+    } 
+    if ($this->end_time == 0) {
+      Message::setMsg("Please select an end time", "error");
+      return false;
+    } 
+    if ($this->end_time <= $this->start_time) {
+      Message::setMsg("Please select a valid end time", "error");
+      return false;
+    } 
+    if ($this->end_time <= $time_today && $this->booking_date <= $date_today) {
+      Message::setMsg("Please select a valid end time", "error");
+      return false;
+    } 
+    if ($this->salon_open() == false) {
+      Message::setMsg("The salon is closed for this date and/or time", "error");
+      return false;
+    }
+    if ($this->schedule_open() == false) {
+      Message::setMsg("The hairdresser is not working for this date and/or time", "error");
+      return false;
+    }
+     if ($this->booking_open() == false) {
+      Message::setMsg("There is a clash with an existing booking", "error");
+      return false;
+    }
+    
+    return true;
+  }
+  
+  
+  protected function salon_open() {
+    $day = date("w", strtotime($this->booking_date));
+    $day = $day + 1;
+    
+    $sql = "SELECT * FROM open_times WHERE ";
+    $sql .= "day_id =". $day ." AND ";
+    $sql .= "open_time <= '". $this->start_time ."' AND ";
+    $sql .= "close_time > '". $this->start_time ."' AND ";
+    $sql .= "first_date <= '". $this->booking_date ."' AND ";
+    $sql .= "last_date >= '". $this->booking_date ."'";
+    
+    $result = Open_time::find_by_query($sql);
+  
+    return !empty($result) ? true : false;  
+  } 
+  
+  
+  protected function schedule_open() {
+    $day = date("w", strtotime($this->booking_date));
+    $day = $day + 1;
+    
+    $sql = "SELECT * FROM schedules WHERE ";
+    $sql .= "hairdresser_id =". $this->hairdresser_id ." AND ";
+    $sql .= "day_id =". $day ." AND ";
+    $sql .= "start_time <= '". $this->start_time ."' AND ";
+    $sql .= "end_time > '". $this->start_time ."' AND ";
+    $sql .= "end_time >= '". $this->end_time ."' AND ";
+    $sql .= "first_date <= '". $this->booking_date ."' AND ";
+    $sql .= "last_date >= '". $this->booking_date ."'";
+    
+    $result = Schedule::find_by_query($sql);
+  
+    return !empty($result) ? true : false;  
+  }
+  
+  
+  protected function booking_open() {
+    
+    $sql = "SELECT * FROM bookings WHERE ";
+    $sql .= "(hairdresser_id = ". $this->hairdresser_id ." AND ";
+    $sql .= "booking_date = '". $this->booking_date ."' AND ";
+    $sql .= "start_time < '". $this->end_time ."' AND ";
+    $sql .= "end_time >= '". $this->end_time ."') OR ";
+    $sql .= "(hairdresser_id = ". $this->hairdresser_id ." AND ";
+    $sql .= "booking_date = '". $this->booking_date ."' AND ";
+    $sql .= "start_time <= '". $this->start_time ."' AND ";
+    $sql .= "end_time > '". $this->start_time ."')";
+    
+    $result = Booking::find_by_query($sql);
+    
+    return empty($result) ? true : false; 
+  }
+  
+  
 } // end of class
 
 

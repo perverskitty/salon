@@ -8,6 +8,7 @@ class Open_time extends Db_object {
   public $id;
   public $day_id;
   public $open_time;
+  public $close_time;
   public $first_date;
   public $last_date;
   

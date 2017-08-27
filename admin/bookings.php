@@ -53,8 +53,8 @@ $bookings = Booking::find_by_query($sql);
               <th>Id</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Activity</th>
               <th>Hairdresser</th>
+              <th>Activity</th>
               <th>Details</th>
             </tr>
           </thead>
@@ -63,10 +63,10 @@ $bookings = Booking::find_by_query($sql);
             <tr>
               <td><a href="client_edit.php?id=<?php echo $client->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $booking->id; ?></td>
-              <td><?php echo $booking->booking_date; ?></td>
-              <td><?php echo $booking->start_time.' - '.$booking->end_time; ?></td>
-              <td><?php echo Activity::name($booking->activity_id); ?></td>
+              <td><?php echo date("D, j M Y", strtotime($booking->booking_date)); ?></td>
+              <td><?php echo substr($booking->start_time, 0, 5)." - ".substr($booking->end_time, 0, 5); ?></td>
               <td><?php echo Hairdresser::name($booking->hairdresser_id); ?></td>
+              <td><?php echo Activity::name($booking->activity_id); ?></td>
               <td><?php echo $booking->booking_text; ?></td>
             </tr>                
           <?php endforeach; ?>

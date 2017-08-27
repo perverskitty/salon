@@ -64,8 +64,8 @@ $schedules = Schedule::find_by_query($sql);
               <th>Id</th>
               <th>Hairdresser</th>
               <th>Day</th>
-              <th>Times</th>
-              <th>Period</th>
+              <th>Time</th>
+              <th>Valid</th>
             </tr>
           </thead>
           <tbody>
@@ -78,8 +78,8 @@ $schedules = Schedule::find_by_query($sql);
               <td><?php echo $schedule->id; ?></td>
               <td><?php echo $hairdresser->first_name." ".$hairdresser->last_name ?></td>
               <td><?php echo Day::name($schedule->day_id); ?></td>
-              <td><?php echo $schedule->start_time." to ".$schedule->end_time; ?></td>
-              <td><?php echo $schedule->first_date." to ".$schedule->last_date; ?></td>
+              <td><?php echo substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5); ?></td>
+              <td><?php echo date("j M Y", strtotime($schedule->first_date))." - ".date("j M Y", strtotime($schedule->last_date)); ?></td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

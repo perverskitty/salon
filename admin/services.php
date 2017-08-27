@@ -76,7 +76,7 @@ $services = Service::find_by_query($sql);
               <?php endif; ?>
               <td><?php echo $service->id; ?></td>
               <td><?php echo $service->name; ?></td>
-              <td><?php echo $service->duration; ?></td>
+              <td><?php echo substr($service->duration, 0, 5); ?></td>
               <td><?php echo Category::name($service->category_id); ?></td>
               <td><?php echo "£".$service->cost; ?></td>
             </tr>                

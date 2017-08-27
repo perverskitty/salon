@@ -67,7 +67,7 @@ class Session {
     if (!empty($msg)) {
       $_SESSION['message'] = $msg;
     } else {
-      return $ $this->message;
+      return $this->message;
     }
   }
   

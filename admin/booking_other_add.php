@@ -10,21 +10,31 @@ $sql .= "role_id = 1 OR role_id = 2 ";
 $sql .= "ORDER BY first_name";
 $hairdressers = Hairdresser::find_by_query($sql);
 
-$other_booking = new Booking();
 if (isset($_POST['create'])) {  
-  if($other_booking) {
-      $other_booking->hairdresser_id = $_POST['hairdresser_id'];
-      $other_booking->activity_id = $_POST['activity_id'];
-      $other_booking->booking_date = $_POST['booking_date'];
-      $other_booking->start_time = $_POST['start_time'];
-      $other_booking->end_time = $_POST['end_time'];
-      $other_booking->booking_text = $_POST['booking_text'];
+  
+  $booking = new Booking();
+  if ($booking) {
+    $booking->hairdresser_id = $_POST['hairdresser_id'];
+    $booking->activity_id = $_POST['activity_id'];
+    $booking->booking_date = $_POST['booking_date'];
+    $booking->start_time = $_POST['start_time'];
+    $booking->end_time = $_POST['end_time'];
+    $booking->booking_text = $_POST['booking_text'];
     
-      if ($other_booking->save()) { redirect("bookings_other.php"); }
+    if ($booking->validate()) {
+      
+      if ($booking->save()) { 
+        redirect("bookings_other.php"); 
+      }
+      
+    }
+    
   }
 }
 
 ?>
+    
+
      
     <!-- Main content --> 
     <div class="col-md-9 content">
@@ -40,34 +50,37 @@ if (isset($_POST['create'])) {
      
      
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?>
 	
 	    <!-- add service form -->
-      <form id="login-id" action="" method="post">
+      <form action="" method="post">
+       
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
             <select class="form-control" name="hairdresser_id">
-              <option selected>Open this select menu</option>
+              <option value="">Open this select menu</option>
               <?php foreach ($hairdressers as $hairdresser) : ?>
               <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
               <?php endforeach; ?>
             </select>
         </div>
+        
         <div class="form-group">
             <label for="activity_id">Activity</label>
             <select class="form-control" name="activity_id">
               <option selected>Open this select menu</option>
-              <option value="3">Staff Holiday</option>
-              <option value="4">Staff Training</option>
-              <option value="5">Salon Repairs</option>
-              <option value="6">Salon Closed</option>
-              <option value="7">Other</option>
+              <option value="3">Staff holiday</option>
+              <option value="4">Staff training</option>
+              <option value="5">Staff meeting</option>
+              <option value="6">Other</option>
             </select>
         </div>
+        
         <div class="form-group">
           <label for="booking_date">Date</label>
           <input type="text" class="form-control" data-date-format="yyyy-mm-dd" data-provide="datepicker" name="booking_date">
         </div>
+        
         <div class="form-group">
             <label for="start_time">Start Time</label>
             <select class="form-control" name="start_time">
@@ -92,6 +105,7 @@ if (isset($_POST['create'])) {
               <option value="18:30:00">18:30</option>
             </select>
         </div>
+        
         <div class="form-group">
             <label for="end_time">End time</label>
             <select class="form-control" name="end_time">
@@ -116,10 +130,12 @@ if (isset($_POST['create'])) {
               <option value="19:00:00">19:00</option>
             </select>
         </div>
+        
         <div class="form-group">
           <label for="booking_text">Notes</label>
           <textarea class="form-control" name="booking_text" rows="3"></textarea>
         </div>
+        
         <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
         </div>
