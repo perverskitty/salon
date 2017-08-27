@@ -12,17 +12,27 @@ $hairdressers = Hairdresser::find_by_query($sql);
 
 $services = Service::find_all();
 
-$guest_booking = new Booking();
 if (isset($_POST['create'])) {  
-  if($guest_booking) {
-      $guest_booking->hairdresser_id = $_POST['hairdresser_id'];
-      $guest_booking->activity_id = 2;
-      $guest_booking->booking_date = $_POST['booking_date'];
-      $guest_booking->start_time = $_POST['start_time'];
-      $guest_booking->end_time = $_POST['end_time'];
-      $guest_booking->booking_text = $_POST['booking_text'];
+  $booking = new Guest_booking();
+  
+  if($booking) {
+    $booking->hairdresser_id = $_POST['hairdresser_id'];
+    $booking->booking_date = $_POST['booking_date'];
+    $booking->start_time = $_POST['start_time'];
+    $booking->activity_id = 2;
+    $booking->booking_text = $_POST['booking_text'];
     
-      if ($guest_booking->save()) { redirect("bookings_guests.php"); }
+    $booking->service_id = $_POST['service_id'];
+    $booking->guest_name = $_POST['guest_name'];
+    $booking->guest_tel = $_POST['guest_tel'];
+      
+    if ($booking->validate()) {
+      
+      if ($booking->save()) { 
+        redirect("bookings_guests.php"); 
+      }  
+    }
+  
   }
 }
 
@@ -42,27 +52,30 @@ if (isset($_POST['create'])) {
      
      
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?>
 	
 	    <!-- add service form -->
       <form id="login-id" action="" method="post">
+       
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
             <select class="form-control" name="hairdresser_id">
-              <option selected>No preference</option>
+              <option value="">Open this select menu</option>
               <?php foreach ($hairdressers as $hairdresser) : ?>
               <option value="<?php echo $hairdresser->id; ?>"><?php echo $hairdresser->first_name." ".$hairdresser->last_name; ?></option>
               <?php endforeach; ?>
             </select>
         </div>
+        
         <div class="form-group">
           <label for="booking_date">Date</label>
           <input type="text" class="form-control" data-date-format="yyyy-mm-dd" data-provide="datepicker" name="booking_date">
         </div>
+        
         <div class="form-group">
             <label for="start_time">Start Time</label>
             <select class="form-control" name="start_time">
-              <option selected>Open this select menu</option>
+              <option value="">Open this select menu</option>
               <option value="10:00:00">10:00</option>
               <option value="10:30:00">10:30</option>
               <option value="11:00:00">11:00</option>
@@ -83,15 +96,17 @@ if (isset($_POST['create'])) {
               <option value="18:30:00">18:30</option>
             </select>
         </div>
+        
         <div class="form-group">
             <label for="service_id">Service</label>
             <select class="form-control" name="service_id">
-              <option selected>Open this select menu</option>
+              <option value="">Open this select menu</option>
               <?php foreach ($services as $service) : ?>
               <option value="<?php echo $service->id; ?>"><?php echo $service->name; ?></option>
               <?php endforeach; ?>
             </select>
         </div>
+        
         <div class="form-group">
           <label for="guest_name">Guest name</label>
           <input type="text" class="form-control" name="guest_name">
@@ -107,6 +122,7 @@ if (isset($_POST['create'])) {
         <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
         </div>
+  
       </form> <!-- end of add service form -->
      
 

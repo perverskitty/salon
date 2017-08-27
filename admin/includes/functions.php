@@ -20,4 +20,11 @@ function redirect($location) {
 }
 
 
+// returns hh:mm:ss in minutes
+function minutes($time) {
+  $time = explode(':', $time);
+  return ($time[0]*60) + $time[1];
+}
+
+
 ?>

@@ -47,7 +47,7 @@ if (isset($_POST['create'])) {
      
      
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?>
 	
 	    <!-- add service form -->
       <form id="login-id" action="" method="post">

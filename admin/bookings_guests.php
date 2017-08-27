@@ -16,7 +16,7 @@ $sql .= "activity_id = 2 ";
 $sql .= "LIMIT {$items_per_page} ";
 $sql .= "OFFSET {$paginate->offset()}";
 
-$guest_bookings = Booking::find_by_query($sql);
+$guest_bookings = Guest_booking::find_by_query($sql);
 
 ?>
       
@@ -71,11 +71,11 @@ $guest_bookings = Booking::find_by_query($sql);
             <tr>
               <td><a href="client_edit.php?id=<?php echo $guest_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $guest_booking->id; ?></td>
-              <td><?php echo $guest_booking->booking_date; ?></td>
-              <td><?php echo $guest_booking->start_time.' '.$guest_booking->end_time; ?></td>
+              <td><?php echo date("D, j M Y", strtotime($guest_booking->booking_date)); ?></td>
+              <td><?php echo substr($guest_booking->start_time, 0, 5)." - ".substr($guest_booking->end_time, 0, 5); ?></td>
               <td><?php echo Hairdresser::name($guest_booking->hairdresser_id); ?></td>
-              <td><?php echo Activity::name($guest_booking->activity_id); ?></td>
-              <td><?php echo Activity::name($guest_booking->activity_id); ?></td>
+              <td><?php echo $guest_booking->guest_name." ".$guest_booking->guest_tel; ?></td>
+              <td><?php echo Service::name($guest_booking->service_id); ?></td>
             </tr>                
           <?php endforeach; ?>
           </tbody>

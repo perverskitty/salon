@@ -12,10 +12,9 @@ class Booking extends Db_object {
   public $hairdresser_id;
   public $activity_id;
   public $booking_text;
-  public $created_at;
-  public $changed_at;
   
   
+  // validate method
   public function validate() {
     date_default_timezone_set("Europe/London");
     $date_today = date("Y-m-d");
