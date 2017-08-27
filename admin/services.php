@@ -55,7 +55,7 @@ $services = Service::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table">
+        <table class="table table-hover" data-sort="table" id="service-table">
           <thead>
             <tr>
               <?php if($session->user_role == 1) : ?>

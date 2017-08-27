@@ -1,11 +1,10 @@
 <?php
 
-class Guest_booking extends Db_object {
+class Guest_booking extends Booking {
   
   // properties
   protected static $db_table = "guest_bookings";
-  protected static $db_table_fields = array('booking_id', 'service_id', 'guest_name', 'guest_tel');
-  public $booking_id;
+  protected static $db_table_fields = array('id', 'service_id', 'guest_name', 'guest_tel');
   public $service_id;
   public $guest_name;
   public $guest_tel;

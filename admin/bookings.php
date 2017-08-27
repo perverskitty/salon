@@ -46,7 +46,7 @@ $bookings = Booking::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table">
+        <table class="table table-hover" data-sort="table" id="booking-table">
           <thead>
             <tr>
               <th></th>

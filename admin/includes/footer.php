@@ -26,6 +26,7 @@
 <script src="assets/js/tether.min.js"></script>
 <script src="assets/js/chart.js"></script>
 <script src="assets/js/tablesorter.min.js"></script>
+<script src="assets/js/tablesorter.pager.js"></script>
 <script src="assets/js/toolkit.js"></script>
 <script src="assets/js/application.js"></script>
 <script>

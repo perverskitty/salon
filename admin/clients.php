@@ -6,7 +6,7 @@
 <?php
 
 $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-$items_per_page = 10;
+$items_per_page = 100;
 $items_total_count = User::count_by_role(3);
 
 $paginate = new Paginate($page, $items_per_page, $items_total_count);
@@ -54,7 +54,7 @@ $clients = Client::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table">
+        <table class="table table-hover" data-sort="table" id="client-table">
           <thead>
             <tr>
               <th></th>

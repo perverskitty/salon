@@ -6,7 +6,7 @@
 <?php
 
 $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-$items_per_page = 10;
+$items_per_page = 50;
 $items_total_count = User::count_by_role(1) + User::count_by_role(2);
 
 $paginate = new Paginate($page, $items_per_page, $items_total_count);
@@ -56,7 +56,7 @@ $hairdressers = Hairdresser::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table">
+        <table class="table table-hover" data-sort="table" id="hairdresser-table">
           <thead>
             <tr>
               <?php if($session->user_role == 1) : ?>

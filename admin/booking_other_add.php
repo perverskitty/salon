@@ -66,7 +66,7 @@ if (isset($_POST['create'])) {
         </div>
         <div class="form-group">
           <label for="booking_date">Date</label>
-          <input type="text" class="form-control" data-provide="datepicker" name="booking_date">
+          <input type="text" class="form-control" data-date-format="yyyy-mm-dd" data-provide="datepicker" name="booking_date">
         </div>
         <div class="form-group">
             <label for="start_time">Start Time</label>

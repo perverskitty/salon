@@ -6,7 +6,7 @@
 <?php
 
 $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-$items_per_page = 20;
+$items_per_page = 200;
 $items_total_count = Schedule::count_all();
 
 $paginate = new Paginate($page, $items_per_page, $items_total_count);
@@ -55,7 +55,7 @@ $schedules = Schedule::find_by_query($sql);
      
       <!-- Dash table header and data rows -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table">
+        <table class="table table-hover" data-sort="table" id="schedule-table">
           <thead>
             <tr>
               <?php if($session->user_role == 1) : ?>
