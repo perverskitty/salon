@@ -336,6 +336,12 @@
       
       <!-- Button labelled View all devices -->
       <a href="#" class="btn btn-outline-primary px-3">View all devices</a>
+      
+      <!-- horizontal rule -->
+      <hr class="mt-5">
+      
+      <!-- Google Timeline example chart -->
+      <div id="example3.1" style="height: 200px;"></div>
     
     </div> <!-- end of main content -->
       
