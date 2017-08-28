@@ -16,7 +16,7 @@
         <?php if($session->is_signed_in()) : ?>
         
         <div class="sidebar-header">
-          <h6><?php echo $session->user_name; ?></h6>
+          <h6><?php echo $session->user_fname.' '.$session->user_lname; ?></h6>
         </div>
          
         <!-- sidebar search and list of links collapsable -->
@@ -25,7 +25,7 @@
           <ul class="nav nav-pills nav-stacked flex-column">
             <li class="nav-header">Dashboards</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php">My Dashboard</a>
+              <a class="nav-link" href="index.php"><?php echo $session->user_fname."'s Dashboard"; ?></a>
             </li>
             <?php if($session->user_role == 1 || $session->user_role == 2) : ?>
             <li class="nav-item">
@@ -59,7 +59,7 @@
             <?php endif; ?>
             <li class="nav-header">My Account</li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.php">My Profile</a>
+              <a class="nav-link" href="profile.php"><?php echo $session->user_fname."'s Account"; ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="signout.php">Sign Out</a>

@@ -39,30 +39,56 @@
     var container = document.getElementById('example3.1');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
-    dataTable.addColumn({ type: 'string', id: 'Position' });
-    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'string', id: 'Hairdresser' });
+    dataTable.addColumn({ type: 'string', id: 'Booking' });
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
     dataTable.addRows([
-      [ 'President', 'George Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
-      [ 'President', 'John Adams', new Date(1797, 2, 4), new Date(1801, 2, 4) ],
-      [ 'President', 'Thomas Jefferson', new Date(1801, 2, 4), new Date(1809, 2, 4) ],
-      [ 'Vice President', 'John Adams', new Date(1789, 3, 21), new Date(1797, 2, 4)],
-      [ 'Vice President', 'Thomas Jefferson', new Date(1797, 2, 4), new Date(1801, 2, 4)],
-      [ 'Vice President', 'Aaron Burr', new Date(1801, 2, 4), new Date(1805, 2, 4)],
-      [ 'Vice President', 'George Clinton', new Date(1805, 2, 4), new Date(1812, 3, 20)],
-      [ 'Secretary of State', 'John Jay', new Date(1789, 8, 25), new Date(1790, 2, 22)],
-      [ 'Secretary of State', 'Thomas Jefferson', new Date(1790, 2, 22), new Date(1793, 11, 31)],
-      [ 'Secretary of State', 'Edmund Randolph', new Date(1794, 0, 2), new Date(1795, 7, 20)],
-      [ 'Secretary of State', 'Timothy Pickering', new Date(1795, 7, 20), new Date(1800, 4, 12)],
-      [ 'Secretary of State', 'Charles Lee', new Date(1800, 4, 13), new Date(1800, 5, 5)],
-      [ 'Secretary of State', 'John Marshall', new Date(1800, 5, 13), new Date(1801, 2, 4)],
-      [ 'Secretary of State', 'Levi Lincoln', new Date(1801, 2, 5), new Date(1801, 4, 1)],
-      [ 'Secretary of State', 'James Madison', new Date(1801, 4, 2), new Date(1809, 2, 3)]
+      [ 'Peter C', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Peter C', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
+      [ 'Peter C', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ],
+      [ 'Ludie L', 'Client', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
+      [ 'Ludie L', 'Guest', new Date(0, 0, 0, 13, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
+      [ 'Ludie L', 'Client', new Date(0, 0, 0, 16, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
+      [ 'Marc D', 'Guest', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Marc D', 'Meet', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
+      [ 'Marc D', 'Client', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
+      [ 'Marc D', 'Client', new Date(0, 0, 0, 17, 0, 0), new Date(0, 0, 0, 19, 0, 0) ],
+      [ 'Ginette V', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Ginette V', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
+      [ 'Ginette V', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ],
+      [ 'Claudie S', 'Client', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
+      [ 'Claudie S', 'Guest', new Date(0, 0, 0, 13, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
+      [ 'Claudie S', 'Client', new Date(0, 0, 0, 16, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
+      [ 'Markita W', 'Guest', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Markita W', 'Meet', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
+      [ 'Markita W', 'Client', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
+      [ 'Markita W', 'Client', new Date(0, 0, 0, 17, 0, 0), new Date(0, 0, 0, 19, 0, 0) ],
+      [ 'Maya S', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Maya S', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
+      [ 'Maya S', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ],
+      [ 'Era C', 'Client', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
+      [ 'Era C', 'Guest', new Date(0, 0, 0, 13, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
+      [ 'Era C', 'Client', new Date(0, 0, 0, 16, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
+      [ 'Carolyn H', 'Guest', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Carolyn H', 'Meet', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
+      [ 'Carolyn H', 'Client', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
+      [ 'Carolyn H', 'Client', new Date(0, 0, 0, 17, 0, 0), new Date(0, 0, 0, 19, 0, 0) ],
+      [ 'Josiah M', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+      [ 'Josiah M', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
+      [ 'Josiah M', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ]
     ]);
 
-    chart.draw(dataTable);
+    var options = {
+      //timeline: { colorByRowLabel: true }
+    };
+    
+    chart.draw(dataTable, options);
   }
+  
+  $(window).resize(function(){
+    drawChart();
+  });
 </script>
   
 </body> <!-- end of body -->
