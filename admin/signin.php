@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
   <!-- Page title -->  
   <div class="dashhead">  
     <div class="dashhead-titles">
-      <h6 class="dashhead-subtitle">Administration</h6>
+      <h6 class="dashhead-subtitle">Admin</h6>
       <h2 class="dashhead-title">Sign in</h2>
     </div>
   </div> <!-- end of page title --> 

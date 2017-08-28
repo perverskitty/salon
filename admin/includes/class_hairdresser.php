@@ -2,6 +2,10 @@
 
 class Hairdresser extends User {
   
+  // properties
+  protected static $db_table = "users";
+  protected static $db_table_fields = array('first_name', 'last_name', 'email', 'password', 'tel', 'gender', 'role_id');
+  
   
   // return hairdresser's name
   public static function name($id) {

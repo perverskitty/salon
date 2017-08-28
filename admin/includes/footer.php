@@ -35,7 +35,21 @@
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
-
+    
+    <?php
+    
+    $date_today = date("Y-m-d");
+    
+    $sql = "SELECT * FROM open_times WHERE ";
+    $sql .= "role_id=1 OR role_id=2 ";
+    $open_times = Open_time::find_by_query($sql);
+    
+    $sql = "SELECT * FROM bookings WHERE ";
+    $sql .= "booking_date = '2017-08-30'";
+    $bookings = Booking::find_by_query($sql);
+    
+    ?>
+  
     var container = document.getElementById('example3.1');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
@@ -44,39 +58,26 @@
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
     dataTable.addRows([
-      [ 'Peter C', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Peter C', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
-      [ 'Peter C', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ],
-      [ 'Ludie L', 'Client', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
-      [ 'Ludie L', 'Guest', new Date(0, 0, 0, 13, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
-      [ 'Ludie L', 'Client', new Date(0, 0, 0, 16, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
-      [ 'Marc D', 'Guest', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Marc D', 'Meet', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
-      [ 'Marc D', 'Client', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
-      [ 'Marc D', 'Client', new Date(0, 0, 0, 17, 0, 0), new Date(0, 0, 0, 19, 0, 0) ],
-      [ 'Ginette V', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Ginette V', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
-      [ 'Ginette V', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ],
-      [ 'Claudie S', 'Client', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
-      [ 'Claudie S', 'Guest', new Date(0, 0, 0, 13, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
-      [ 'Claudie S', 'Client', new Date(0, 0, 0, 16, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
-      [ 'Markita W', 'Guest', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Markita W', 'Meet', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
-      [ 'Markita W', 'Client', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
-      [ 'Markita W', 'Client', new Date(0, 0, 0, 17, 0, 0), new Date(0, 0, 0, 19, 0, 0) ],
-      [ 'Maya S', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Maya S', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
-      [ 'Maya S', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ],
-      [ 'Era C', 'Client', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
-      [ 'Era C', 'Guest', new Date(0, 0, 0, 13, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
-      [ 'Era C', 'Client', new Date(0, 0, 0, 16, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
-      [ 'Carolyn H', 'Guest', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Carolyn H', 'Meet', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 12, 0, 0) ],
-      [ 'Carolyn H', 'Client', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 16, 0, 0) ],
-      [ 'Carolyn H', 'Client', new Date(0, 0, 0, 17, 0, 0), new Date(0, 0, 0, 19, 0, 0) ],
-      [ 'Josiah M', 'Client', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
-      [ 'Josiah M', 'Guest', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 13, 0, 0) ],
-      [ 'Josiah M', 'Guest', new Date(0, 0, 0, 15, 0, 0), new Date(0, 0, 0, 17, 0, 0) ]
+      
+      <?php foreach ($bookings as $booking) : ?>
+      
+      <?php
+      
+        $start = explode(':', $booking->start_time);
+        $end = explode(':', $booking->end_time);
+        $name = Hairdresser::name($booking->hairdresser_id);
+        $activity = Activity::name($booking->activity_id);
+        $start_hours = $start[0];
+        $start_mins = $start[1];
+        $end_hours = $end[0];
+        $end_mins = $end[1];
+      
+        echo "[ '". $name ."', '". $activity ."', new Date(0, 0, 0, ". $start_hours .", ". $start_mins .", 0), new Date(0, 0, 0, " .$end_hours. ", ". $end_mins .", 0) ],"; 
+      
+      ?>
+                            
+      <?php endforeach; ?>
+      
     ]);
 
     var options = {
