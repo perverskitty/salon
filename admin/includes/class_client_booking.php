@@ -20,11 +20,6 @@ class Client_booking extends Booking {
       Message::setMsg("Please select a hairdresser", "error");
       return false;
     } 
-    // user did not select an activity
-    if ($this->activity_id == 0) {
-      Message::setMsg("Please select an activity", "error");
-      return false;
-    } 
     // user did not select a booking date
     if ($this->booking_date == 0) {
       Message::setMsg("Please select a date", "error");
@@ -45,19 +40,19 @@ class Client_booking extends Booking {
       Message::setMsg("Please select a valid start time", "error");
       return false;
     } 
-    // user did not select an end time
-    if ($this->end_time == 0) {
-      Message::setMsg("Please select an end time", "error");
+    // user did not select a service
+    if ($this->service_id == 0) {
+      Message::setMsg("Please select a service", "error");
       return false;
     } 
-    // user selected an end time less than the start time
-    if ($this->end_time <= $this->start_time) {
-      Message::setMsg("Please select a valid end time", "error");
+    // user did not select a client
+    if ($this->client_id == 0) {
+      Message::setMsg("Please select a client", "error");
       return false;
     } 
-    // user selected an end time less than the current time for a date in the past
-    if ($this->end_time <= $time_today && $this->booking_date <= $date_today) {
-      Message::setMsg("Please select a valid end time", "error");
+    // user selected a client who has three active bookings already
+    if ($this->count_active_bookings() >= 3) {
+      Message::setMsg("Client already has 3 active bookings", "error");
       return false;
     } 
     // the salon is closed for the selected booking date and start time
@@ -78,24 +73,6 @@ class Client_booking extends Booking {
     
     return true;
   }
-  
-  
-  // checks for open times 
-  protected function salon_open() {
-    $day = date("w", strtotime($this->booking_date));
-    $day = $day + 1;
-    
-    $sql = "SELECT * FROM open_times WHERE ";
-    $sql .= "day_id =". $day ." AND ";
-    $sql .= "open_time <= '". $this->start_time ."' AND ";
-    $sql .= "close_time > '". $this->start_time ."' AND ";
-    $sql .= "first_date <= '". $this->booking_date ."' AND ";
-    $sql .= "last_date >= '". $this->booking_date ."'";
-    
-    $result = Open_time::find_by_query($sql);
-  
-    return !empty($result) ? true : false;  
-  } 
   
   
   // checks for an available hairdresser schedule
@@ -122,22 +99,19 @@ class Client_booking extends Booking {
   }
   
   
-  // checks for an available booking slot 
-  protected function booking_open() {
+  // count active bookings
+  protected function count_active_bookings() {
+    global $database;
+    date_default_timezone_set("Europe/London");
+    $date_today = date("Y-m-d");
+    $time_today = date("H:i:s");
     
-    $sql = "SELECT * FROM bookings WHERE ";
-    $sql .= "(hairdresser_id = ". $this->hairdresser_id ." AND ";
-    $sql .= "booking_date = '". $this->booking_date ."' AND ";
-    $sql .= "start_time < '". $this->end_time ."' AND ";
-    $sql .= "end_time >= '". $this->end_time ."') OR ";
-    $sql .= "(hairdresser_id = ". $this->hairdresser_id ." AND ";
-    $sql .= "booking_date = '". $this->booking_date ."' AND ";
-    $sql .= "start_time <= '". $this->start_time ."' AND ";
-    $sql .= "end_time > '". $this->start_time ."')";
-    
-    $result = Booking::find_by_query($sql);
-    
-    return empty($result) ? true : false; 
+    $sql = "SELECT COUNT(*) FROM bookings WHERE ";
+    $sql .= "client_id =". $this->client_id ." AND ";
+    $sql .= "booking_date > '". $date_today ."'";
+    $result_set = $database->query($sql);
+    $row = mysqli_fetch_array($result_set);
+    return array_shift($row);
   }
   
   

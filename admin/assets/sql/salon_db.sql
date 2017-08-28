@@ -303,7 +303,9 @@ INSERT INTO `schedules` (`id`, `hairdresser_id`, `day_id`, `start_time`, `end_ti
 (68, 56, 6, '15:00:00', '19:00:00', '2017-01-01', '2017-12-31', '2017-08-27 08:41:55', '2017-08-27 08:41:55');
 
 
-
-
+-- Test SQL query
+SELECT COUNT(*) FROM bookings WHERE
+`client_id` = 42 AND 
+`booking_date` > '2017-08-28';
 
 

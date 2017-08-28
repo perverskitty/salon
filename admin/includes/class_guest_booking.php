@@ -95,7 +95,7 @@ class Guest_booking extends Booking {
     $sql .= "last_date >= '". $this->booking_date ."'";
     
     $result = Schedule::find_by_query($sql);
-  
+    
     return !empty($result) ? true : false;  
   }
   

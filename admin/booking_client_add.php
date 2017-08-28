@@ -17,21 +17,31 @@ $sql .= "role_id = 3 ";
 $sql .= "ORDER BY first_name";
 $clients = Client::find_by_query($sql);
 
-$client_booking = new Booking();
+
+
 if (isset($_POST['create'])) {  
-  if($client_booking) {
-      $client_booking->hairdresser_id = $_POST['hairdresser_id'];
-      $client_booking->activity_id = 1;
-      $client_booking->booking_date = $_POST['booking_date'];
-      $client_booking->start_time = $_POST['start_time'];
-      $client_booking->end_time = $_POST['end_time'];
-      $client_booking->booking_text = $_POST['booking_text'];
+  
+  $booking = new Client_booking();
+  
+  if($booking) {
+      $booking->hairdresser_id = $_POST['hairdresser_id'];
+      $booking->booking_date = $_POST['booking_date'];
+      $booking->start_time = $_POST['start_time'];
+      $booking->activity_id = 1;
+      $booking->booking_text = $_POST['booking_text'];
     
-      if ($client_booking->save()) { redirect("bookings_clients.php"); }
+      $booking->service_id = $_POST['service_id'];
+      $booking->client_id = $_POST['client_id'];
+    
+      if ($booking->validate()) {
+        if ($booking->save()) { 
+          redirect("bookings_clients.php"); 
+        }
+      }
   }
 }
 
-?>
+?>    
      
     <!-- Main content --> 
     <div class="col-md-9 content">
