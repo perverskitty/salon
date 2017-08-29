@@ -9,6 +9,17 @@ class Client_booking extends Booking {
   public $service_id;
   
   
+  // returns count all by client_id
+  public static function count_all_by_client_id($client_id) {
+    global $database;
+    $sql = "SELECT COUNT(*) FROM " . self::$db_table . " WHERE ";
+    $sql .= "client_id = '{$client_id}'";
+    $result_set = $database->query($sql);
+    $row = mysqli_fetch_array($result_set);
+    return array_shift($row);
+  }
+
+    
   // validate form inputs and check avalability
   public function validate() {
     date_default_timezone_set("Europe/London");

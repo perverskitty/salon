@@ -16,6 +16,9 @@ $sql .= "booking_date >= '". $date_today ."' ";
 $sql .= "ORDER BY booking_date ASC";
 $bookings = Client_booking::find_by_query($sql);
 
+$count_active = count($bookings);
+$count_all = Client_booking::count_all_by_client_id($session->user_id);
+
 ?>     
       
       <!-- main content -->
@@ -24,17 +27,18 @@ $bookings = Client_booking::find_by_query($sql);
       <!-- Dashboard title --> 
       <div class="dashhead">
         <div class="dashhead-titles">
-          <h2 class="dashhead-title">Welcome <?php echo $session->user_fname; ?></h2>
+          <h3 class="dashhead-title">Welcome <?php echo $session->user_fname; ?></h3>
         </div>
       </div>
       
       
       <!-- Recent bookings rule -->
       <div class="hr-divider mt-5 mb-4">
-        <h3 class="hr-divider-content hr-divider-heading"> Recent bookings</h3>
+        <h3 class="hr-divider-content hr-divider-heading">Select a booking for details</h3>
       </div>
       <!-- Recent bookings list -->
-      <div class="list-group mb-4">
+      <div class="list-group mb-3">
+      <h6 class="list-group-header">Active Bookings</h6>
         <?php if ($bookings) : ?>
         
           <?php foreach ($bookings as $booking) : ?>
@@ -47,45 +51,27 @@ $bookings = Client_booking::find_by_query($sql);
         <?php else : ?>
         
           <a class="list-group-item justify-content-between">
-            <span>You have no active bookings at this time</span>
+            <span>You have no active bookings</span>
             <span class="text-muted"><?php echo substr($time_today, 0, 5) . ", " . date("D, j M Y", strtotime($date_today)); ?></span>
           </a>
         
         <?php endif; ?>       
       </div>
-      
 
-      <!-- buttons -->
-      <div class="row statcards">
-        <!-- Book haircut button -->
-        <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
-          <a href="#">
-            <div class="statcard statcard-success">
-              <div class="p-3">
-                <h5 class="statcard-number">Book haircut</h5>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!-- View bookings button -->
-        <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
-          <a href="#">
-            <div class="statcard statcard-danger">
-              <div class="p-3">
-                <h5 class="statcard-number">Cancel haircut</h5>
-              </div>
-            </div>
-          </a>
-        </div>
+      <!-- book haircut button -->
+      <div class="flextable-item flextable-primary">
+        <button type="button" class="btn btn-outline-primary" onclick="window.location='index_add_booking.php'">
+          Book haircut
+        </button>
       </div> 
 
-
       <!-- Account info rule -->
-      <div class="hr-divider mt-4 mb-4">
-        <h3 class="hr-divider-content hr-divider-heading">Your Account</h3>
+      <div class="hr-divider mt-5 mb-4">
+        <h3 class="hr-divider-content hr-divider-heading">Your Account Summary</h3>
       </div>
+      
       <!-- Account info list -->
-      <div class="list-group mb-4">
+      <div class="list-group mb-3">
         <li class="list-group-item justify-content-between">
           <span>Name</span>
           <span class="ml-a text-muted"><?php echo $client->first_name." ".$client->last_name; ?></span>
@@ -110,88 +96,48 @@ $bookings = Client_booking::find_by_query($sql);
         </li>
       </div> 
       
-      
-      <!-- buttons -->
-      <div class="row statcards">
-        <!-- Update account button -->
-        <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
-          <a href="#">
-            <div class="statcard statcard-primary">
-              <div class="p-3">
-                <h5 class="statcard-number">Update account</h5>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!-- Bookings history button -->
-        <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
-          <a href="#">
-            <div class="statcard statcard-info">
-              <div class="p-3">
-                <h5 class="statcard-number">Bookings history</h5>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      
+      <!-- Edit account button -->
+      <div class="flextable-item flextable-primary">
+        <button type="button" class="btn btn-outline-primary" onclick="window.location='index_update.php'">
+          Edit account
+        </button>
+      </div> 
       
       <!-- Salon Info rule -->
-      <div class="hr-divider mt-4 mb-4">
-        <h3 class="hr-divider-content hr-divider-heading">Salon Info</h3>
+      <div class="hr-divider mt-5 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Statistics</h3>
       </div>
       
-      <!-- Salon info lists -->
-      <div class="row">
-        <!-- Opening hours list -->
-        <div class="col-md-6 mb-5">
-            <div class="list-group mb-3">
-            <h6 class="list-group-header">Opening Hours</h6>
-            <li class="list-group-item justify-content-between">
-              <span>Mon, Wed to Sat</span>
-              <span class="mr-a text-muted">10:00 to 19:00</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Tue</span>
-              <span class="mr-a text-muted">Closed</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Sun</span>
-              <span class="mr-a text-muted">10:00 to 17:00</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>UK bank holidays</span>
-              <span class="mr-a text-muted">Closed</span>
-            </li>
-          </div> 
+      <!-- Row of cards -->
+      <div class="row statcards">
+        <!-- First card -->
+        <div class="col-md-6 col-xl-3 mb-3 mb-md-4 mb-xl-0">
+          <div class="statcard statcard-success">
+            <div class="p-3">
+              <span class="statcard-desc">Active Bookings</span>
+              <h2 class="statcard-number"><?php echo $count_active; ?></h2>
+              <hr class="statcard-hr mb-0">
+            </div>
+          </div>
         </div>
-  
-        <!-- Address & contact list -->
-        <div class="col-md-6 mb-5">
-          <div class="list-group mb-3">
-            <h6 class="list-group-header">Contact Info</h6>
-            <li class="list-group-item justify-content-between">
-              <span>Address</span>
-              <span class="mr-a text-muted">12 Hair St, London SW1 7RS</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Main</span>
-              <span class="mr-a text-muted">0208 450 8686</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Mobile</span>
-              <span class="mr-a text-muted">07797 960 960</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Email</span>
-              <span class="mr-a text-muted">info@hair.com</span>
-            </li>
-          </div> 
-        </div>
-        
-      </div> <!-- row of lists end -->
-      
-
+        <!-- Second card -->
+        <div class="col-md-6 col-xl-3 mb-3 mb-md-4 mb-xl-0">
+          <div class="statcard statcard-info">
+            <div class="p-3">
+              <span class="statcard-desc">All Bookings</span>
+              <h2 class="statcard-number"><?php echo $count_all; ?></h2>
+              <hr class="statcard-hr mb-0">
+            </div>
+          </div>
+        </div> 
+      </div>
+     
+      <!-- All bookings button -->
+      <div class="flextable-item">
+        <button type="button" class="btn btn-outline-primary" onclick="window.location='index_history.php'">
+          All bookings 
+        </button>
+      </div>
 
     </div> <!-- end of main content -->
       

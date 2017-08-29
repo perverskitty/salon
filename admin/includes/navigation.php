@@ -15,9 +15,11 @@
         
         <?php if($session->is_signed_in()) : ?>
         
+<!--
         <div class="sidebar-header">
-          <h6><?php echo date("D, j M Y"); ?></h6>
+          <h6><?php //echo date("D, j M Y"); ?></h6>
         </div>
+-->
          
         <!-- sidebar search and list of links collapsable -->
         <div class="collapse nav-toggleable-md" id="nav-toggleable-md">
