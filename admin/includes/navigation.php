@@ -16,7 +16,7 @@
         <?php if($session->is_signed_in()) : ?>
         
         <div class="sidebar-header">
-          <h6><?php echo $session->user_fname.' '.$session->user_lname; ?></h6>
+          <h6><?php echo date("D, j M Y"); ?></h6>
         </div>
          
         <!-- sidebar search and list of links collapsable -->

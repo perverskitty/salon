@@ -16,7 +16,7 @@
   <!-- Styling links
   ================================================== -->
   <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
-  <link href="assets/css/toolkit-light.css" rel="stylesheet">
+  <link href="assets/css/toolkit-inverse.css" rel="stylesheet">
   <link href="assets/css/application.css" rel="stylesheet">
   <!-- Carousel styling -->
   <link href="assets/css/carousel.css" rel="stylesheet">
