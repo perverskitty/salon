@@ -1,6 +1,7 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+<?php if($session->user_role != 3) { redirect("index.php"); } ?>
      
 <?php
 
@@ -90,7 +91,7 @@ if (isset($_POST['submit'])) {
             </select>
         </div>
         <div class="form-group text-right">
-              <a href="index.php" class="btn btn-outline-primary">Cancel</a>
+              <a href="clients.index.php" class="btn btn-outline-primary">Cancel</a>
               <input class="btn btn-outline-primary text-right" type="submit" name="submit" value="Proceed">
         </div>
       </form> <!-- end of form -->

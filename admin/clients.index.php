@@ -80,7 +80,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
      
       <!-- button -->
       <div class="flextable-item flextable-primary">
-        <button type="button" class="btn btn-outline-primary" onclick="window.location='index_add_booking.php'">
+        <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.add.booking.php'">
           Book haircut
         </button>
       </div> 
