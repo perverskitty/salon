@@ -1,10 +1,11 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-     
-<?php $client = User::find_by_id($session->user_id); ?>
+<?php if($session->user_role != 3) { redirect("index.php"); } ?>
 
 <?php
+
+$client = User::find_by_id($session->user_id);
 
 date_default_timezone_set("Europe/London");
 $date_today = date("Y-m-d");
@@ -38,7 +39,7 @@ $bookings = Client_booking::find_by_query($sql);
 <!--        <h6 class="list-group-header">Select a booking for info</h6>-->
         <?php if ($bookings) : ?>
           <?php foreach ($bookings as $booking) : ?>
-            <a class="list-group-item list-group-item-action justify-content-between" href="index_view_booking.php?id=<?php echo $booking->id; ?>">
+            <a class="list-group-item list-group-item-action justify-content-between" href="clients.booking.info.php?id=<?php echo $booking->id; ?>">
               <span><?php echo Service::name($booking->service_id); ?></span>
               <span class="text-muted"><?php echo substr($booking->start_time, 0, 5). ", " .date("l j M Y", strtotime($booking->booking_date)); ?></span>
             </a>
@@ -53,7 +54,7 @@ $bookings = Client_booking::find_by_query($sql);
       
       <div class="flextable table-actions">
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-primary" onclick="window.location='index.php'">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.index.php'">
             <span class="icon icon-chevron-left"></span>Go back
           </button>
         </div> 
