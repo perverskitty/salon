@@ -28,7 +28,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       <!-- Dashboard title --> 
       <div class="dashhead">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title">Welcome <?php echo $session->user_fname; ?></h3>
+          <h3 class="dashhead-title">Welcome Salon Staff Member</h3>
         </div>
       </div>
       
@@ -42,7 +42,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       
       <!-- table -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table" id="client-index-table">
+        <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
               <th></th>

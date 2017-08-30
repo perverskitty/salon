@@ -6,10 +6,10 @@ if($session->is_signed_in()) {
   
   switch ($session->user_role) {
     case 1:
-      redirect("index.php");
+      redirect("salon.index.php");
       break;
     case 2:
-      redirect("index.php");
+      redirect("salon.index.php");
       break;
     case 3:
       redirect("clients.index.php");
@@ -36,10 +36,10 @@ if (isset($_POST['submit'])) {
     $session->signin($user_found);
     switch ($session->user_role) {
       case 1:
-        redirect("index.php");
+        redirect("salon.index.php");
         break;
       case 2:
-        redirect("index.php");
+        redirect("salon.index.php");
         break;
       case 3:
         redirect("clients.index.php");
