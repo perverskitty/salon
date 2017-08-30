@@ -45,7 +45,7 @@ $clients = Client::find_by_query($sql);
         </div> <!-- end of search orders input -->
         <div class="flextable-item">
           <div class="btn-group">
-            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.client_add.php'">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-client.php'">
               <span class="icon icon-add-user"></span> Add client
             </button>
           </div>
@@ -70,7 +70,7 @@ $clients = Client::find_by_query($sql);
           <tbody>
           <?php foreach ($clients as $client) : ?>
             <tr>
-              <td><a href="salon.client_edit.php?id=<?php echo $client->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-client.php?id=<?php echo $client->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $client->id; ?></td>
               <td><?php echo $client->first_name; ?></td>
               <td><?php echo $client->last_name; ?></td>

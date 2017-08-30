@@ -46,7 +46,7 @@ $hairdressers = Hairdresser::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
-            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.hairdresser_add.php'">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-hairdresser.php'">
               <span class="icon icon-add-user"></span> Add hairdresser
             </button>
             <?php endif; ?>
@@ -75,7 +75,7 @@ $hairdressers = Hairdresser::find_by_query($sql);
           <?php foreach ($hairdressers as $hairdresser) : ?>
             <tr>
               <?php if($session->user_role == 1) : ?>
-              <td><a href="salon.hairdresser_edit.php?id=<?php echo $hairdresser->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-hairdresser.php?id=<?php echo $hairdresser->id; ?>"><span class="icon icon-edit"></span></a></td>
               <?php endif; ?>
               <td><?php echo $hairdresser->id; ?></td>
               <td><?php echo $hairdresser->first_name; ?></td>

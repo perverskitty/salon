@@ -45,7 +45,7 @@ $services = Service::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
-            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.service_add.php'">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-service.php'">
               <span class="icon icon-plus"></span> Add service
             </button>
             <?php endif; ?>
@@ -73,7 +73,7 @@ $services = Service::find_by_query($sql);
           <?php foreach ($services as $service) : ?>
             <tr>
               <?php if($session->user_role == 1) : ?>
-              <td><a href="salon.service_edit.php?id=<?php echo $service->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-service.php?id=<?php echo $service->id; ?>"><span class="icon icon-edit"></span></a></td>
               <?php endif; ?>
               <td><?php echo $service->id; ?></td>
               <td><?php echo $service->name; ?></td>

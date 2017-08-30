@@ -45,7 +45,7 @@ $schedules = Schedule::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
-            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.schedule_add.php'">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-schedule.php'">
               <span class="icon icon-plus"></span> Add schedule
             </button>
             <?php endif; ?>
@@ -74,7 +74,7 @@ $schedules = Schedule::find_by_query($sql);
             <?php $hairdresser = Hairdresser::find_by_id($schedule->hairdresser_id); ?>
             <tr>
               <?php if($session->user_role == 1) : ?>
-              <td><a href="salon.schedule_edit.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-schedule.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
               <?php endif; ?>
               <td><?php echo $schedule->id; ?></td>
               <td><?php echo $hairdresser->first_name." ".$hairdresser->last_name ?></td>

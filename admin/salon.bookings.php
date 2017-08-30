@@ -62,7 +62,7 @@ $bookings = Booking::find_by_query($sql);
           <tbody>
           <?php foreach ($bookings as $booking) : ?>
             <tr>
-              <td><a href="salon.client_edit.php?id=<?php echo $client->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-client.php?id=<?php echo $client->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $booking->id; ?></td>
               <td><?php echo date("D, j M Y", strtotime($booking->booking_date)); ?></td>
               <td><?php echo substr($booking->start_time, 0, 5)." - ".substr($booking->end_time, 0, 5); ?></td>
