@@ -51,13 +51,13 @@
               <a class="nav-link" href="salon.bookings.php">All Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="salon.bookings_clients.php">Client Bookings</a>
+              <a class="nav-link" href="salon.client-bookings.php">Client Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="salon.bookings_guests.php">Guest Bookings</a>
+              <a class="nav-link" href="salon.guest-bookings.php">Guest Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="salon.bookings_other.php">Other Bookings</a>
+              <a class="nav-link" href="salon.other-bookings.php">Other Bookings</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="salon.profile.php"><?php echo $session->user_fname."'s Account"; ?></a>
