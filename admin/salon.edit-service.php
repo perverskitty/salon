@@ -1,12 +1,14 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-<?php if($session->user_role != 1) { redirect("index.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2 && $session->user_role != 3) { redirect("signout.php"); } ?> 
+<?php if($session->user_role == 3) { redirect("clients.index.php"); } ?>
+<?php if($session->user_role == 2) { redirect("salon.index.php"); } ?>
      
 <?php
 
 if(empty($_GET['id'])) {
-  redirect("services.php");
+  redirect("salon.services.php");
 } else {
   
   $service = Service::find_by_id($_GET['id']);
@@ -18,7 +20,7 @@ if(empty($_GET['id'])) {
       $service->category_id = $_POST['category_id'];
       $service->cost = $_POST['cost'];
       
-      if ($service->save()) { redirect("services.php"); }
+      if ($service->save()) { redirect("salon.services.php"); }
     }
   }
 }
@@ -98,7 +100,7 @@ if(empty($_GET['id'])) {
 	        <input type="text" class="form-control" name="cost" value="<?php echo $service->cost; ?>">
         </div>        
         <div class="form-group">
-          <a class="btn btn-outline-danger" href="service_delete.php?id=<?php echo $service->id; ?>">Delete</a>
+          <a class="btn btn-outline-danger" href="salon.delete-service.php?id=<?php echo $service->id; ?>">Delete</a>
           <input class="btn btn-outline-primary" type="submit" name="update" value="Update">
         </div>
       </form> <!-- end of update service form -->
