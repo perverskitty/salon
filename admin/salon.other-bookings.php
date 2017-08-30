@@ -1,7 +1,8 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-<?php if($session->user_role != 1 && $session->user_role != 2) { redirect("index.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2 && $session->user_role != 3) { redirect("signout.php"); } ?> 
+<?php if($session->user_role == 3) { redirect("clients.index.php"); } ?>
      
 <?php
 
@@ -49,7 +50,7 @@ $other_bookings = Booking::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
-            <button type="button" class="btn btn-outline-primary" onclick="window.location='booking_other_add.php'">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-other-booking.php'">
               <span class="icon icon-plus"></span> Add other booking
             </button>
             <?php endif; ?>
@@ -77,7 +78,7 @@ $other_bookings = Booking::find_by_query($sql);
           <?php foreach ($other_bookings as $other_booking) : ?>
             <tr>
               <?php if($session->user_role == 1) : ?>
-              <td><a href="client_edit.php?id=<?php echo $other_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-client.php?id=<?php echo $other_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
               <?php endif; ?>
               <td><?php echo $other_booking->id; ?></td>
               <td><?php echo date("D, j M Y", strtotime($other_booking->booking_date)); ?></td>
@@ -99,20 +100,20 @@ $other_bookings = Booking::find_by_query($sql);
           <?php
             
           if ($paginate->has_previous()) {
-            echo "<li class='page-item'><a class='page-link' href='bookings_other.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
+            echo "<li class='page-item'><a class='page-link' href='salon.other-bookings.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
           }
            
           for ($i=1; $i <= $paginate->total_pages(); $i++) {
             if($i == $paginate->current_page) {
-              echo "<li class='page-item active'><a class='page-link' href='bookings_other.php?page={$i}'>{$i}</a></li>";
+              echo "<li class='page-item active'><a class='page-link' href='salon.other-bookings.php?page={$i}'>{$i}</a></li>";
             } else {
-              echo "<li class='page-item'><a class='page-link' href='bookings_other.php?page={$i}'>{$i}</a></li>";
+              echo "<li class='page-item'><a class='page-link' href='salon.other-bookings.php?page={$i}'>{$i}</a></li>";
             }
           } 
             
           if ($paginate->total_pages() > 1) {
             if ($paginate->has_next()) {
-              echo "<li class='page-item'><a class='page-link' href='bookings_other.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+              echo "<li class='page-item'><a class='page-link' href='salon.other-bookings.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
             }
           }
           
