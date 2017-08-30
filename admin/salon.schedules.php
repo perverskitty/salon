@@ -1,7 +1,8 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-<?php if($session->user_role != 1 && $session->user_role != 2) { redirect("index.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2 && $session->user_role != 3) { redirect("signout.php"); } ?> 
+<?php if($session->user_role == 3) { redirect("clients.index.php"); } ?>
      
 <?php
 
@@ -44,7 +45,7 @@ $schedules = Schedule::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
-            <button type="button" class="btn btn-outline-primary" onclick="window.location='schedule_add.php'">
+            <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.schedule_add.php'">
               <span class="icon icon-plus"></span> Add schedule
             </button>
             <?php endif; ?>
@@ -73,7 +74,7 @@ $schedules = Schedule::find_by_query($sql);
             <?php $hairdresser = Hairdresser::find_by_id($schedule->hairdresser_id); ?>
             <tr>
               <?php if($session->user_role == 1) : ?>
-              <td><a href="schedule_edit.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.schedule_edit.php?id=<?php echo $schedule->id; ?>"><span class="icon icon-edit"></span></a></td>
               <?php endif; ?>
               <td><?php echo $schedule->id; ?></td>
               <td><?php echo $hairdresser->first_name." ".$hairdresser->last_name ?></td>
@@ -95,20 +96,20 @@ $schedules = Schedule::find_by_query($sql);
           <?php
             
           if ($paginate->has_previous()) {
-            echo "<li class='page-item'><a class='page-link' href='schedules.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
+            echo "<li class='page-item'><a class='page-link' href='salon.schedules.php?page={$paginate->previous()}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
           }
            
           for ($i=1; $i <= $paginate->total_pages(); $i++) {
             if($i == $paginate->current_page) {
-              echo "<li class='page-item active'><a class='page-link' href='schedules.php?page={$i}'>{$i}</a></li>";
+              echo "<li class='page-item active'><a class='page-link' href='salon.schedules.php?page={$i}'>{$i}</a></li>";
             } else {
-              echo "<li class='page-item'><a class='page-link' href='schedules.php?page={$i}'>{$i}</a></li>";
+              echo "<li class='page-item'><a class='page-link' href='salon.schedules.php?page={$i}'>{$i}</a></li>";
             }
           } 
             
           if ($paginate->total_pages() > 1) {
             if ($paginate->has_next()) {
-              echo "<li class='page-item'><a class='page-link' href='schedules.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+              echo "<li class='page-item'><a class='page-link' href='salon.schedules.php?page={$paginate->next()}' aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
             }
           }
           
