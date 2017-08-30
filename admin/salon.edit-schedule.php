@@ -1,12 +1,14 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-<?php if($session->user_role != 1) { redirect("index.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2 && $session->user_role != 3) { redirect("signout.php"); } ?> 
+<?php if($session->user_role == 3) { redirect("clients.index.php"); } ?>
+<?php if($session->user_role == 2) { redirect("salon.index.php"); } ?>
      
 <?php
 
 if(empty($_GET['id'])) {
-  redirect("schedules.php");
+  redirect("salon.schedules.php");
 } else {
   
   $schedule = Schedule::find_by_id($_GET['id']);
@@ -22,7 +24,7 @@ if(empty($_GET['id'])) {
       $schedule->first_date = $_POST['first_date'];
       $schedule->last_date = $_POST['last_date'];
       
-      if ($schedule->save()) { redirect("schedules.php"); }
+      if ($schedule->save()) { redirect("salon.schedules.php"); }
     }
   }
 }
@@ -72,7 +74,7 @@ if(empty($_GET['id'])) {
           <input type="text" class="form-control" name="last_date" value="<?php echo $schedule->last_date; ?>">
         </div>        
         <div class="form-group">
-          <a class="btn btn-outline-danger" href="schedule_delete.php?id=<?php echo $schedule->id; ?>">Delete</a>
+          <a class="btn btn-outline-danger" href="salon.delete-schedule.php?id=<?php echo $schedule->id; ?>">Delete</a>
           <input class="btn btn-outline-primary" type="submit" name="update" value="Update">
         </div>
       </form> <!-- end of update schedule form -->
