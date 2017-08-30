@@ -6,7 +6,7 @@
 <?php
 
 if (empty($_GET['id'])) {
-  redirect("index.php");
+  redirect("clients.index.php");
   
 }
 
@@ -14,9 +14,9 @@ $booking = Client_booking::find_by_id($_GET['id']);
 
 if ($booking) {
   $booking->delete();
-  redirect("index.php");
+  redirect("clients.index.php");
 } else {
-  redirect("index.php");
+  redirect("clients.index.php");
 }
 
 ?>

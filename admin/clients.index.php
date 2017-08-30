@@ -41,7 +41,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       
       <!-- table -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table" id="client-index-table">
+        <table class="table table-hover" data-sort="table">
           <thead>
             <tr>
               <th></th>
@@ -55,7 +55,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
           <tbody>
           <?php foreach ($bookings as $booking) : ?>
             <tr>
-              <td><a href="index_delete.php?id=<?php echo $booking->id; ?>"><span class="icon icon-trash"></span></a></td>
+              <td><a href="clients.delete_booking.php?id=<?php echo $booking->id; ?>"><span class="icon icon-trash"></span></a></td>
               <td><?php echo date("j M Y", strtotime($booking->booking_date)); ?></td>
               <td><?php echo date("D", strtotime($booking->booking_date)); ?></td>
               <td><?php echo substr($booking->start_time, 0, 5); ?></td>
