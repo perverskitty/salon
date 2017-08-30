@@ -1,11 +1,12 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
+<?php if($session->user_role != 3) { redirect("index.php"); } ?>
      
 <?php
 
 if(empty($_GET['id'])) {
-  redirect("index_history.php");
+  redirect("clients.all.bookings.php");
 } 
 $client = User::find_by_id($session->user_id);
 $booking = Client_booking::find_by_id($_GET['id']);
@@ -63,7 +64,7 @@ $service = Service::find_by_id($booking->service_id);
       <!-- index history button -->
       <div class="flextable table-actions">
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-primary" onclick="window.location='index_history.php'">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.all.bookings.php'">
             <span class="icon icon-chevron-left"></span>Go back
           </button>
         </div> 
