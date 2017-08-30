@@ -1,12 +1,14 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-<?php if($session->user_role != 1) { redirect("index.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2 && $session->user_role != 3) { redirect("signout.php"); } ?> 
+<?php if($session->user_role == 3) { redirect("clients.index.php"); } ?>
+<?php if($session->user_role == 2) { redirect("salon.index.php"); } ?>
      
 <?php
 
 if(empty($_GET['id'])) {
-  redirect("hairdressers.php");
+  redirect("salon.hairdressers.php");
 } else {
   
   $hairdresser = Hairdresser::find_by_id($_GET['id']);
@@ -21,7 +23,7 @@ if(empty($_GET['id'])) {
       $hairdresser->email = $_POST['email'];
       $hairdresser->password = $_POST['password'];
       
-      if ($hairdresser->save()) { redirect("hairdressers.php"); }
+      if ($hairdresser->save()) { redirect("salon.hairdressers.php"); }
     }
   }
 }
@@ -111,7 +113,7 @@ if(empty($_GET['id'])) {
 	        <input type="password" class="form-control" name="password" value="">
         </div>
         <div class="form-group">
-          <a class="btn btn-outline-danger" href="hairdresser_delete.php?id=<?php echo $hairdresser->id; ?>">Delete</a>
+          <a class="btn btn-outline-danger" href="salon.delete-hairdresser.php?id=<?php echo $hairdresser->id; ?>">Delete</a>
           <input class="btn btn-outline-primary" type="submit" name="update" value="Update">
         </div>
       </form> <!-- end of update client form -->
