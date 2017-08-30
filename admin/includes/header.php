@@ -1,6 +1,6 @@
 <!-- start output buffering to support redirection of pages -->
 <?php ob_start(); ?>  
-<?php require_once("init.php"); ?>
+<?php require_once("/Applications/MAMP/htdocs/salon/admin/includes/init.php"); ?>
 
 <!-- redirect unauthorised users to the sign-in page if they are not signed in -->
 <?php //if (!$session->is_signed_in()) { redirect("signin.php"); } ?>

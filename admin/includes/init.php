@@ -13,23 +13,23 @@ require_once(INCLUDES_PATH.DS."functions.php");
 require_once(INCLUDES_PATH.DS."config.php");
 
 // include classes
-require_once(INCLUDES_PATH.DS."class_database.php");
-require_once(INCLUDES_PATH.DS."class_message.php");
-require_once(INCLUDES_PATH.DS."class_db_object.php");
-require_once(INCLUDES_PATH.DS."class_user.php");
-require_once(INCLUDES_PATH.DS."class_hairdresser.php");
-require_once(INCLUDES_PATH.DS."class_client.php");
-require_once(INCLUDES_PATH.DS."class_service.php");
-require_once(INCLUDES_PATH.DS."class_schedule.php");
-require_once(INCLUDES_PATH.DS."class_booking.php");
-require_once(INCLUDES_PATH.DS."class_client_booking.php");
-require_once(INCLUDES_PATH.DS."class_guest_booking.php");
-require_once(INCLUDES_PATH.DS."class_activity.php");
-require_once(INCLUDES_PATH.DS."class_category.php");
-require_once(INCLUDES_PATH.DS."class_day.php");
-require_once(INCLUDES_PATH.DS."class_role.php");
-require_once(INCLUDES_PATH.DS."class_open_time.php");
-require_once(INCLUDES_PATH.DS."class_session.php");
-require_once(INCLUDES_PATH.DS."class_paginate.php");
+require_once(INCLUDES_PATH.DS."class.database.php");
+require_once(INCLUDES_PATH.DS."class.message.php");
+require_once(INCLUDES_PATH.DS."class.db_object.php");
+require_once(INCLUDES_PATH.DS."class.user.php");
+require_once(INCLUDES_PATH.DS."class.hairdresser.php");
+require_once(INCLUDES_PATH.DS."class.client.php");
+require_once(INCLUDES_PATH.DS."class.service.php");
+require_once(INCLUDES_PATH.DS."class.schedule.php");
+require_once(INCLUDES_PATH.DS."class.booking.php");
+require_once(INCLUDES_PATH.DS."class.client_booking.php");
+require_once(INCLUDES_PATH.DS."class.guest_booking.php");
+require_once(INCLUDES_PATH.DS."class.activity.php");
+require_once(INCLUDES_PATH.DS."class.category.php");
+require_once(INCLUDES_PATH.DS."class.day.php");
+require_once(INCLUDES_PATH.DS."class.role.php");
+require_once(INCLUDES_PATH.DS."class.open_time.php");
+require_once(INCLUDES_PATH.DS."class.session.php");
+require_once(INCLUDES_PATH.DS."class.paginate.php");
 
 ?>

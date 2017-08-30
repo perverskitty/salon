@@ -1,10 +1,11 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-     
-<?php $client = User::find_by_id($session->user_id); ?>
+<?php if($session->user_role != 1 && $session->user_role != 2) { redirect("clients.index.php"); } ?>
 
 <?php
+
+$client = User::find_by_id($session->user_id);
 
 date_default_timezone_set("Europe/London");
 $date_today = date("Y-m-d");

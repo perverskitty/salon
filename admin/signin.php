@@ -1,6 +1,26 @@
 <?php require_once("includes/header.php"); ?>
 
-<?php if($session->is_signed_in()) { redirect("index.php"); } ?>
+<?php 
+
+if($session->is_signed_in()) { 
+  
+  switch ($session->user_role) {
+    case 1:
+      redirect("index.php");
+      break;
+    case 2:
+      redirect("index.php");
+      break;
+    case 3:
+      redirect("clients.index.php");
+      break;
+    default:
+      redirect("signout.php");
+  }
+}
+
+?>
+
 
 <?php
 
@@ -14,16 +34,27 @@ if (isset($_POST['submit'])) {
   
   if ($user_found) {
     $session->signin($user_found);
-    redirect("index.php");
+    switch ($session->user_role) {
+      case 1:
+        redirect("index.php");
+        break;
+      case 2:
+        redirect("index.php");
+        break;
+      case 3:
+        redirect("clients.index.php");
+        break;
+      default:
+        redirect("signout.php");
+    }
   } else {
-    $the_message = "Your username/password combination is incorrect";
+    Message::setMsg("Email and password combination is incorrect", "error");
   }
   
 } else {
   
   $email = "";
   $password = "";
-  $the_message = "";
 }
 
 ?>
@@ -39,10 +70,9 @@ if (isset($_POST['submit'])) {
       <h2 class="dashhead-title">Sign in</h2>
     </div>
   </div> <!-- end of page title --> 
-
-
+  
   <!-- error message display -->
-  <h4 class="bg-danger"><?php echo $the_message; ?></h4>
+  <?php Message::display(); ?>
 	
 	<!-- user sign-in form -->
   <form id="login-id" action="" method="post">
