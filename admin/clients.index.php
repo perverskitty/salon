@@ -119,7 +119,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
               </span>
             </li>
           </div>
-          <a href="clients.edit-account.php" class="btn btn-outline-primary px-3">Your account</a>
+          <a href="clients.profile.php" class="btn btn-outline-primary px-3">Your account</a>
         </div>
   
         <div class="col-md-6 mb-5">
@@ -142,7 +142,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
               <span class="ml-a">£30.00</span>
             </li>
           </div>
-          <a href="clients.all.bookings.php" class="btn btn-outline-primary px-3">All bookings</a>
+          <a href="clients.bookings.php" class="btn btn-outline-primary px-3">All bookings</a>
         </div>   
       </div>
       

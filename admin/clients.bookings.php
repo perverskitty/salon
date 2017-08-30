@@ -40,7 +40,7 @@ $bookings = Client_booking::find_by_query($sql);
 <!--        <h6 class="list-group-header">Select a booking for info</h6>-->
         <?php if ($bookings) : ?>
           <?php foreach ($bookings as $booking) : ?>
-            <a class="list-group-item list-group-item-action justify-content-between" href="clients.booking-info.php?id=<?php echo $booking->id; ?>">
+            <a class="list-group-item list-group-item-action justify-content-between" href="clients.view-booking.php?id=<?php echo $booking->id; ?>">
               <span><?php echo Service::name($booking->service_id); ?></span>
               <span class="text-muted"><?php echo substr($booking->start_time, 0, 5). ", " .date("l j M Y", strtotime($booking->booking_date)); ?></span>
             </a>

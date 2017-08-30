@@ -65,7 +65,7 @@ $service = Service::find_by_id($booking->service_id);
       <!-- index history button -->
       <div class="flextable table-actions">
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.all-bookings.php'">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.bookings.php'">
             <span class="icon icon-chevron-left"></span>Go back
           </button>
         </div> 

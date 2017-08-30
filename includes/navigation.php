@@ -23,9 +23,15 @@
         <li class="nav-item">
           <a class="nav-link" href="#">About Us</a>
         </li>
-        <?php if($session->is_signed_in()) : ?>
+        <?php if($session->is_signed_in() && $session->user_role == 3) : ?>
         <li class="nav-item">
-          <a class="nav-link" href="admin/index.php">Admin Portal</a>
+          <a class="nav-link" href="admin/clients.index.php">Admin Portal</a>
+        </li>
+        <?php endif; ?>
+        
+        <?php if($session->is_signed_in() && $session->user_role == 1 || $session->is_signed_in() && $session->user_role == 2) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="admin/salon.index.php">Admin Portal</a>
         </li>
         <?php endif; ?>
       </ul>
