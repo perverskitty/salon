@@ -1,7 +1,9 @@
 <?php include("includes/header.php"); ?>
      
 <?php if(!$session->is_signed_in()) { redirect("signin.php"); } ?>
-<?php if($session->user_role != 1) { redirect("index.php"); } ?>
+<?php if($session->user_role != 1 && $session->user_role != 2 && $session->user_role != 3) { redirect("signout.php"); } ?> 
+<?php if($session->user_role == 3) { redirect("clients.index.php"); } ?>
+<?php if($session->user_role == 2) { redirect("salon.index.php"); } ?>
      
 <?php
 
@@ -13,7 +15,7 @@ if (isset($_POST['create'])) {
       $service->category_id = $_POST['category_id'];
       $service->cost = $_POST['cost'];
     
-      if ($service->save()) { redirect("services.php"); }
+      if ($service->save()) { redirect("salon.services.php"); }
   }
 }
 
