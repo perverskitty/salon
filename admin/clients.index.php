@@ -35,7 +35,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       
       <!-- hr -->
       <div class="hr-divider mt-5 mb-4">
-        <h3 class="hr-divider-content hr-divider-heading">Active bookings</h3>
+        <h3 class="hr-divider-content hr-divider-heading">Open bookings</h3>
       </div>
       
       <?php if ($bookings) : ?>
@@ -73,7 +73,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       <!-- list -->
       <div class="list-group mb-3">
         <a class="list-group-item justify-content-between">
-          <span>You have no active bookings</span>
+          <span>You have no open bookings</span>
           <span class="text-muted"><?php echo date("l j M Y", strtotime($date_today)); ?></span>
         </a>    
       </div>
@@ -119,14 +119,14 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
               </span>
             </li>
           </div>
-          <a href="clients.edit.account.php" class="btn btn-outline-primary px-3">Edit account</a>
+          <a href="clients.edit.account.php" class="btn btn-outline-primary px-3">Your account</a>
         </div>
   
         <div class="col-md-6 mb-5">
           <div class="list-group mb-3">
             <h6 class="list-group-header">Booking Stats</h6>
             <li class="list-group-item justify-content-between">
-              <span>Active bookings</span>
+              <span>Open bookings</span>
               <span class="ml-a"><?php echo $count_active; ?></span>
             </li>
             <li class="list-group-item justify-content-between">
@@ -158,7 +158,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
         <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
           <div class="statcard statcard-success">
             <div class="p-3">
-              <span class="statcard-desc">Active Bookings</span>
+              <span class="statcard-desc">Open Bookings</span>
               <h2 class="statcard-number"><?php echo $count_active; ?></h2>
             </div>
           </div>

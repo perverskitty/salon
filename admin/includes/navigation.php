@@ -19,11 +19,11 @@
         <div class="collapse nav-toggleable-md" id="nav-toggleable-md">
           
           <ul class="nav nav-pills nav-stacked flex-column">
-            <li class="nav-header">Dashboards</li>
+            <li class="nav-header">Your account</li>
             
             <?php if($session->user_role == 3) : ?>
             <li class="nav-item">
-              <a class="nav-link" href="clients.index.php">Home</a>
+              <a class="nav-link" href="clients.index.php">Your Homepage</a>
             </li>
             <?php endif; ?>
             
@@ -59,16 +59,14 @@
             <li class="nav-item">
               <a class="nav-link" href="salon.bookings_other.php">Other Bookings</a>
             </li>
-            <li class="nav-header">My Account</li>
             <li class="nav-item">
               <a class="nav-link" href="salon.profile.php"><?php echo $session->user_fname."'s Account"; ?></a>
             </li>
             <?php endif; ?>
             
             <?php if($session->user_role == 3) : ?>
-            <li class="nav-header">My Account</li>
             <li class="nav-item">
-              <a class="nav-link" href="clients.profile.php"><?php echo $session->user_fname."'s Account"; ?></a>
+              <a class="nav-link" href="clients.profile.php">Your Account</a>
             </li>
             <?php endif; ?>
             
