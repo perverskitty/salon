@@ -64,7 +64,7 @@ if(empty($_GET['id'])) {
       <div class="text-right">
         <a class="btn btn-outline-danger" href="salon.delete-client.php?id=<?php echo $client->id; ?>">
         <span class="icon icon-remove-user"></span>
-        Delete client</a>
+        Delete</a>
       </div>
       <?php endif; ?>
       

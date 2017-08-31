@@ -46,7 +46,7 @@ $clients = Client::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-client.php'">
-              <span class="icon icon-add-user"></span> Add client
+              <span class="icon icon-add-user"></span> Add
             </button>
           </div>
         </div>

@@ -46,7 +46,7 @@ $schedules = Schedule::find_by_query($sql);
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
             <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-schedule.php'">
-              <span class="icon icon-plus"></span> Add schedule
+              <span class="icon icon-plus"></span> Add
             </button>
             <?php endif; ?>
           </div>

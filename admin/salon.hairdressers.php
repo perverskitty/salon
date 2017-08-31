@@ -47,7 +47,7 @@ $hairdressers = Hairdresser::find_by_query($sql);
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
             <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-hairdresser.php'">
-              <span class="icon icon-add-user"></span> Add hairdresser
+              <span class="icon icon-add-user"></span> Add
             </button>
             <?php endif; ?>
           </div>
