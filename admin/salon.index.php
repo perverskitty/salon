@@ -85,7 +85,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
         <button type="button" class="btn btn-outline-primary" onclick="window.location='index_add_booking.php'">
           Book haircut
         </button>
-      </div> 
+      </div>
 
       <!-- Account info rule -->
       <div class="hr-divider mt-5 mb-4">

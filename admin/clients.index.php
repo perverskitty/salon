@@ -42,7 +42,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       
       <!-- table -->
       <div class="table-responsive">
-        <table class="table table-hover" data-sort="table">
+        <table class="table" data-sort="table">
           <thead>
             <tr>
               <th></th>
@@ -69,7 +69,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       </div> 
       
       <?php else : ?>
-      
+    
       <!-- list -->
       <div class="list-group mb-3">
         <a class="list-group-item justify-content-between">
@@ -77,84 +77,55 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
           <span class="text-muted"><?php echo date("l j M Y", strtotime($date_today)); ?></span>
         </a>    
       </div>
-     <?php endif; ?> 
+      <?php endif; ?> 
      
-      <!-- button -->
-      <div class="flextable-item flextable-primary">
-        <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.add-booking.php'">
-          Book haircut
-        </button>
-      </div> 
+      <!-- button --> 
+      <div>
+        <a href="clients.add-booking.php" class="btn btn-outline-primary px-3">Book haircut</a>
+      </div>
+      
 
       <!-- hr -->
       <div class="hr-divider mt-5 mb-4">
-        <h3 class="hr-divider-content hr-divider-heading">Account summary</h3>
+        <h3 class="hr-divider-content hr-divider-heading">Account</h3>
       </div>
       
-      <!-- row lists -->
-      <div class="row">
-        <div class="col-md-6 mb-5">
-          <div class="list-group mb-3">
-            <h6 class="list-group-header">Contact Details</h6>
-            <li class="list-group-item justify-content-between">
-              <span>Name</span>
-              <span class="ml-a"><?php echo $client->first_name." ".$client->last_name; ?></span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Mobile</span>
-              <span class="ml-a"><?php echo $client->tel; ?></span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Email</span> 
-              <span class="ml-a"><?php echo $client->email; ?></span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Hairdresser</span>
-              <span class="ml-a">
-              <?php if (!empty($client->hairdresser_id)) {
-                      echo Hairdresser::name($client->hairdresser_id);
-                    } else {
-                      echo 'none';
-                    } ?>
-              </span>
-            </li>
-          </div>
-          <a href="clients.profile.php" class="btn btn-outline-primary px-3">Your account</a>
-        </div>
-  
-        <div class="col-md-6 mb-5">
-          <div class="list-group mb-3">
-            <h6 class="list-group-header">Booking Stats</h6>
-            <li class="list-group-item justify-content-between">
-              <span>Open bookings</span>
-              <span class="ml-a"><?php echo $count_active; ?></span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>All bookings</span>
-              <span class="ml-a"><?php echo $count_all; ?></span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Average duration</span> 
-              <span class="ml-a">90 mins</span>
-            </li>
-            <li class="list-group-item justify-content-between">
-              <span>Average cost</span>
-              <span class="ml-a">£30.00</span>
-            </li>
-          </div>
-          <a href="clients.bookings.php" class="btn btn-outline-primary px-3">All bookings</a>
-        </div>   
+      <!-- list -->
+      <div class="list-group mb-3">
+        <li class="list-group-item justify-content-between">
+          <span>Name</span>
+          <span class="ml-a"><?php echo $client->first_name." ".$client->last_name; ?></span>
+        </li>
+        <li class="list-group-item justify-content-between">
+          <span>Mobile</span>
+          <span class="ml-a"><?php echo $client->tel; ?></span>
+        </li>
+        <li class="list-group-item justify-content-between">
+          <span>Email</span> 
+          <span class="ml-a"><?php echo $client->email; ?></span>
+        </li>
+        <li class="list-group-item justify-content-between">
+          <span>Hairdresser</span>
+          <span class="ml-a">
+          <?php if (!empty($client->hairdresser_id)) {
+                  echo Hairdresser::name($client->hairdresser_id);
+                } else {
+                  echo 'none';
+                } ?>
+          </span>
+        </li>
       </div>
-      
-      
+      <div>
+        <a href="clients.profile.php" class="btn btn-outline-primary px-3">Your account</a>
+      </div>
+
       <!-- hr -->
-      <div class="hr-divider mt-2 mb-4">
+      <div class="hr-divider mt-5 mb-4">
         <h3 class="hr-divider-content hr-divider-heading">Stats</h3>
       </div>
       
-      <!-- stat cards -->
+      <!-- cards -->
       <div class="row statcards mb-3">
-        <!-- card -->
         <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
           <div class="statcard statcard-success">
             <div class="p-3">
@@ -163,7 +134,6 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
             </div>
           </div>
         </div>
-        <!-- card -->
         <div class="col-md-6 col-xl-6 mb-3 mb-md-4 mb-xl-0">
           <div class="statcard statcard-info">
             <div class="p-3">
@@ -174,6 +144,6 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
         </div> 
       </div>
       
-    </div> <!-- end of main content -->
+    </div> <!-- end of content -->
       
 <?php include("includes/footer.php"); ?>

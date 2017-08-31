@@ -25,6 +25,9 @@
             <li class="nav-item">
               <a class="nav-link" href="clients.index.php">Your Homepage</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clients.bookings.php">Your Bookings</a>
+            </li>
             <?php endif; ?>
             
             <?php if($session->user_role == 1 || $session->user_role == 2) : ?>

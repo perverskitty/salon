@@ -32,7 +32,7 @@ $bookings = Client_booking::find_by_query($sql);
       
       <!-- Recent bookings rule -->
       <div class="hr-divider mt-5 mb-4">
-        <h3 class="hr-divider-content hr-divider-heading">Select a booking for details</h3>
+        <h3 class="hr-divider-content hr-divider-heading">Select a booking for more details</h3>
       </div>
       
       <!-- Recent bookings list -->
@@ -47,8 +47,8 @@ $bookings = Client_booking::find_by_query($sql);
           <?php endforeach; ?>
         <?php else : ?>
           <a class="list-group-item justify-content-between">
-            <span>You have no active bookings at this time</span>
-            <span class="text-muted"><?php echo substr($time_today, 0, 5) . ", " . date("D, j M Y", strtotime($date_today)); ?></span>
+            <span>You have no bookings</span>
+            <span class="text-muted"><?php echo date("l j M Y", strtotime($date_today)); ?></span>
           </a>
         <?php endif; ?>       
       </div>
