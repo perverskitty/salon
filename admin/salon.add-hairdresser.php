@@ -28,19 +28,23 @@ if (isset($_POST['create'])) {
     <div class="col-md-9 content">
       
       
-      <!-- Dash title -->  
+      <!-- title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Admin</h6>
           <h2 class="dashhead-title">Create hairdresser</h2>
         </div>
-      </div> <!-- end of dash title -->  
+      </div>
      
-     
+      <!-- hr -->
+      <div class="hr-divider mt-4 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Please complete all fields</h3>
+      </div>
+                  
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?>
 	
-	    <!-- add client form -->
+	    <!-- form -->
       <form id="login-id" action="" method="post">
         <div class="form-group">
             <label for="first_name">First name</label>
@@ -90,12 +94,15 @@ if (isset($_POST['create'])) {
 	        <label for="password">Password</label>
 	        <input type="password" class="form-control" name="password" value="">
         </div>
-        <div class="form-group">
-          <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.hairdressers.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-success" name="create">Create</button>
         </div>
-      </form> <!-- end of add client form -->
+      </form>
      
 
-      </div> <!-- end of main content -->
+      </div> <!-- end of content -->
       
 <?php include("includes/footer.php"); ?>
