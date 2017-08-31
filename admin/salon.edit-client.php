@@ -98,7 +98,7 @@ if(empty($_GET['id'])) {
             
             <?php else : ?>
             
-                <option value="<?php echo $client->hairdresser_id; ?>"><?php echo $client->hairdresser_name(); ?></option>
+                <option value="<?php echo $client->hairdresser_id; ?>"><?php echo Hairdresser::name($client->hairdresser_id); ?></option>
                 
                 <?php foreach ($hairdressers as $hairdresser) : ?>
                     <?php if ($client->hairdresser_id != $hairdresser->id) : ?>
@@ -106,7 +106,7 @@ if(empty($_GET['id'])) {
                     <?php endif; ?>
                 <?php endforeach; ?>
                 
-                <option value="0">No preference</option>
+                <option value="">No preference</option>
             
             <?php endif; ?>
           </select>
