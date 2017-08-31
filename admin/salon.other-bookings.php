@@ -78,7 +78,7 @@ $other_bookings = Booking::find_by_query($sql);
           <?php foreach ($other_bookings as $other_booking) : ?>
             <tr>
               <?php if($session->user_role == 1) : ?>
-              <td><a href="salon.edit-client.php?id=<?php echo $other_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-other-booking.php?id=<?php echo $other_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
               <?php endif; ?>
               <td><?php echo $other_booking->id; ?></td>
               <td><?php echo date("D, j M Y", strtotime($other_booking->booking_date)); ?></td>

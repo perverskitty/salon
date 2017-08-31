@@ -70,7 +70,7 @@ $guest_bookings = Guest_booking::find_by_query($sql);
           <tbody>
           <?php foreach ($guest_bookings as $guest_booking) : ?>
             <tr>
-              <td><a href="salon.edit-client.php?id=<?php echo $guest_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
+              <td><a href="salon.edit-guest-booking.php?id=<?php echo $guest_booking->id; ?>"><span class="icon icon-edit"></span></a></td>
               <td><?php echo $guest_booking->id; ?></td>
               <td><?php echo date("D, j M Y", strtotime($guest_booking->booking_date)); ?></td>
               <td><?php echo substr($guest_booking->start_time, 0, 5)." - ".substr($guest_booking->end_time, 0, 5); ?></td>
