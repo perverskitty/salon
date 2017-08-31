@@ -36,25 +36,26 @@ if (isset($_POST['create'])) {
 
 ?>
     
-
-     
     <!-- Main content --> 
     <div class="col-md-9 content">
       
-      
-      <!-- Dash title -->  
+      <!-- title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Create other booking</h2>
         </div>
-      </div> <!-- end of dash title -->  
+      </div> 
      
-     
+      <!-- hr -->
+      <div class="hr-divider mt-4 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Mandatory</h3>
+      </div>
+          
       <!-- error message display -->
       <?php Message::display(); ?>
 	
-	    <!-- add service form -->
+	    <!-- form -->
       <form action="" method="post">
        
         <div class="form-group">
@@ -133,17 +134,28 @@ if (isset($_POST['create'])) {
             </select>
         </div>
         
+        <!-- hr -->
+        <div class="hr-divider mt-5 mb-3">
+          <h3 class="hr-divider-content hr-divider-heading">Optional</h3>
+        </div>
+        
         <div class="form-group">
           <label for="booking_text">Notes</label>
           <textarea class="form-control" name="booking_text" rows="3"></textarea>
         </div>
         
-        <div class="form-group">
-          <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
+        <!-- hr -->
+        <hr class="mt-4">
+        
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.other-bookings.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-success" name="create">Create</button>
         </div>
-      </form> <!-- end of add service form -->
+      </form>
      
 
-      </div> <!-- end of main content -->
+      </div> <!-- end of content -->
       
 <?php include("includes/footer.php"); ?>
