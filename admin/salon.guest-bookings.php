@@ -28,7 +28,7 @@ $guest_bookings = Guest_booking::find_by_query($sql);
       <!-- Dash title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Guest bookings</h2>
         </div>
       </div> <!-- end of dash title -->  
@@ -46,7 +46,7 @@ $guest_bookings = Guest_booking::find_by_query($sql);
         <div class="flextable-item">
           <div class="btn-group">
             <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-guest-booking.php'">
-              <span class="icon icon-plus"></span> Add guest booking
+              <span class="icon icon-plus"></span> Add
             </button>
           </div>
         </div>

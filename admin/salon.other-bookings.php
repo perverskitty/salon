@@ -32,7 +32,7 @@ $other_bookings = Booking::find_by_query($sql);
       <!-- Dash title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Other bookings</h2>
         </div>
       </div> <!-- end of dash title -->  
@@ -51,7 +51,7 @@ $other_bookings = Booking::find_by_query($sql);
           <div class="btn-group">
             <?php if($session->user_role == 1) : ?>
             <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.add-other-booking.php'">
-              <span class="icon icon-plus"></span> Add other booking
+              <span class="icon icon-plus"></span> Add
             </button>
             <?php endif; ?>
           </div>

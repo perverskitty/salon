@@ -31,19 +31,30 @@ if(empty($_GET['id'])) {
     <div class="col-md-9 content">
       
       
-      <!-- Dash title -->  
+      <!-- title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Update service</h2>
         </div>
-      </div> <!-- end of dash title -->  
+      </div> <!-- title -->  
+          
+      <!-- delete button -->
+      <div class="text-right">
+        <a class="btn btn-outline-danger" href="salon.delete-service.php?id=<?php echo $service->id; ?>">
+        <span class="icon icon-trash"></span>
+        Delete</a>
+      </div>
       
+      <!-- hr -->
+      <div class="hr-divider mt-4 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Change service details here</h3>
+      </div>
                   
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?> 
 	
-	    <!-- update service form -->
+	    <!-- form -->
       <form id="login-id" action="" method="post">
         <div class="form-group">
             <label for="name">Name</label>
@@ -99,13 +110,15 @@ if(empty($_GET['id'])) {
 	        <label for="cost">Cost</label>
 	        <input type="text" class="form-control" name="cost" value="<?php echo $service->cost; ?>">
         </div>        
-        <div class="form-group">
-          <a class="btn btn-outline-danger" href="salon.delete-service.php?id=<?php echo $service->id; ?>">Delete</a>
-          <input class="btn btn-outline-primary" type="submit" name="update" value="Update">
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.services.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-success" name="update">Update</button>
         </div>
-      </form> <!-- end of update service form -->
+      </form>
      
 
-      </div> <!-- end of main content -->
+      </div> <!-- end of content -->
       
 <?php include("includes/footer.php"); ?>
