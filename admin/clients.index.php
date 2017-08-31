@@ -29,7 +29,7 @@ $count_all = Client_booking::count_all_by_client_id($session->user_id);
       <!-- title --> 
       <div class="dashhead">
         <div class="dashhead-titles">
-          <h3 class="dashhead-title">Welcome <?php echo $session->user_fname; ?></h3>
+          <h3 class="dashhead-title">Welcome <?php echo $client->first_name; ?></h3>
         </div>
       </div>
       

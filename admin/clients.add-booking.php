@@ -101,43 +101,43 @@ if ($client->hairdresser_id) {
   $mon_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 2, $date_today);
   if ($mon_schedules) {
     foreach ($mon_schedules as $schedule) {
-      $mon_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $mon_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   }
   $tue_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 3, $date_today);
   if ($tue_schedules) {
     foreach ($mon_schedules as $schedule) {
-      $tue_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $tue_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   }
   $wed_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 4, $date_today);
   if ($wed_schedules) {
     foreach ($wed_schedules as $schedule) {
-      $wed_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $wed_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   }
   $thu_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 5, $date_today);
   if ($thu_schedules) {
     foreach ($thu_schedules as $schedule) {
-      $thu_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $thu_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   }
   $fri_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 6, $date_today);
   if ($fri_schedules) {
     foreach ($fri_schedules as $schedule) {
-      $fri_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $fri_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   }
   $sat_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 7, $date_today);
   if ($sat_schedules) {
     foreach ($sat_schedules as $schedule) {
-      $sat_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $sat_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   }
   $sun_schedules = shift_times_by_hairdresser_id($client->hairdresser_id, 1, $date_today);
   if ($sun_schedules) {
     foreach ($sun_schedules as $schedule) {
-      $sun_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)." ";
+      $sun_hd_times .= substr($schedule->start_time, 0, 5)." - ".substr($schedule->end_time, 0, 5)."  ";
     }
   } 
 }

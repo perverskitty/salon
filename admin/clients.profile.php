@@ -34,8 +34,8 @@ if (isset($_POST['updatePassword'])) {
       Message::setMsg("The password entered in both fields must match", "error");
     } else {
       $client->password = $_POST['newPassword1'];  
+      if ($client->update_password()) { redirect("clients.index.php"); }
     }
-    
   }
 }
 
@@ -79,7 +79,7 @@ if (isset($_POST['updatePassword'])) {
             <?php endif; ?>
             Male
             </label>
-            </div>
+          </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
             <?php if($client->gender == 2) : ?>
@@ -92,7 +92,7 @@ if (isset($_POST['updatePassword'])) {
           </div>
         </fieldset>
         <div class="form-group">
-          <label for="tel">Phone</label>
+          <label for="tel">Mobile</label>
           <input type="text" class="form-control" name="tel" value="<?php echo $client->tel; ?>">
         </div>
         <div class="form-group">

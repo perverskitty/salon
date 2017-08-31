@@ -40,7 +40,7 @@ class User extends Db_object {
     $clean_properties = array();
     foreach ($this->properties() as $key => $value) {
       if ($key == 'password') {
-          break;
+          // do nothing
       } else {
         $clean_properties[$key] = $database->escape_string($value); 
       }
