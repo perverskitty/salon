@@ -32,17 +32,21 @@ if (isset($_POST['create'])) {
     <div class="col-md-9 content">
       
       
-      <!-- Dash title -->  
+      <!-- title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Create schedule</h2>
         </div>
-      </div> <!-- end of dash title -->  
+      </div>  
      
-     
+      <!-- hr -->
+      <div class="hr-divider mt-4 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Please complete all fields</h3>
+      </div>
+                  
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?>
 	
 	    <!-- add service form -->
       <form id="login-id" action="" method="post">
@@ -122,12 +126,15 @@ if (isset($_POST['create'])) {
           <label for="last_date">Last date</label>
           <input type="text" class="form-control" data-date-format="yyyy-mm-dd" data-provide="datepicker" name="last_date">
         </div>
-        <div class="form-group">
-          <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.schedules.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-success" name="create">Create</button>
         </div>
-      </form> <!-- end of add service form -->
+      </form> 
      
 
-      </div> <!-- end of main content -->
+      </div> <!-- end of content -->
       
 <?php include("includes/footer.php"); ?>

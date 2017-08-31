@@ -31,7 +31,7 @@ if (isset($_POST['create'])) {
       <!-- title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Create hairdresser</h2>
         </div>
       </div>
