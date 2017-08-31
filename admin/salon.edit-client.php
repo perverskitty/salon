@@ -142,7 +142,7 @@ if(empty($_GET['id'])) {
 	        <input type="text" class="form-control" name="email" value="<?php echo $client->email; ?>">
         </div>        
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.index.php'">Cancel</button>
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.clients.php'">Cancel</button>
         </div> 
         <div class="flextable-item flextable-primary">
           <button type="submit" class="btn btn-outline-success" name="updateProfile">Update</button>
@@ -164,7 +164,7 @@ if(empty($_GET['id'])) {
 	        <input type="password" class="form-control" name="newPassword2" placeholder="Re-type New Password">
         </div>         
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.index.php'">Cancel</button>
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.clients.php'">Cancel</button>
         </div> 
         <div class="flextable-item flextable-primary">
           <button type="submit" class="btn btn-outline-success" name="updatePassword">Update</button>
