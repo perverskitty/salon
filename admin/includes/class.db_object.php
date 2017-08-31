@@ -75,7 +75,7 @@ abstract class Db_object {
   }
   
   
-  // update an object if id exists, else insert new user
+  // update an object if id exists, else insert new
   public function save() {
     return isset($this->id) ? $this->update() : $this->create();
   }
