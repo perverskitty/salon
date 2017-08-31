@@ -28,16 +28,28 @@
             <li class="nav-item">
               <a class="nav-link" href="clients.bookings.php">Your Bookings</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clients.profile.php">Your Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signout.php">Sign Out</a>
+            </li>
             <?php endif; ?>
             
             <?php if($session->user_role == 1 || $session->user_role == 2) : ?>
             <li class="nav-item">
-              <a class="nav-link" href="salon.index.php">Home</a>
+              <a class="nav-link" href="salon.index.php">Your Homepage</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="salon.overview.php">Salon Dashboard</a>
+              <a class="nav-link" href="salon.overview.php">Salon Homepage</a>
             </li>
-            <li class="nav-header">Admin</li>
+            <li class="nav-item">
+              <a class="nav-link" href="salon.profile.php">Your Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signout.php">Sign Out</a>
+            </li>
+            <li class="nav-header">Salon Admin</li>
             <li class="nav-item">
               <a class="nav-link" href="salon.clients.php">Clients</a>
             </li>
@@ -62,20 +74,8 @@
             <li class="nav-item">
               <a class="nav-link" href="salon.other-bookings.php">Other Bookings</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="salon.profile.php"><?php echo $session->user_fname."'s Account"; ?></a>
-            </li>
             <?php endif; ?>
             
-            <?php if($session->user_role == 3) : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="clients.profile.php">Your Account</a>
-            </li>
-            <?php endif; ?>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="signout.php">Sign Out</a>
-            </li>
           </ul>
           <hr class="visible-xs mt-3">
         </div> <!-- end of sidebar search and list of links collapsable -->
