@@ -46,7 +46,6 @@ if(empty($_GET['id'])) {
   
 }
 
-
 ?>
       
     <!-- Main content --> 
@@ -143,10 +142,10 @@ if(empty($_GET['id'])) {
 	        <input type="text" class="form-control" name="email" value="<?php echo $client->email; ?>">
         </div>        
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-danger" onclick="window.location='clients.index.php'">Cancel</button>
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.index.php'">Cancel</button>
         </div> 
         <div class="flextable-item flextable-primary">
-          <button type="submit" class="btn btn-outline-primary" name="updateProfile">Update</button>
+          <button type="submit" class="btn btn-outline-success" name="updateProfile">Update</button>
         </div>
       </form>
       
@@ -165,10 +164,10 @@ if(empty($_GET['id'])) {
 	        <input type="password" class="form-control" name="newPassword2" placeholder="Re-type New Password">
         </div>         
         <div class="flextable-item flextable-primary">
-          <button type="button" class="btn btn-outline-danger" onclick="window.location='clients.index.php'">Cancel</button>
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='clients.index.php'">Cancel</button>
         </div> 
         <div class="flextable-item flextable-primary">
-          <button type="submit" class="btn btn-outline-primary" name="updatePassword">Update</button>
+          <button type="submit" class="btn btn-outline-success" name="updatePassword">Update</button>
         </div>
       </form>      
      
