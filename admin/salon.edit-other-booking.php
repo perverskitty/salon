@@ -50,12 +50,12 @@ if(empty($_GET['id'])) {
       <!-- list -->
       <div class="list-group mb-3">
         <li class="list-group-item justify-content-between">
-          <span>Hairdresser</span>
-          <span class="ml-a"><?php echo Hairdresser::name($booking->id); ?></span>
-        </li>
-        <li class="list-group-item justify-content-between">
           <span>Activity</span>
           <span class="ml-a"><?php echo Activity::name($booking->activity_id); ?></span>
+        </li>
+        <li class="list-group-item justify-content-between">
+          <span>Hairdresser</span>
+          <span class="ml-a"><?php echo Hairdresser::name($booking->hairdresser_id); ?></span>
         </li>
         <li class="list-group-item justify-content-between">
           <span>Date</span> 
