@@ -6,18 +6,18 @@
      
 <?php
 
+
 if(empty($_GET['id'])) {
   redirect("salon.clients.php");
 } else {
   
   $sql = "SELECT * FROM users WHERE ";
   $sql .= "role_id = 1 OR role_id = 2";
-
   $hairdressers = Hairdresser::find_by_query($sql);
   
   $client = Client::find_by_id($_GET['id']);
   
-  if (isset($_POST['update'])) {
+  if (isset($_POST['updateProfile'])) {
     if($client) {
       $client->first_name = $_POST['first_name'];
       $client->last_name = $_POST['last_name'];
@@ -25,33 +25,51 @@ if(empty($_GET['id'])) {
       $client->tel = $_POST['tel'];
       $client->hairdresser_id = $_POST['hairdresser_id'];
       $client->email = $_POST['email'];
-      $client->password = $_POST['password'];
-      
+        
       if ($client->save()) { redirect("salon.clients.php"); }
     }
   }
+  
+  if (isset($_POST['updatePassword'])) {
+    if($client) {
+    
+      if ($_POST['newPassword1'] == '' || $_POST['newPassword2'] == '') {
+        Message::setMsg("Please complete both password fields", "error");
+      } elseif ($_POST['newPassword1'] != $_POST['newPassword2']) {
+        Message::setMsg("The password entered in both fields must match", "error");
+      } else {
+        $client->password = $_POST['newPassword1'];  
+          if ($client->update_password()) { redirect("salon.clients.php"); }
+      }
+    }
+  }
+  
 }
+
 
 ?>
       
     <!-- Main content --> 
     <div class="col-md-9 content">
       
-      
       <!-- Dash title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
-          <h6 class="dashhead-subtitle">Admin</h6>
+          <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Update client</h2>
         </div>
       </div> <!-- end of dash title -->  
       
+      <!-- hr -->
+      <div class="hr-divider mt-4 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Change client profile here</h3>
+      </div>
                   
       <!-- error message display -->
-      <h4 class="bg-danger"></h4>
+      <?php Message::display(); ?>
 	
-	    <!-- update client form -->
-      <form id="login-id" action="" method="post">
+	    <!-- profile form -->
+      <form action="" method="post">
         <div class="form-group">
             <label for="first_name">First name</label>
             <input type="text" class="form-control" name="first_name" value="<?php echo $client->first_name; ?>">
@@ -70,7 +88,7 @@ if(empty($_GET['id'])) {
             <?php endif; ?>
             Male
             </label>
-            </div>
+          </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
             <?php if($client->gender == 2) : ?>
@@ -83,7 +101,7 @@ if(empty($_GET['id'])) {
           </div>
         </fieldset>
         <div class="form-group">
-          <label for="tel">Phone</label>
+          <label for="tel">Mobile</label>
           <input type="text" class="form-control" name="tel" value="<?php echo $client->tel; ?>">
         </div>
         <div class="form-group">
@@ -115,19 +133,36 @@ if(empty($_GET['id'])) {
 	        <label for="email">Email</label>
 	        <input type="text" class="form-control" name="email" value="<?php echo $client->email; ?>">
         </div>        
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-danger" onclick="window.location='clients.index.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-primary" name="updateProfile">Update</button>
+        </div>
+      </form>
+      
+      <!-- hr -->
+      <div class="hr-divider mt-5 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Change client password here</h3>
+      </div>
+      
+	    <!-- password form -->
+      <form action="" method="post">
         <div class="form-group">
-	        <label for="password">Password</label>
-	        <input type="password" class="form-control" name="password">
+	        <label for="email">Password</label>
+	        <input type="password" class="form-control" name="newPassword1" placeholder="Enter New Password">
         </div>
         <div class="form-group">
-          <?php if($session->user_role == 1) : ?>
-          <a class="btn btn-outline-danger" href="salon.delete-client.php?id=<?php echo $client->id; ?>">Delete</a>
-          <?php endif; ?>
-          <input class="btn btn-outline-primary" type="submit" name="update" value="Update">
+	        <input type="password" class="form-control" name="newPassword2" placeholder="Re-type New Password">
+        </div>         
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-danger" onclick="window.location='clients.index.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-primary" name="updatePassword">Update</button>
         </div>
-      </form> <!-- end of update client form -->
+      </form>      
      
-
-      </div> <!-- end of main content -->
+    </div> <!-- end of main content -->
       
 <?php include("includes/footer.php"); ?>

@@ -63,7 +63,7 @@ $clients = Client::find_by_query($sql);
               <th>First name</th>
               <th>Last name</th>
               <th>Email</th>
-              <th>Tel</th>
+              <th>Mobile</th>
               <th>Hairdresser</th>
             </tr>
           </thead>
