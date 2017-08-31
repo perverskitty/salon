@@ -64,7 +64,7 @@ if (isset($_POST['create'])) {
       <?php Message::display(); ?>
 	
 	    <!-- form -->
-      <form id="login-id" action="" method="post">
+      <form action="" method="post">
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
             <select class="form-control" name="hairdresser_id">

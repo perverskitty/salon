@@ -43,20 +43,24 @@ if (isset($_POST['create'])) {
     <div class="col-md-9 content">
       
       
-      <!-- Dash title -->  
+      <!-- title -->  
       <div class="dashhead">  
         <div class="dashhead-titles">
           <h6 class="dashhead-subtitle">Salon Admin</h6>
           <h2 class="dashhead-title">Create guest booking</h2>
         </div>
-      </div> <!-- end of dash title -->  
+      </div>
      
+      <!-- hr -->
+      <div class="hr-divider mt-4 mb-3">
+        <h3 class="hr-divider-content hr-divider-heading">Mandatory</h3>
+      </div>
      
       <!-- error message display -->
       <?php Message::display(); ?>
 	
-	    <!-- add service form -->
-      <form id="login-id" action="" method="post">
+	    <!-- form -->
+      <form action="" method="post">
        
         <div class="form-group">
             <label for="hairdresser_id">Hairdresser</label>
@@ -116,17 +120,30 @@ if (isset($_POST['create'])) {
           <label for="guest_tel">Guest tel</label>
           <input type="text" class="form-control" name="guest_tel">
         </div>
+        
+        <!-- hr -->
+        <div class="hr-divider mt-5 mb-3">
+          <h3 class="hr-divider-content hr-divider-heading">Optional</h3>
+        </div>
+        
         <div class="form-group">
           <label for="booking_text">Notes</label>
           <textarea class="form-control" name="booking_text" rows="3"></textarea>
         </div>
-        <div class="form-group">
-          <input class="btn btn-outline-primary" type="submit" name="create" value="Create">
+        
+        <!-- hr -->
+        <hr class="mt-4">
+        
+        <div class="flextable-item flextable-primary">
+          <button type="button" class="btn btn-outline-primary" onclick="window.location='salon.guest-bookings.php'">Cancel</button>
+        </div> 
+        <div class="flextable-item flextable-primary">
+          <button type="submit" class="btn btn-outline-success" name="create">Create</button>
         </div>
   
-      </form> <!-- end of add service form -->
+      </form> 
      
 
-      </div> <!-- end of main content -->
+      </div> <!-- end of content -->
       
 <?php include("includes/footer.php"); ?>
