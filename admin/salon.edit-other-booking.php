@@ -37,7 +37,7 @@ if(empty($_GET['id'])) {
       
       <!-- delete button -->
       <div class="text-right">
-        <a class="btn btn-outline-danger" href="salon.delete-booking.php?id=<?php echo $booking->id; ?>">
+        <a class="btn btn-outline-danger" href="salon.delete-other-booking.php?id=<?php echo $booking->id; ?>">
         <span class="icon icon-trash"></span>
         Delete</a>
       </div>
