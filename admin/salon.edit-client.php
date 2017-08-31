@@ -60,6 +60,15 @@ if(empty($_GET['id'])) {
         </div>
       </div> <!-- end of dash title -->  
       
+      <!-- delete button -->
+      <?php if($session->user_role == 1) : ?>
+      <div class="text-right">
+        <a class="btn btn-outline-danger" href="salon.delete-client.php?id=<?php echo $client->id; ?>">
+        <span class="icon icon-remove-user"></span>
+        Delete client</a>
+      </div>
+      <?php endif; ?>
+      
       <!-- hr -->
       <div class="hr-divider mt-4 mb-3">
         <h3 class="hr-divider-content hr-divider-heading">Change client profile here</h3>
